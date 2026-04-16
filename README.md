@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Víctor Roberto Curzio
 
-## Getting Started
+Sitio personal pensado como carta de presentación: una sola página clara, rápida y fácil de mantener. El foco está en **experiencia real en producción**, stack actual y forma de contacto directo.
 
-First, run the development server:
+## Por qué este proyecto
+
+- **Next.js (App Router)** para HTML estático, buen SEO y despliegue simple.
+- **Tailwind CSS** para un diseño consistente sin acumular CSS suelto.
+- **Contenido desacoplado** del layout: actualizás CV y portfolio en el mismo lugar (`src/content/portfolio.ts`).
+
+Si llegaste desde GitHub: el código está organizado para que se entienda en minutos, no solo para “verse bien en el navegador”.
+
+## Stack
+
+| Área        | Tecnología                          |
+| ----------- | ----------------------------------- |
+| Framework   | [Next.js](https://nextjs.org/) 16   |
+| UI          | [Tailwind CSS](https://tailwindcss.com/) 4 |
+| Lenguaje    | TypeScript                          |
+| Tipografía  | Bricolage Grotesque + DM Sans (Google Fonts) |
+
+## Cómo correrlo en local
+
+Requisitos: **Node.js** LTS y **npm**.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrí [http://localhost:3000](http://localhost:3000). Para compilar como en producción:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del código
 
-## Learn More
+```text
+src/
+  app/                 # Rutas y estilos globales (layout, page, globals.css)
+  content/
+    portfolio.ts       # Datos y textos del sitio (única fuente de verdad)
+  components/
+    home/              # Composición de la página principal
+    layout/            # Shell visual y navegación
+    sections/          # Bloques: hero, experiencia, skills, formación, contacto
+    index.ts           # Re-exports opcionales
+public/                # Assets estáticos (favicon, OG image, etc.)
+```
 
-To learn more about Next.js, take a look at the following resources:
+- **`HomePage`** arma la pantalla: `PageShell` + `Nav` + secciones.
+- **`PageShell`** concentra fondo y capas decorativas; las secciones solo se preocupan por su contenido.
+- **`portfolio.ts`** concentra perfil, experiencia, skills y formación para que los cambios sean mecánicos y revisables en diff.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Personalización rápida
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Editá **`src/content/portfolio.ts`** (textos, fechas, tecnologías, links).
+2. Ajustes visuales globales: **`src/app/globals.css`** y tokens en el `layout`.
+3. Para **favicon** u **imagen Open Graph**, colocá archivos en **`public/`** y referenciá según la [documentación de metadata de Next.js](https://nextjs.org/docs/app/building-your-application/optimizing/metadata).
 
-## Deploy on Vercel
+## Licencia
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El código de este repositorio es de uso personal del autor. Si reutilizás partes del proyecto, un crédito o enlace al repo es bienvenido.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+**Víctor Roberto Curzio** — Desarrollador Full Stack · La Plata, Argentina
