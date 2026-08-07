@@ -5,4 +5,5 @@ export { ContactFooter } from "./sections/ContactFooter";
 export { ExperienceSection } from "./sections/ExperienceSection";
 export { FormacionSection } from "./sections/FormacionSection";
 export { Hero } from "./sections/Hero";
+export { ProjectsSection } from "./sections/ProjectsSection";
 export { SkillsSection } from "./sections/SkillsSection";

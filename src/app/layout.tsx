@@ -15,13 +15,13 @@ const fontBody = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Víctor Roberto Curzio — Desarrollador Full Stack",
+  title: "Victor Roberto Curzio — Desarrollador Full Stack",
   description:
-    "Portfolio de Víctor Roberto Curzio: Next.js, Node.js, PostgreSQL, MySQL. CRM, turnos y arquitecturas escalables. La Plata, Argentina.",
+    "Portfolio de Victor Roberto Curzio: arquitectura de software e integridad de datos con Node.js, TypeScript, React y bases relacionales. CRM, sistemas de gestión y plataformas SaaS. La Plata, Argentina.",
   openGraph: {
-    title: "Víctor Roberto Curzio — Desarrollador Full Stack",
+    title: "Victor Roberto Curzio — Desarrollador Full Stack",
     description:
-      "Desarrollador Full Stack especializado en Next.js, Node.js y bases relacionales. La Plata, Argentina.",
+      "Arquitectura de software e integridad de datos con Node.js, TypeScript, React y bases relacionales. La Plata, Argentina.",
     locale: "es_AR",
     type: "website",
   },

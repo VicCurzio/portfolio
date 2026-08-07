@@ -9,16 +9,12 @@ export function ContactFooter() {
           Si querés charlar sobre un proyecto, una oportunidad o colaboración, escribime.
         </p>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="mt-10">
           <a
             href={`mailto:${profile.email}`}
             className="text-lg font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
           >
             {profile.email}
-          </a>
-          <span className="hidden text-zinc-600 sm:inline">·</span>
-          <a href={`tel:${profile.phone.replace(/\s/g, "")}`} className="text-lg text-zinc-300 hover:text-white">
-            {profile.phone}
           </a>
         </div>
 

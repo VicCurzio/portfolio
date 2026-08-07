@@ -9,8 +9,8 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-6xl">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-zinc-400">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          Disponible · {profile.location}
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          {profile.location}
         </p>
         <h1 className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
           <span className="block">{profile.name}</span>
@@ -18,6 +18,7 @@ export function Hero() {
             {profile.title}
           </span>
         </h1>
+        <p className="mt-4 font-display text-lg font-medium text-zinc-300 md:text-xl">{profile.subtitle}</p>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">{profile.tagline}</p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a

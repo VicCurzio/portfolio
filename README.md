@@ -1,4 +1,4 @@
-# Portfolio — Víctor Roberto Curzio
+# Portfolio — Victor Roberto Curzio
 
 Sitio personal pensado como carta de presentación: una sola página clara, rápida y fácil de mantener. El foco está en **experiencia real en producción**, stack actual y forma de contacto directo.
 
@@ -66,4 +66,4 @@ El código de este repositorio es de uso personal del autor. Si reutilizás part
 
 ---
 
-**Víctor Roberto Curzio** — Desarrollador Full Stack · La Plata, Argentina
+**Victor Roberto Curzio** — Desarrollador Full Stack · La Plata, Argentina
