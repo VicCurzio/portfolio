@@ -35,6 +35,14 @@ export function Hero() {
           >
             Ver LinkedIn
           </a>
+          <a
+            href={profile.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-3.5 text-base font-medium text-white transition hover:border-white/30 hover:bg-white/10"
+          >
+            Descargar CV
+          </a>
         </div>
       </div>
     </section>

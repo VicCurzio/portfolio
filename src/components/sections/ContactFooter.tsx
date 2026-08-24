@@ -18,14 +18,32 @@ export function ContactFooter() {
           </a>
         </div>
 
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex text-zinc-400 transition hover:text-accent"
-        >
-          linkedin.com/in/victor-roberto-curzio/ →
-        </a>
+        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex text-zinc-400 transition hover:text-accent"
+          >
+            linkedin.com/in/victor-roberto-curzio/ →
+          </a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex text-zinc-400 transition hover:text-accent"
+          >
+            github.com/VicCurzio →
+          </a>
+          <a
+            href={profile.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex text-zinc-400 transition hover:text-accent"
+          >
+            Descargar CV (PDF) →
+          </a>
+        </div>
 
         <p className="mt-16 border-t border-white/5 pt-8 text-center text-sm text-zinc-600">
           © {new Date().getFullYear()} {profile.shortName}. Hecho con Next.js.

@@ -11,7 +11,7 @@
 
 import { execFile } from "node:child_process";
 import { existsSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { promisify } from "node:util";
@@ -21,6 +21,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = resolve(root, "cv");
 const htmlPath = resolve(outDir, "CV_Victor_Curzio.html");
 const pdfPath = resolve(outDir, "CV_Victor_Curzio.pdf");
+// El sitio lo ofrece para descargar, asi que la copia publicada se rehace en
+// cada build: si vive solo en cv/, el PDF del sitio queda viejo sin avisar.
+const publicPdfPath = resolve(root, "public", "CV_Victor_Curzio.pdf");
 
 const BROWSERS = [
   "C:/Program Files/Google/Chrome/Application/chrome.exe",
@@ -171,4 +174,8 @@ await execFileAsync(browser, [
   pathToFileURL(htmlPath).href,
 ]);
 
+await mkdir(resolve(root, "public"), { recursive: true });
+await copyFile(pdfPath, publicPdfPath);
+
 console.log(`PDF:  ${pdfPath}`);
+console.log(`Sitio: ${publicPdfPath}`);

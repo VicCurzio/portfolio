@@ -11,6 +11,10 @@ export const profile = {
   linkedin: "https://linkedin.com/in/victor-roberto-curzio/",
   github: "https://github.com/VicCurzio",
   website: "https://viccurzio.github.io/portfolio/",
+  // Lo genera `npm run cv` y lo deja en public/. La ruta lleva el basePath
+  // adelante porque un <a> crudo no lo hereda: eso solo lo hacen next/link
+  // y next/image.
+  cv: "/portfolio/CV_Victor_Curzio.pdf",
 } as const;
 
 export const experience = [
