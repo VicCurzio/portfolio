@@ -19,20 +19,19 @@ export const projects: readonly Project[] = [
   {
     name: "Desarrollos Del Sud",
     kind: "Trabajo",
-    period: "2026 — Actualidad · 7 repos",
+    period: "2026 — Actualidad · 5 repos",
     summary:
       "Plataforma de venta de lotes en cuotas: un CRM de captación, un sistema de Gestión post-venta (boletos, cuotas, cobranza) y la web institucional pública.",
     did: [
       "Desarrollo y evolución del CRM en producción: contactos, oportunidades, loteos, zonas, asesores y reserva de lotes.",
-      "Sistema de Gestión: boleto de compraventa, plan de cuotas con ajuste por IPC, cobranza, caja y reportes.",
+      "Sistema de Gestión, terminado técnicamente en agosto de 2026: boleto de compraventa, plan de cuotas con ajuste por IPC, cobranza, caja, comprobantes y reportes.",
       "Web institucional pública en Next.js con animaciones GSAP.",
-      "Paquetes compartidos de back y front para dejar de duplicar auth, subida a S3, envío de mails y tema de UI.",
     ],
     how: [
       "Dos backends Express contra MySQL: el CRM sobre Sequelize, Gestión sobre TypeScript + Drizzle, cada uno con su base.",
       "Los sistemas comparten la identidad de la operación (el id de reserva) en vez de acoplarse por HTTP, así una caída no arrastra a la otra.",
-      "Frontends Vite + React 18 + MUI; estado de servidor con TanStack Query en Gestión y Redux Toolkit en el CRM.",
-      "Autenticación JWT con roles, validación de payloads con Joi y CI en GitLab self-hosted.",
+      "Frontends Vite + React 18 + MUI, con TanStack Query como estado de servidor en los dos sistemas.",
+      "Autenticación JWT con roles, validación de payloads con Joi y deploy automatizado desde GitLab self-hosted.",
     ],
     stack: [
       "TypeScript",
@@ -236,6 +235,13 @@ export type OtherRepo = {
 
 export const otherRepos: readonly OtherRepo[] = [
   {
+    name: "SGD — Grupo Delsud",
+    role: "Colaborador",
+    status: "En desarrollo",
+    description:
+      "Sistema de gestión interno de Grupo Delsud: un ecosistema de microservicios en Node y PostgreSQL, uno por departamento, donde cada área maneja sus solicitudes con plantillas de formularios dinámicos, más tareas, calendario y notificaciones en tiempo real por WebSocket. La identidad de usuarios y departamentos vive en un único servicio de auth que el resto consume. Me sumé al equipo como colaborador.",
+  },
+  {
     name: "Sistema Asclepio",
     role: "Colaborador",
     status: "Repositorio del equipo",
@@ -248,13 +254,6 @@ export const otherRepos: readonly OtherRepo[] = [
     status: "Repositorio del equipo",
     description:
       "El segundo sistema de esa misma colaboración: plataforma multi-negocio de venta en Next.js y Supabase, con marketplace, stock, pedidos, entregas y take away, más un sitio público por comercio con páginas configurables desde el panel.",
-  },
-  {
-    name: "Cuatro Carnes",
-    role: "Colaborador",
-    status: "En pausa",
-    description:
-      "E-commerce de un frigorífico con Next.js, Prisma, NextAuth y PostgreSQL. Entré como colaborador sobre el repositorio del equipo: tomé features puntuales del front y del modelo de datos, no es un proyecto propio.",
   },
   {
     name: "Unagi",
