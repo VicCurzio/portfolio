@@ -9,6 +9,8 @@ export const profile = {
   email: "victor.curzio@hotmail.com",
   phone: "+54 221 542 4585",
   linkedin: "https://linkedin.com/in/victor-roberto-curzio/",
+  github: "https://github.com/VicCurzio",
+  website: "https://viccurzio.github.io/portfolio/",
 } as const;
 
 export const experience = [

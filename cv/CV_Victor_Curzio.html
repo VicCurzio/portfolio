@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Victor Roberto Curzio — CV</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font: 8.7pt/1.34 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1b1f24;
+  }
+  a { color: #1b1f24; text-decoration: none; }
+  h1 { font-size: 17.5pt; margin: 0; letter-spacing: -0.01em; }
+  .role { font-size: 9.8pt; color: #4a5158; margin: 2pt 0 5pt; font-weight: 600; }
+  .contact { font-size: 8.4pt; color: #4a5158; margin: 0; }
+  .sep { padding: 0 5pt; color: #b6bcc2; }
+  header.top { border-bottom: 1.2pt solid #1b1f24; padding-bottom: 6pt; margin-bottom: 8pt; }
+  section { margin-bottom: 8pt; break-inside: avoid; }
+  h2 {
+    font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.11em;
+    color: #6b7280; margin: 0 0 6pt; padding-bottom: 3pt;
+    border-bottom: 0.6pt solid #dfe3e7;
+  }
+  .summary { margin: 0; text-align: justify; }
+  .job { margin-bottom: 7pt; break-inside: avoid; }
+  .job h3 { font-size: 9.4pt; margin: 0; }
+  .job .at { color: #9aa1a8; font-weight: 400; }
+  .meta { font-size: 8.4pt; color: #6b7280; margin: 1pt 0 4pt; }
+  .job ul { margin: 0; padding-left: 12pt; }
+  .job li { margin-bottom: 1.8pt; text-align: justify; }
+  .stack { font-size: 8.6pt; color: #4a5158; margin: 4pt 0 0; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 16pt; }
+  .skill-group h4 { font-size: 8.6pt; margin: 0 0 1pt; }
+  .skill-group p { margin: 0; font-size: 8.8pt; color: #4a5158; }
+  .edu { margin: 0 0 4pt; }
+  .edu strong { font-size: 9.6pt; }
+  .courses { margin: 0; padding-left: 12pt; font-size: 8.8pt; color: #4a5158; }
+  .courses li { margin-bottom: 1.4pt; }
+  .extra { font-size: 8.8pt; color: #4a5158; margin: 5pt 0 0; }
+</style>
+</head>
+<body>
+  <header class="top">
+    <h1>Victor Roberto Curzio</h1>
+    <p class="role">Desarrollador Full Stack<span class="sep">·</span>Arquitectura de Software</p>
+    <p class="contact">La Plata, Argentina<span class="sep">·</span><a href="mailto:victor.curzio@hotmail.com">victor.curzio@hotmail.com</a><span class="sep">·</span>+54 221 542 4585<span class="sep">·</span><a href="https://linkedin.com/in/victor-roberto-curzio/">linkedin.com/in/victor-roberto-curzio</a><span class="sep">·</span><a href="https://github.com/VicCurzio">github.com/VicCurzio</a><span class="sep">·</span><a href="https://viccurzio.github.io/portfolio/">viccurzio.github.io/portfolio</a></p>
+  </header>
+
+  <section>
+    <h2>Resumen</h2>
+    <p class="summary">Foco en arquitectura de software e integridad de datos. Referente técnico de un equipo de 5 personas en Grupo DELSUD, donde diseñé desde cero un sistema de gestión administrativo-contable y su conexión con un CRM existente mediante una arquitectura dual-DB.</p>
+  </section>
+
+  <section>
+    <h2>Experiencia</h2>
+    
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Grupo DELSUD</h3>
+          <p class="meta">Ene 2026 — Actualidad<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Arquitectura desde cero: diseñé la arquitectura completa del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).</li><li>Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.</li><li>Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo los endpoints según el perfil de usuario.</li><li>Referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): defino estándares de código y contribuyo a las decisiones técnicas clave junto al tech lead.</li><li>Resolución de bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.</li><li>Resuelvo alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.</li><li>Involucramiento más allá del código: aporte de ideas de producto y trabajo con QA en pruebas manuales.</li></ul>
+        <p class="stack"><strong>Stack:</strong> TypeScript · Node.js · Express.js · React · Next.js · MySQL · Sequelize · Drizzle · Sass · Material UI</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Cognitive Link — Consulting &amp; IT Solutions</h3>
+          <p class="meta">Mar 2025 — May 2026<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica), extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles.</li><li>Integraciones con el SDK de Mercado Pago y la API de Google Calendar (OAuth 2.0) para la gestión automática de turnos y pagos.</li><li>Tareas programadas (cron jobs) para el envío automático de notificaciones y recordatorios a los usuarios.</li><li>Despliegue continuo: configuración y gestión autónoma de los entornos productivos en Vercel.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js 14 · Node.js · TypeScript · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack (Freelance)<span class="at"> — </span>Cicaré</h3>
+          <p class="meta">Mar 2025 — Ago 2025<span class="sep">·</span>Saladillo, Argentina</p>
+        </header>
+        <ul><li>Diseño e implementación de una arquitectura escalable con autenticación y gestión de permisos para una plataforma con información confidencial.</li><li>Full stack end-to-end: persistencia en Supabase, endpoints y flujos de aprobación administrativa.</li><li>Estructura jerárquica de contenidos con filtros de búsqueda avanzados y personalizables.</li><li>Automatización de notificaciones clave y mejoras de interfaz para una navegación más eficiente.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js · Node.js · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack (Pasantía)<span class="at"> — </span>Felanix Construcciones</h3>
+          <p class="meta">Sep 2023 — Sep 2024<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.</li><li>Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.</li><li>Gestión de tiempos y requisitos, asegurando el cumplimiento de los plazos del proyecto.</li><li>Soporte técnico integral: incidencias de hardware y software para garantizar la continuidad operativa.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Ruby on Rails · PostgreSQL · Docker · JavaScript · Bootstrap</p>
+      </article>
+  </section>
+
+  <section>
+    <h2>Formación</h2>
+    <p class="edu"><strong>Licenciatura en Sistemas</strong> — Universidad Nacional de La Plata (UNLP)<span class="sep">·</span>Dic 2023 — Actualidad</p>
+    <ul class="courses"><li>Bootcamp POO JAVA — Alkemy (Abr. 2024)</li><li>Administración de Servidores GNU/Linux (Seguridad) — Min. Educación BA (Dic. 2023)</li><li>Administración de Base de Datos (MySQL) — Min. Educación BA (Nov. 2023)</li><li>Curso Profesional Ruby on Rails — Código Facilito (Nov. 2023)</li><li>Carrera Desarrollo Front-end React — Coderhouse (Feb.–Jul. 2023)</li><li>Git y GitHub — Alura Latam (Abr. 2023)</li></ul>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4>Front-end</h4>
+        <p>Next.js · React · JavaScript (ES6+) · Tailwind CSS · Bootstrap · Material UI · HTML5 · CSS3 · Sass · PWA</p>
+      </div>
+      <div class="skill-group">
+        <h4>Back-end</h4>
+        <p>Node.js · Express.js · TypeScript · Ruby on Rails</p>
+      </div>
+      <div class="skill-group">
+        <h4>Datos</h4>
+        <p>PostgreSQL · MySQL · Supabase</p>
+      </div>
+      <div class="skill-group">
+        <h4>ORMs</h4>
+        <p>Drizzle · Sequelize · Active Record</p>
+      </div>
+      <div class="skill-group">
+        <h4>Arquitectura</h4>
+        <p>Arquitectura dual-DB · RBAC · Migraciones · Clean Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Herramientas</h4>
+        <p>Postman · Git · GitHub · Docker · Vitest · DBeaver · VS Code · Trello · Notion</p>
+      </div></div>
+    <p class="extra"><strong>Idiomas:</strong> Inglés — Intermedio (B1)</p>
+    <p class="extra"><strong>Competencias:</strong> Pensamiento analítico · Comunicación clara · Trabajo en equipo · Adaptabilidad · Iniciativa</p>
+  </section>
+</body>
+</html>
