@@ -1,6 +1,6 @@
 export const profile = {
   name: "Victor Roberto Curzio",
-  shortName: "Victor Curzio",
+  shortName: "Victor R. Curzio",
   title: "Desarrollador Full Stack",
   subtitle: "Arquitectura de Software",
   tagline:
@@ -11,10 +11,10 @@ export const profile = {
   linkedin: "https://linkedin.com/in/victor-roberto-curzio/",
   github: "https://github.com/VicCurzio",
   website: "https://viccurzio.github.io/portfolio/",
-  // Lo genera `npm run cv` y lo deja en public/. La ruta lleva el basePath
-  // adelante porque un <a> crudo no lo hereda: eso solo lo hacen next/link
-  // y next/image.
-  cv: "/portfolio/CV_Victor_Curzio.pdf",
+  // Lo genera `npm run cv` y lo deja en public/. La ruta va sin prefijo: se lo
+  // agrega asset() de content/site.ts, que sabe si estamos en desarrollo o en
+  // GitHub Pages.
+  cv: "/CV_Victor_Curzio.pdf",
 } as const;
 
 export const experience = [

@@ -1,6 +1,8 @@
 export { HomePage } from "./home/HomePage";
 export { PageShell } from "./layout/PageShell";
 export { Nav } from "./layout/Nav";
+export { OpeningIntro } from "./retro/OpeningIntro";
+export { StageSelect } from "./retro/StageSelect";
 export { ContactFooter } from "./sections/ContactFooter";
 export { ExperienceSection } from "./sections/ExperienceSection";
 export { FormacionSection } from "./sections/FormacionSection";

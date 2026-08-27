@@ -1,39 +1,39 @@
 @import "tailwindcss";
+@import "./retro.css";
 
 :root {
-  --background: #060910;
-  --foreground: #e4e4e7;
-  --accent: #2dd4bf;
+  --background: #05060c;
+  --foreground: #cfe3ee;
+  --accent: #3fb8c8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--term-stack);
 }
 
-/* Display font utility */
-@utility font-display {
-  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+/* Las dos familias del sitio: una para titulos y controles, otra para leer. */
+@utility font-pixel {
+  font-family: var(--pixel-stack);
 }
 
-@utility font-body {
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+@utility font-term {
+  font-family: var(--term-stack);
+}
+
+html {
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-}
-
-/* Subtle grid + noise feel */
-.mesh-bg {
-  background-color: #060910;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 64px 64px;
+  font-family: var(--term-stack);
+  /* VT323 dibuja chico: a 16px se lee como 13. De ahi el piso alto. */
+  font-size: clamp(1.1rem, 2.2vw, 1.28rem);
+  line-height: 1.55;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -43,5 +43,15 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* El desplazamiento suave va detras de "no-preference" y no dentro del bloque
+   de arriba: `scroll-behavior` no es una animacion ni una transicion, asi que
+   apagarlo por duracion no sirve. Quien pide menos movimiento sigue teniendo el
+   salto instantaneo, que es lo correcto para esa preferencia. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }

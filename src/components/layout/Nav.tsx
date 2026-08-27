@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { profile } from "@/content/portfolio";
+import { PLAY_INTRO_EVENT } from "@/components/retro/OpeningIntro";
 
 const links = [
   { href: "#experiencia", label: "Experiencia" },
@@ -12,47 +12,41 @@ const links = [
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-[background,box-shadow,backdrop-filter] duration-300 ${
-        scrolled ? "border-b border-white/5 bg-[#060910]/80 shadow-lg shadow-black/20 backdrop-blur-xl" : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-        <a href="#" className="font-display text-lg font-semibold tracking-tight text-white">
-          <span className="text-accent">{"// "}</span>
+    <header className="r-nav">
+      <nav className="r-nav__inner">
+        <a href="#" className="r-nav__brand">
+          <em>{"> "}</em>
           {profile.shortName.split(" ")[0]}
-          <span className="text-white/50">.dev</span>
         </a>
-        <ul className="hidden items-center gap-1 sm:flex">
+        <ul className="r-nav__links">
           {links.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
-                className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
-              >
+              <a href={l.href} className="r-nav__link">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:border-accent/40 hover:bg-accent/10"
-        >
-          LinkedIn
-        </a>
+        <div className="r-nav__side">
+          {/* La intro corre sola una vez por sesion; despues queda este boton
+              para volver a verla sin recargar. */}
+          <button
+            type="button"
+            className="intro-replay"
+            onClick={() => window.dispatchEvent(new Event(PLAY_INTRO_EVENT))}
+          >
+            Ver intro
+          </button>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="r-btn r-btn--sm"
+          >
+            LinkedIn
+          </a>
+        </div>
       </nav>
     </header>
   );

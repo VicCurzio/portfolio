@@ -1,52 +1,58 @@
 import { profile } from "@/content/portfolio";
+import { asset } from "@/content/site";
 
 export function ContactFooter() {
   return (
-    <footer id="contacto" className="scroll-mt-24 border-t border-white/10 bg-[#030509] px-5 py-20 md:px-8">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-3xl font-bold text-white md:text-4xl">Contacto</h2>
-        <p className="mt-3 max-w-lg text-zinc-400">
-          Si querés charlar sobre un proyecto, una oportunidad o colaboración, escribime.
+    <footer id="contacto" className="r-section r-footer">
+      <div className="r-shell">
+        <div className="r-head">
+          <h2 className="r-head__title">
+            Seguir <em>jugando</em>
+          </h2>
+          <span className="r-head__bar" aria-hidden="true" />
+        </div>
+        <p className="r-lead">
+          Si querés charlar sobre un proyecto, una oportunidad o una colaboración, escribime.
         </p>
 
-        <div className="mt-10">
-          <a
-            href={`mailto:${profile.email}`}
-            className="text-lg font-medium text-accent underline decoration-accent/30 underline-offset-4 transition hover:decoration-accent"
-          >
-            {profile.email}
+        {/* Menu de seleccion: una opcion por linea, con el cursor a la izquierda
+            de la que estas apuntando. */}
+        <nav className="r-menu" aria-label="Contacto">
+          <a className="r-menu__item" href={`mailto:${profile.email}`}>
+            Email
+            <span className="r-menu__value">{profile.email}</span>
           </a>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
           <a
+            className="r-menu__item"
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex text-zinc-400 transition hover:text-accent"
           >
-            linkedin.com/in/victor-roberto-curzio/ →
+            LinkedIn
+            <span className="r-menu__value">victor-roberto-curzio</span>
           </a>
           <a
+            className="r-menu__item"
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex text-zinc-400 transition hover:text-accent"
           >
-            github.com/VicCurzio →
+            GitHub
+            <span className="r-menu__value">VicCurzio</span>
           </a>
           <a
-            href={profile.cv}
+            className="r-menu__item"
+            href={asset(profile.cv)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex text-zinc-400 transition hover:text-accent"
           >
-            Descargar CV (PDF) →
+            Curriculum
+            <span className="r-menu__value">CV en PDF</span>
           </a>
-        </div>
+        </nav>
 
-        <p className="mt-16 border-t border-white/5 pt-8 text-center text-sm text-zinc-600">
-          © {new Date().getFullYear()} {profile.shortName}. Hecho con Next.js.
+        <p className="r-copy">
+          {new Date().getFullYear()} {profile.shortName} — hecho con Next.js
         </p>
       </div>
     </footer>

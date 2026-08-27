@@ -1,0 +1,1021 @@
+/* ============================================================
+   Capa retro: el sistema visual de 8 bits de todo el sitio.
+   Se importa desde globals.css, arriba de todo.
+   ============================================================ */
+
+
+:root {
+  --nes-black: #05060c;
+  --nes-navy: #101a3a;
+  --nes-blue: #2b4a8a;
+  --nes-cyan: #3fb8c8;
+  --nes-amber: #f7d51d;
+  --nes-white: #e8f4ff;
+  --pixel-stack: var(--font-pixel), ui-monospace, "Courier New", monospace;
+  --term-stack: var(--font-term), ui-monospace, "Courier New", monospace;
+
+  /* Grosor del borde de las ventanas. Un solo numero para todo el sitio:
+     si cambia, cambia parejo. */
+  --edge: 4px;
+}
+
+
+/* ---------- Intro ---------- */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background: var(--nes-black);
+  animation: introIn 180ms ease-out both;
+}
+
+.intro--out {
+  animation: introOut 500ms ease-in forwards;
+}
+
+.intro__scene {
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes introIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes introOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Tramo 1: la ciudad de noche baja mientras suben los creditos. */
+
+.intro__city {
+  background: linear-gradient(180deg, #05060c 0%, #0a0f24 55%, #141d45 100%);
+}
+
+.intro__stars span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--nes-white);
+  animation: twinkle 1.6s steps(2, end) infinite;
+}
+
+.intro__skyline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 48%;
+  animation: cityRise 3.4s linear both;
+}
+
+.intro__credits {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 76vh;
+  display: grid;
+  gap: 1.1rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-family: var(--pixel-stack);
+  animation: creditsUp 3.4s linear both;
+}
+
+.intro__credits-kicker {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: rgba(232, 244, 255, 0.5);
+}
+
+.intro__credits-name {
+  font-size: clamp(1.1rem, 5vw, 2.4rem);
+  color: var(--nes-white);
+  text-shadow: 3px 3px 0 var(--nes-blue);
+}
+
+.intro__credits-role {
+  font-size: clamp(0.6rem, 2.4vw, 1rem);
+  color: var(--nes-cyan);
+}
+
+.intro__credits-place {
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: var(--nes-amber);
+}
+
+@keyframes twinkle {
+  0%, 62% { opacity: 1; }
+  63%, 100% { opacity: 0.15; }
+}
+
+@keyframes cityRise {
+  from { transform: translateY(-8%); }
+  to { transform: translateY(64%); }
+}
+
+@keyframes creditsUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-96vh); }
+}
+
+/* Tramo 2: la camara sube por la torre hasta la cara. */
+
+.intro__tower {
+  background: linear-gradient(180deg, #05060c 0%, #0a1130 62%, #101a3a 100%);
+}
+
+.intro__world {
+  /* Alto de la figura. Se toma el menor entre alto y ancho de pantalla:
+     el sprite mide 14 de ancho por 20 de alto, asi que atarlo solo al alto
+     lo hace mas ancho que un telefono. */
+  --fig: min(44vh, 56vw);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 260vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: towerPan 3s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.intro__figure {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: var(--fig);
+  margin-top: 12vh;
+}
+
+.intro__hero {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.intro__scarf {
+  position: absolute;
+  right: 78%;
+  top: 33%;
+  height: 25%;
+  width: auto;
+  transform-origin: right center;
+  animation: wind 480ms steps(3, end) infinite alternate;
+}
+
+.intro__tower-art {
+  flex: 1;
+  width: min(26vh, 34vw);
+  min-height: 0;
+}
+
+@keyframes towerPan {
+  from { transform: translateY(-160vh); }
+  to { transform: translateY(0); }
+}
+
+@keyframes wind {
+  from { transform: translateX(0) scaleY(1); }
+  to { transform: translateX(-6%) scaleY(0.78); }
+}
+
+/* Tramo 3: el flash y el titulo. */
+
+.intro__title {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 1.2rem;
+  padding: 2rem;
+  background: var(--nes-black);
+}
+
+.intro__flash {
+  position: absolute;
+  inset: 0;
+  background: var(--nes-white);
+  animation: flash 450ms steps(3, end) both;
+}
+
+.intro__logo {
+  display: grid;
+  gap: 0.35em;
+  font-family: var(--pixel-stack);
+  font-size: clamp(1.5rem, 7vw, 3.4rem);
+  line-height: 1;
+  color: var(--nes-white);
+  text-shadow: 4px 4px 0 var(--nes-blue), 8px 8px 0 rgba(0, 0, 0, 0.55);
+  animation: logoDrop 520ms steps(4, end) both;
+}
+
+.intro__logo-strong {
+  color: var(--nes-cyan);
+}
+
+.intro__logo-sub {
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.6rem, 2.4vw, 0.95rem);
+  letter-spacing: 0.18em;
+  color: rgba(232, 244, 255, 0.7);
+}
+
+.intro__press {
+  margin-top: 1.5rem;
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.6rem, 2.6vw, 0.9rem);
+  color: var(--nes-amber);
+  animation: blink 900ms steps(2, end) infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  60% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+@keyframes logoDrop {
+  from { opacity: 0; transform: translateY(-2.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 55% { opacity: 1; }
+  56%, 100% { opacity: 0; }
+}
+
+/* Terminado de tubo: lineas de barrido y viniteado en los bordes. */
+
+.intro__scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0 2px,
+    transparent 2px 4px
+  );
+  box-shadow: inset 0 0 12vh rgba(0, 0, 0, 0.8);
+}
+
+/* La unica salida de la intro. Nada mas la saltea, asi que tiene que verse
+   desde el primer cuadro. */
+.intro__skip {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.65rem 0.9rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: rgba(232, 244, 255, 0.8);
+  background: rgba(5, 6, 12, 0.65);
+  border: 2px solid rgba(232, 244, 255, 0.3);
+  cursor: pointer;
+}
+
+.intro__skip:hover,
+.intro__skip:focus-visible {
+  color: var(--nes-black);
+  background: var(--nes-amber);
+  border-color: var(--nes-amber);
+  outline: none;
+}
+
+/* ---------- Seleccion de proyectos ---------- */
+
+.stage {
+  border: 3px solid rgba(63, 184, 200, 0.35);
+  background: var(--nes-black);
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.stage__title {
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.6rem, 2.2vw, 0.8rem);
+  letter-spacing: 0.24em;
+  text-align: center;
+  color: var(--nes-amber);
+}
+
+.stage__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 46rem;
+  margin: 1.6rem auto 0;
+}
+
+.stage__cell {
+  position: relative;
+  display: grid;
+  gap: 0.7rem;
+  place-items: center;
+  align-content: center;
+  min-height: 8rem;
+  padding: 1rem 0.5rem;
+  border: 3px solid rgba(232, 244, 255, 0.12);
+  background: linear-gradient(180deg, #101a3a, #0a1024);
+  color: var(--nes-cyan);
+  cursor: pointer;
+}
+
+.stage__cell--center {
+  border-color: rgba(63, 184, 200, 0.4);
+}
+
+.stage__cell.is-active {
+  color: var(--nes-amber);
+  border-color: var(--nes-amber);
+  background: linear-gradient(180deg, #1b2c60, #101a3a);
+}
+
+.stage__cell.is-active::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 3px solid var(--nes-amber);
+  pointer-events: none;
+  animation: blink 900ms steps(2, end) infinite;
+}
+
+.stage__cell:focus-visible {
+  outline: 3px solid var(--nes-white);
+  outline-offset: 4px;
+}
+
+.stage__glyph svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.stage__name {
+  font-family: var(--pixel-stack);
+  font-size: 0.52rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--nes-white);
+}
+
+.stage__banner {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+  padding: 0.9rem;
+  text-align: center;
+  border: 3px solid rgba(232, 244, 255, 0.12);
+  background: #000;
+}
+
+.stage__banner-name {
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.65rem, 2.4vw, 0.95rem);
+  color: var(--nes-amber);
+}
+
+.stage__banner-meta {
+  font-size: 0.78rem;
+  color: #a1a1aa;
+}
+
+.stage__hint {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #71717a;
+}
+
+/* La tarjeta a la que se salta parpadea un momento para no perder el hilo. */
+.stage-hit {
+  animation: stageHit 1.4s steps(2, end);
+}
+
+@keyframes stageHit {
+  0%, 49% { box-shadow: 0 0 0 3px var(--nes-amber); }
+  50%, 100% { box-shadow: 0 0 0 3px transparent; }
+}
+
+/* Boton del nav para volver a ver la intro. */
+.intro-replay {
+  font-family: var(--pixel-stack);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 0.8rem;
+  color: var(--nes-cyan);
+  border: 2px solid rgba(63, 184, 200, 0.35);
+  background: rgba(63, 184, 200, 0.06);
+  cursor: pointer;
+}
+
+.intro-replay:hover {
+  color: var(--nes-amber);
+  border-color: var(--nes-amber);
+}
+
+/* ============================================================
+   Sistema de la pagina: la pantalla, la barra de arriba y los
+   encabezados de seccion. Sin bordes redondeados, sin desenfoques
+   y sin degrades suaves: nada de eso existia en una consola de 8 bits.
+   ============================================================ */
+
+.r-page {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--nes-black);
+  background-image:
+    linear-gradient(rgba(63, 184, 200, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 184, 200, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Lineas de barrido sobre todo el sitio. Van suaves: la idea es que se
+   sienta el tubo, no que moleste al leer. */
+.r-crt {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.45;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.22) 0 2px,
+    transparent 2px 4px
+  );
+}
+
+.r-shell {
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 0 1.1rem;
+}
+
+.r-section {
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
+  scroll-margin-top: 6rem;
+}
+
+.r-section--alt {
+  background: rgba(3, 5, 14, 0.75);
+  border-top: var(--edge) solid #16213f;
+  border-bottom: var(--edge) solid #16213f;
+}
+
+.r-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.r-head__title {
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.8rem, 3vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--nes-white);
+  text-shadow: 3px 3px 0 var(--nes-blue);
+}
+
+.r-head__title em {
+  font-style: normal;
+  color: var(--nes-cyan);
+}
+
+/* La barra de puntos que completa el titulo, como el borde de una ventana. */
+.r-head__bar {
+  flex: 1;
+  height: var(--edge);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--nes-blue) 0 8px,
+    transparent 8px 16px
+  );
+}
+
+.r-lead {
+  margin-top: 1.2rem;
+  max-width: 48ch;
+  color: #9fb6c4;
+}
+
+/* ---------- Barra de navegacion ---------- */
+
+.r-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(5, 6, 12, 0.94);
+  border-bottom: var(--edge) solid var(--nes-blue);
+}
+
+.r-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.8rem 1.1rem;
+}
+
+.r-nav__brand {
+  font-family: var(--pixel-stack);
+  font-size: 0.68rem;
+  color: var(--nes-white);
+}
+
+.r-nav__brand em {
+  font-style: normal;
+  color: var(--nes-cyan);
+}
+
+.r-nav__links {
+  display: none;
+  gap: 0.1rem;
+}
+
+.r-nav__link {
+  position: relative;
+  padding: 0.6rem 0.7rem 0.6rem 1.2rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  color: #8fa6b4;
+}
+
+.r-nav__link:hover,
+.r-nav__link:focus-visible {
+  color: var(--nes-amber);
+  outline: none;
+}
+
+/* El cursor triangular aparece a la izquierda del link apuntado, como en el
+   menu de un juego. Es un triangulo hecho con bordes, no una imagen. */
+.r-nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 50%;
+  margin-top: -4px;
+  border-left: 7px solid var(--nes-amber);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  opacity: 0;
+}
+
+.r-nav__link:hover::before,
+.r-nav__link:focus-visible::before {
+  opacity: 1;
+}
+
+.r-nav__side {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .r-nav__links {
+    display: flex;
+  }
+}
+
+/* ---------- Ventanas, etiquetas y listas ---------- */
+
+.r-panel {
+  position: relative;
+  background: #0b1226;
+  border: var(--edge) solid #3a4c78;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+  padding: clamp(1.1rem, 3vw, 1.9rem);
+}
+
+.r-panel--lit {
+  border-color: var(--nes-cyan);
+}
+
+.r-panel__label {
+  font-family: var(--pixel-stack);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  color: var(--nes-amber);
+}
+
+.r-panel__title {
+  margin-top: 0.8rem;
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.7rem, 2.3vw, 0.95rem);
+  line-height: 1.7;
+  color: var(--nes-white);
+}
+
+.r-panel__sub {
+  margin-top: 0.7rem;
+  color: var(--nes-cyan);
+}
+
+.r-panel__meta {
+  margin-top: 0.35rem;
+  color: #7f97a6;
+}
+
+.r-panel__text {
+  margin-top: 1rem;
+  color: #b9cdd9;
+}
+
+.r-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+}
+
+.r-tag {
+  font-family: var(--pixel-stack);
+  font-size: 0.5rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  padding: 0.5rem 0.55rem;
+  color: #bcd4e2;
+  background: #111a36;
+  border: 2px solid #2b3a63;
+}
+
+.r-tag--lit {
+  color: var(--nes-black);
+  background: var(--nes-cyan);
+  border-color: var(--nes-cyan);
+}
+
+.r-tag--soft {
+  color: var(--nes-amber);
+  border-color: #4a4327;
+  background: #191506;
+}
+
+.r-list {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+
+.r-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: #b9cdd9;
+}
+
+.r-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--nes-cyan);
+}
+
+.r-list--alt li::before {
+  background: var(--nes-amber);
+}
+
+.r-sublabel {
+  margin-top: 1.6rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  color: #7f97a6;
+}
+
+/* ---------- Botones y menu ---------- */
+
+.r-btn {
+  display: inline-block;
+  font-family: var(--pixel-stack);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  padding: 0.95rem 1.15rem;
+  color: var(--nes-black);
+  background: var(--nes-cyan);
+  border: none;
+  box-shadow: 4px 4px 0 #12495c;
+  cursor: pointer;
+}
+
+.r-btn:hover {
+  background: var(--nes-amber);
+  box-shadow: 4px 4px 0 #7a6a0a;
+}
+
+/* Se hunde al apretarla, como una tecla. */
+.r-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.r-btn--ghost {
+  color: var(--nes-cyan);
+  background: transparent;
+  border: var(--edge) solid var(--nes-cyan);
+  padding: calc(0.95rem - 4px) calc(1.15rem - 4px);
+  box-shadow: none;
+}
+
+.r-btn--ghost:hover {
+  color: var(--nes-amber);
+  border-color: var(--nes-amber);
+  background: transparent;
+  box-shadow: none;
+}
+
+.r-btn--ghost:active {
+  transform: translate(2px, 2px);
+}
+
+.r-menu {
+  display: grid;
+  gap: 0.15rem;
+  margin-top: 1.5rem;
+}
+
+.r-menu__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 1rem;
+  padding: 0.85rem 0.8rem 0.85rem 2.1rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  color: #bcd4e2;
+}
+
+.r-menu__item:hover,
+.r-menu__item:focus-visible {
+  color: var(--nes-amber);
+  background: #0f1733;
+  outline: none;
+}
+
+.r-menu__item::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  margin-top: -5px;
+  border-left: 8px solid var(--nes-amber);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  opacity: 0;
+}
+
+.r-menu__item:hover::before,
+.r-menu__item:focus-visible::before {
+  opacity: 1;
+  animation: blink 700ms steps(2, end) infinite;
+}
+
+.r-menu__value {
+  font-family: var(--term-stack);
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  color: #8fa6b4;
+}
+
+.r-menu__item:hover .r-menu__value {
+  color: var(--nes-white);
+}
+
+/* ---------- Pantalla de titulo (hero) ---------- */
+
+.r-hero {
+  padding-top: clamp(7rem, 16vw, 9.5rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.r-hero__grid {
+  display: grid;
+  gap: clamp(1.8rem, 5vw, 3rem);
+  align-items: center;
+}
+
+.r-hero__sprite {
+  display: block;
+  height: clamp(9rem, 24vw, 15rem);
+  width: auto;
+  filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.5));
+}
+
+.r-hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.3rem;
+  padding: 0.75rem 0.85rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.52rem;
+  line-height: 1.6;
+  color: var(--nes-amber);
+  background: #0a1024;
+  border: 2px solid #2b3a63;
+}
+
+.r-hud em {
+  font-style: normal;
+  color: #7f97a6;
+}
+
+.r-title {
+  display: grid;
+  gap: 0.3em;
+  margin-top: 1.6rem;
+  font-family: var(--pixel-stack);
+  font-size: clamp(1.45rem, 7vw, 3.1rem);
+  line-height: 1;
+  color: var(--nes-white);
+  text-shadow: 4px 4px 0 var(--nes-blue), 8px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.r-title span:last-child {
+  color: var(--nes-cyan);
+}
+
+.r-hero__role {
+  margin-top: 1.6rem;
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.62rem, 2.6vw, 0.92rem);
+  line-height: 1.7;
+  color: var(--nes-amber);
+}
+
+.r-hero__tagline {
+  margin-top: 1.3rem;
+  max-width: 54ch;
+  color: #b9cdd9;
+}
+
+.r-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2.1rem;
+}
+
+.r-scroll-cue {
+  margin-top: 2.6rem;
+  font-family: var(--pixel-stack);
+  font-size: 0.55rem;
+  color: #7f97a6;
+  animation: blink 1.2s steps(2, end) infinite;
+}
+
+@media (min-width: 880px) {
+  .r-hero__grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+/* ---------- Pie ---------- */
+
+.r-footer {
+  border-top: var(--edge) solid var(--nes-blue);
+  background: #03040a;
+}
+
+.r-copy {
+  margin-top: 2.8rem;
+  padding-top: 1.6rem;
+  border-top: 2px solid #16213f;
+  text-align: center;
+  font-family: var(--pixel-stack);
+  font-size: 0.48rem;
+  line-height: 2.2;
+  color: #5a6b7a;
+}
+
+/* ---------- Grillas de contenido ---------- */
+
+.r-grid {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+@media (min-width: 720px) {
+  .r-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .r-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .r-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Version chica de los botones, para la barra de arriba. */
+.r-btn--sm {
+  font-size: 0.5rem;
+  padding: 0.7rem 0.75rem;
+  box-shadow: 3px 3px 0 #12495c;
+}
+
+.r-btn--sm:active {
+  transform: translate(3px, 3px);
+}
+
+/* El boton de la intro comparte forma con los demas, pero se lee como algo
+   secundario: solo contorno, sin relleno. */
+.intro-replay {
+  font-size: 0.5rem;
+  padding: 0.7rem 0.75rem;
+  line-height: 1.4;
+}
+
+/* ---------- Lista de otros repositorios ---------- */
+
+.r-repos {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.r-repo {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: start;
+  padding: 1rem;
+  background: #0a1024;
+  border: 2px solid #2b3a63;
+}
+
+.r-repo__name {
+  font-family: var(--pixel-stack);
+  font-size: 0.6rem;
+  line-height: 1.6;
+  color: var(--nes-white);
+}
+
+.r-repo__meta {
+  font-size: 1.05rem;
+  color: #7f97a6;
+}
+
+.r-repo__text {
+  color: #b9cdd9;
+}
+
+/* ---------- Ajustes de la grilla de proyectos dentro del tema ---------- */
+
+.stage {
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Telefonos angostos ---------- */
+
+@media (max-width: 560px) {
+  /* Nueve celdas en tres columnas dejan poco ancho: los nombres largos como
+     "Desarrollos Del Sud" no entran a tamanio normal. */
+  .stage__grid {
+    gap: 0.4rem;
+  }
+
+  .stage__cell {
+    min-height: 6.5rem;
+    gap: 0.5rem;
+    padding: 0.7rem 0.3rem;
+  }
+
+  .stage__glyph svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .stage__name {
+    font-size: 0.42rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .r-panel {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* Cualquier ventana con id es destino de un enlace: se frena antes de meterse
+   abajo de la barra fija. Las secciones ya lo tienen; las tarjetas de proyecto,
+   a las que apunta la grilla de seleccion, lo perdieron al reescribirlas. */
+.r-panel[id] {
+  scroll-margin-top: 6.5rem;
+}
