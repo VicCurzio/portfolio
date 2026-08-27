@@ -1,0 +1,38 @@
+# Mide la pagina publicada y deja el numero por escrito.
+#
+# Por que un workflow aparte y no dentro del deploy: esto mide el sitio en
+# produccion, asi que tiene que correr DESPUES de publicar. Y es una medicion,
+# no una barrera: si baja un punto, el sitio ya esta publicado igual. Lo que
+# importa es enterarse.
+#
+# Los umbrales son de "aviso" a proposito. Un portfolio que no llega a 100 en
+# rendimiento no es un problema; uno que se cae a 60 sin que nadie lo note, si.
+name: Lighthouse
+
+on:
+  # Cuando termina de publicarse, no cuando se pushea: medir antes del deploy
+  # seria medir la version anterior.
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  medir:
+    # Si el deploy fallo no hay nada nuevo que medir.
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: https://viccurzio.github.io/portfolio/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          budgetPath: .github/lighthouse-budget.json
