@@ -196,4 +196,6 @@ const en = {
   ],
 };
 
-export default { suffix: "Frontend", es, en };
+const target = { suffix: "Frontend", es, en };
+
+export default target;

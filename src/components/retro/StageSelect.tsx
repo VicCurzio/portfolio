@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { KeyboardEvent } from "react";
 import { faceLooking, glyphForProject } from "./pixelArt";
 import { PixelSprite } from "./PixelSprite";
@@ -69,54 +69,59 @@ const TYPE_BUDGET_MS = 1100;
 const TYPE_MIN_STEP_MS = 8;
 const TYPE_MAX_STEP_MS = 28;
 
+// La preferencia del sistema se lee como un dato externo que puede cambiar,
+// no copiandola a un estado dentro de un efecto. En el servidor no hay sistema
+// al que preguntarle: se asume que no pide menos movimiento.
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+
+function subscribeReducedMotion(onChange: () => void) {
+  const query = window.matchMedia(REDUCED_MOTION);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+
 function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(query.matches);
-    const onChange = () => setReduced(query.matches);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
-  return reduced;
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    () => window.matchMedia(REDUCED_MOTION).matches,
+    () => false,
+  );
 }
 
 // Devuelve cuantas letras del mensaje se ven y como terminarlo de golpe.
 // El primer render muestra el texto entero: asi sale del servidor y asi lo ve
 // quien entra sin JavaScript. Recien se escribe letra por letra cuando el
 // mensaje cambia, o sea cuando alguien mueve el cursor.
+//
+// El contador se guarda junto con el mensaje al que pertenece. Cuando llega un
+// mensaje nuevo se reinicia durante el render, no en un efecto: asi no hay un
+// cuadro intermedio con el texto viejo, y el efecto solo maneja el reloj.
 function useTypewriter(message: string, reduced: boolean) {
-  const [shown, setShown] = useState(message.length);
-  const first = useRef(true);
-  const timer = useRef<number | undefined>(undefined);
-
-  useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    window.clearInterval(timer.current);
-    if (reduced) {
-      setShown(message.length);
-      return;
-    }
-    setShown(0);
-    const step = Math.min(TYPE_MAX_STEP_MS, Math.max(TYPE_MIN_STEP_MS, TYPE_BUDGET_MS / message.length));
-    timer.current = window.setInterval(() => {
-      setShown((count) => {
-        if (count + 1 >= message.length) window.clearInterval(timer.current);
-        return Math.min(count + 1, message.length);
-      });
-    }, step);
-    return () => window.clearInterval(timer.current);
-  }, [message, reduced]);
-
-  function finish() {
-    window.clearInterval(timer.current);
-    setShown(message.length);
+  const [state, setState] = useState({ message, shown: message.length });
+  if (state.message !== message) {
+    setState({ message, shown: reduced ? message.length : 0 });
   }
 
-  return { shown, done: shown >= message.length, finish };
+  const current = state.message === message ? state.shown : 0;
+  const shown = reduced ? message.length : current;
+  const done = shown >= message.length;
+
+  useEffect(() => {
+    if (done) return;
+    const step = Math.min(TYPE_MAX_STEP_MS, Math.max(TYPE_MIN_STEP_MS, TYPE_BUDGET_MS / message.length));
+    const timer = window.setInterval(() => {
+      setState((prev) =>
+        prev.message === message ? { message, shown: Math.min(prev.shown + 1, message.length) } : prev,
+      );
+    }, step);
+    return () => window.clearInterval(timer);
+  }, [message, done]);
+
+  function finish() {
+    setState({ message, shown: message.length });
+  }
+
+  return { shown, done, finish };
 }
 
 type StageSelectProps = {

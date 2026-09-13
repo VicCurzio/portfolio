@@ -123,4 +123,6 @@ const en = {
   ],
 };
 
-export default { suffix: "Backend", es, en };
+const target = { suffix: "Backend", es, en };
+
+export default target;

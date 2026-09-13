@@ -32,6 +32,11 @@ export function LangSwitch({ href, hrefLang, text, label }: LangSwitchProps) {
     <Link
       href={href}
       hrefLang={hrefLang}
+      // Sin precarga: en el export estatico, Next pide el segmento de la otra
+      // pagina con un nombre de archivo (en/__next.en.__PAGE__.txt) distinto
+      // del que escribe (en/__next.en/__PAGE__.txt), y en GitHub Pages eso deja
+      // un 404 en la consola de cada visita. Al hacer click navega igual.
+      prefetch={false}
       aria-label={label}
       className="r-btn r-btn--sm r-btn--lang"
       onClick={keepSection}

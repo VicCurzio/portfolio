@@ -82,6 +82,9 @@ export function Document({ lang, children }: { lang: Lang; children: ReactNode }
       className={`${fontPixel.variable} ${fontTerm.variable} h-full`}
       suppressHydrationWarning
     >
+      {/* El aviso de la regla es para el router de pages: en el App Router un
+          <head> propio en el layout raiz es lo documentado. */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         {/* Antes de pintar: fija el tema guardado para que no haya fogonazo. */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
