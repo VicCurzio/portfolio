@@ -2,9 +2,13 @@
 @import "./retro.css";
 
 :root {
-  --background: #05060c;
-  --foreground: #cfe3ee;
-  --accent: #3fb8c8;
+  /* Los tres colores que Tailwind expone como clases (bg-background,
+     text-foreground, text-accent) salen de los tokens del tema, definidos en
+     retro.css. Asi una utilidad de Tailwind y una clase del sistema retro
+     nunca pueden decir cosas distintas sobre el mismo color. */
+  --background: var(--c-bg);
+  --foreground: var(--c-text);
+  --accent: var(--c-accent);
 }
 
 @theme inline {

@@ -3,9 +3,13 @@ export type ProjectLink = {
   url: string;
 };
 
+// El tipo de proyecto es una clave, no un cartel: con ella el codigo elige el
+// glifo de la grilla de seleccion, y cada idioma le pone su nombre (ui.ts).
+export type ProjectKind = "work" | "product" | "freelance" | "tech-test" | "tool";
+
 export type Project = {
   name: string;
-  kind: "Trabajo" | "Producto propio" | "Freelance" | "Prueba técnica" | "Herramienta";
+  kind: ProjectKind;
   period: string;
   summary: string;
   did: string[];
@@ -15,17 +19,19 @@ export type Project = {
   repoNote?: string;
 };
 
-export const projects: readonly Project[] = [
+export const projects = [
   {
     name: "Desarrollos Del Sud",
-    kind: "Trabajo",
-    period: "2026 — Actualidad · 5 repos",
+    kind: "work",
+    period: "Grupo DELSUD · Ene — Ago 2026 · 5 repos · Entregado",
     summary:
       "Plataforma de venta de lotes en cuotas: un CRM de captación, un sistema de Gestión post-venta (boletos, cuotas, cobranza) y la web institucional pública.",
     did: [
+      "Me sumé en las primeras semanas del proyecto y lo llevé hasta la entrega en producción, en agosto de 2026.",
       "Desarrollo y evolución del CRM en producción: contactos, oportunidades, loteos, zonas, asesores y reserva de lotes.",
       "Sistema de Gestión, terminado técnicamente en agosto de 2026: boleto de compraventa, plan de cuotas con ajuste por IPC, cobranza, caja, comprobantes y reportes.",
       "Web institucional pública en Next.js con animaciones GSAP.",
+      "Saneamiento del código heredado del CRM para poder reutilizarlo en un producto nuevo: estructura de carpetas, variables de entorno, consultas SQL (N+1 y selects sin campos), dependencias sin uso, endpoints y componentes muertos, archivos de más de 500 líneas y documentación de API.",
     ],
     how: [
       "Dos backends Express contra MySQL: el CRM sobre Sequelize, Gestión sobre TypeScript + Drizzle, cada uno con su base.",
@@ -39,6 +45,7 @@ export const projects: readonly Project[] = [
       "Express",
       "MySQL",
       "Sequelize",
+      "Amazon S3",
       "Drizzle",
       "React",
       "MUI",
@@ -49,8 +56,48 @@ export const projects: readonly Project[] = [
     repoNote: "Repositorios privados (GitLab self-hosted del cliente)",
   },
   {
+    name: "2winGs",
+    kind: "freelance",
+    period: "2026 — En desarrollo",
+    summary:
+      "Red profesional B2B de talento creativo para 2winGs International Group LLC: un perfil vivo con reputación medible, niveles y oportunidades curadas. Entro como desarrollador y líder técnico.",
+    did: [
+      "Diseño de la arquitectura y del orden de construcción del sistema, del modelo de datos al contrato de la API.",
+      "Primera etapa terminada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas.",
+      "Sistema de reputación (un índice de 0 a 100) y gamificación, separados por diseño: la actividad dentro de la plataforma nunca sube la reputación profesional.",
+      "Infraestructura y despliegue: front estático en Cloudflare Pages, API y trabajos en segundo plano en un servidor propio con PM2, archivos de usuario en almacenamiento privado.",
+      "Sistema de diseño del front: tokens nombrados por función en un solo archivo, mobile-first y con criterios de accesibilidad, listo para recibir la identidad de marca cuando el cliente la defina.",
+      "Ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio para decidir.",
+      "Análisis previo de la custodia de fondos que prevé el roadmap: es actividad regulada, se resuelve apoyándose en un procesador licenciado, y obliga a modelar el dinero como asientos que no se editan desde el primer esquema.",
+    ],
+    how: [
+      "API NestJS sobre Fastify con Drizzle y PostgreSQL, trabajos en segundo plano con BullMQ y Redis, y un front Vite + React servido como estático.",
+      "Las reglas de privacidad se imponen en la capa de datos y no en la interfaz: una empresa ve el perfil completo solo de quien se postuló a su oferta.",
+      "Nada de planes, precios, límites ni pesos del índice vive en el código: son configuración en base de datos, editable desde el panel de administración.",
+      "Toda operación de escritura viaja con un identificador propio, así un reintento por una conexión cortada no duplica el efecto.",
+      "Los archivos que sube el profesional viven en almacenamiento privado y se sirven con enlaces firmados de vida corta: el CV es insumo del equipo de validación, no contenido público del perfil.",
+      "El build nunca corre en la máquina de producción: se compila afuera y se publica el resultado, así un despliegue no puede tumbar el servidor.",
+    ],
+    stack: [
+      "TypeScript",
+      "NestJS",
+      "Fastify",
+      "PostgreSQL",
+      "Drizzle",
+      "Redis",
+      "BullMQ",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Cloudflare Pages",
+      "Cloudflare R2",
+      "PM2",
+    ],
+    repoNote: "Repositorio privado del cliente",
+  },
+  {
     name: "Dial Sport",
-    kind: "Producto propio",
+    kind: "product",
     period: "2026 — En desarrollo",
     summary:
       "SaaS de videos deportivos amateur: cámaras instaladas en los complejos graban los partidos y los jugadores compran sus videos y highlights.",
@@ -79,43 +126,32 @@ export const projects: readonly Project[] = [
     repoNote: "Repositorio privado",
   },
   {
-    name: "Dashboard Financiero",
-    kind: "Prueba técnica",
-    period: "2026 · Backends en producción",
+    name: "CV Match",
+    kind: "product",
+    period: "2026 · Online",
     summary:
-      "Gestión de finanzas con arquitectura desacoplada: dos microservicios de backend independientes y un frontend React con KPIs y gráficos en tiempo real. Es la prueba técnica con la que entré a Grupo Delsud.",
+      "Herramienta web para armar, adaptar y descargar un CV según el mercado al que se postula (Argentina o afuera) y según quién lo va a leer: una persona o un filtro automático de postulaciones.",
     did: [
-      "Microservicio de autenticación (registro, login, perfil) y microservicio financiero (ventas y gastos) desplegados por separado.",
-      "Dashboard con KPIs de ventas, gastos y balance neto, CRUD completo de transacciones y filtros por día, semana, mes y año.",
-      "Importación masiva de movimientos por JSON y gráfico de evolución alimentado por un endpoint dedicado.",
+      "Editor por secciones con vista previa en vivo, plantillas y descarga en PDF.",
+      "Perfil de mercado y modo para filtros automáticos (ATS): cada combinación cambia qué se pide, qué se oculta y qué plantillas se permiten, por ejemplo la foto.",
+      "Diagnóstico por reglas que marca lo flojo del CV y lo compara contra un aviso pegado, sin inventar un puntaje que no existe.",
+      "Importación de un CV existente desde PDF o Word, versiones por postulación sobre un CV base y carta de presentación.",
     ],
     how: [
-      "Un ORM distinto por servicio a propósito — Drizzle en auth, Sequelize en finanzas — sobre PostgreSQL, para demostrar ambos.",
-      "El servicio de auth emite el JWT y el financiero lo valida; en el cliente, interceptores de Axios adjuntan el token y manejan el 401 cerrando sesión.",
-      "Soft delete en lugar de borrado físico: los registros eliminados siguen disponibles para el histórico.",
-      "Estilos 100% SASS con variables, mixins y animaciones, sin ninguna librería de componentes, por requisito de la prueba.",
+      "Todo corre en el navegador, sin servidor ni base de datos: el CV lleva datos personales y nunca sale de la máquina del usuario.",
+      "El PDF se genera con react-pdf como texto real y no como imagen, para que un filtro automático lo pueda leer.",
+      "Los datos se validan con zod, y el motor de reglas y el resto del dominio están cubiertos por 282 tests con Vitest.",
+      "Cada versión por postulación es una capa sobre el CV base: hereda los hechos y solo cambia cómo se cuentan.",
     ],
-    stack: [
-      "Node.js",
-      "Express",
-      "TypeScript",
-      "Drizzle",
-      "Sequelize",
-      "PostgreSQL",
-      "React 18",
-      "Vite",
-      "SASS",
-      "Recharts",
-      "JWT",
-    ],
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "react-pdf", "zod", "Vitest"],
     links: [
-      { label: "API de auth", url: "https://backend-auth-drizzle-7xql.onrender.com" },
-      { label: "API de finanzas", url: "https://backend-finance-sequelize.onrender.com" },
+      { label: "Ver demo", url: "https://viccurzio.github.io/cv-match/" },
+      { label: "Código", url: "https://github.com/VicCurzio/cv-match" },
     ],
   },
   {
     name: "Musik",
-    kind: "Producto propio",
+    kind: "product",
     period: "2026 · Online",
     summary:
       "Reproductor de música instalable (PWA) que lee los archivos del propio dispositivo: privado, sin cuenta, sin servidor y sin anuncios.",
@@ -153,7 +189,7 @@ export const projects: readonly Project[] = [
   },
   {
     name: "Plagas Out",
-    kind: "Freelance",
+    kind: "freelance",
     period: "2026",
     summary: "Sitio de un servicio de control de plagas, con formulario de contacto que envía mails reales sin backend propio.",
     did: [
@@ -169,7 +205,7 @@ export const projects: readonly Project[] = [
   },
   {
     name: "Bot de WhatsApp",
-    kind: "Herramienta",
+    kind: "tool",
     period: "2025",
     summary: "Herramienta de escritorio para enviar un mensaje de WhatsApp a una lista de contactos cargada desde un Excel.",
     did: [
@@ -187,29 +223,8 @@ export const projects: readonly Project[] = [
     links: [{ label: "Código", url: "https://github.com/VicCurzio/bot_whatsapp" }],
   },
   {
-    name: "Landing Grupo Delsud",
-    kind: "Prueba técnica",
-    period: "2025 · Online",
-    summary:
-      "Primera prueba técnica que resolví para Grupo Delsud: una landing responsive completa, entregada en menos de cuatro días.",
-    did: [
-      "Secciones de hero, características, testimonios, preguntas frecuentes y sponsors, resueltas con componentes reutilizables.",
-      "Diseño mobile-first y deploy en Vercel.",
-    ],
-    how: [
-      "Next.js con generación estática: la página se sirve como HTML ya construido, sin trabajo de render en cada visita.",
-      "CSS Modules para encapsular los estilos por componente y evitar colisiones al escalar.",
-      "Imágenes optimizadas con next/image y una estructura pensada para crecer sin reescribir.",
-    ],
-    stack: ["Next.js 15", "React 19", "JavaScript", "CSS Modules", "Vercel"],
-    links: [
-      { label: "Ver demo", url: "https://landing-delsud-challenge.vercel.app/" },
-      { label: "Código", url: "https://github.com/VicCurzio/landing-delsud" },
-    ],
-  },
-  {
-    name: "Este portfolio",
-    kind: "Producto propio",
+    name: "Portfolio",
+    kind: "product",
     period: "2026",
     summary: "El sitio que estás leyendo: una sola página con experiencia, proyectos, stack, formación y contacto.",
     did: [
@@ -223,7 +238,7 @@ export const projects: readonly Project[] = [
     stack: ["Next.js 16", "TypeScript", "Tailwind CSS 4"],
     links: [{ label: "Código", url: "https://github.com/VicCurzio/portfolio" }],
   },
-] as const;
+] as const satisfies readonly Project[];
 
 export type OtherRepo = {
   name: string;
@@ -233,13 +248,13 @@ export type OtherRepo = {
   url?: string;
 };
 
-export const otherRepos: readonly OtherRepo[] = [
+export const otherRepos = [
   {
-    name: "SGD — Grupo Delsud",
+    name: "SGD — Grupo DELSUD",
     role: "Colaborador",
     status: "En desarrollo",
     description:
-      "Sistema de gestión interno de Grupo Delsud: un ecosistema de microservicios en Node y PostgreSQL, uno por departamento, donde cada área maneja sus solicitudes con plantillas de formularios dinámicos, más tareas, calendario y notificaciones en tiempo real por WebSocket. La identidad de usuarios y departamentos vive en un único servicio de auth que el resto consume. Me sumé al equipo como colaborador.",
+      "Sistema de gestión interno de Grupo DELSUD: un ecosistema de microservicios en Node y PostgreSQL, uno por departamento, donde cada área maneja sus solicitudes con plantillas de formularios dinámicos, más tareas, calendario y notificaciones en tiempo real por WebSocket. La identidad de usuarios y departamentos vive en un único servicio de auth que el resto consume. Me sumé al equipo como colaborador, sobre la sección de Producto y Tecnología: el detalle de producto con edición e historial, el alta de unidades y productos, y el tablero de tareas que el ERP embebe como micro-frontend.",
   },
   {
     name: "Sistema Asclepio",
@@ -272,8 +287,30 @@ export const otherRepos: readonly OtherRepo[] = [
   {
     name: "Cicaré",
     role: "Freelance",
-    status: "Discontinuado por el cliente",
+    status: "Retomado en 2026",
     description:
-      "Gestión de datos de helicópteros con Next.js y Supabase: permisos sobre datos sensibles, contenidos jerárquicos y flujos de aprobación. Lo desarrollé de punta a punta como freelance; el cliente discontinuó el proyecto y quedó frenado.",
+      "Portal de documentación técnica de helicópteros con Next.js y Supabase: permisos sobre datos sensibles, contenidos jerárquicos y flujos de aprobación. Lo desarrollé de punta a punta como freelance; estuvo frenado y volvió a moverse en 2026. Con el mismo cliente arrancó un segundo sistema, de stock de partes y conjuntos para la planta (React + Express + SQLite), hoy en desarrollo.",
   },
-] as const;
+  {
+    name: "Dashboard Financiero",
+    role: "Prueba técnica",
+    status: "Backends en producción",
+    description:
+      "La prueba técnica con la que entré a Grupo DELSUD: dos microservicios independientes (autenticación con Drizzle y finanzas con Sequelize, sobre PostgreSQL) y un frontend React con KPIs, gráficos y ABM de transacciones.",
+  },
+  {
+    name: "Landing Grupo DELSUD",
+    role: "Prueba técnica",
+    status: "Online",
+    description:
+      "Primera prueba técnica para Grupo DELSUD: una landing responsive en Next.js con generación estática y CSS Modules, entregada en menos de cuatro días y publicada en Vercel.",
+    url: "https://github.com/VicCurzio/landing-delsud",
+  },
+  {
+    name: "Job Alerts",
+    role: "Herramienta propia",
+    status: "Uso personal",
+    description:
+      "Script en Python que lee por IMAP, en solo lectura, las alertas de empleo de LinkedIn y deja cada día una cola de postulación filtrada por perfil, con el motivo de cada descarte. No se postula solo: la decisión sigue siendo humana.",
+  },
+] as const satisfies readonly OtherRepo[];

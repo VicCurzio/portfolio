@@ -4,6 +4,10 @@
    ============================================================ */
 
 
+/* La paleta fija de 8 bits. No cambia con el tema: la usan la intro (una
+   escena nocturna: de dia no seria la misma escena), la pantalla de seleccion
+   de proyectos -- que es una pantalla, oscura como la de un fichin, tambien
+   dentro de una pagina clara -- y el pixel art. */
 :root {
   --nes-black: #05060c;
   --nes-navy: #101a3a;
@@ -17,6 +21,113 @@
   /* Grosor del borde de las ventanas. Un solo numero para todo el sitio:
      si cambia, cambia parejo. */
   --edge: 4px;
+}
+
+/* Los colores de la pagina, nombrados por funcion y no por color: `--c-panel`
+   sigue siendo el fondo de una ventana aunque en claro sea papel y en oscuro
+   sea noche. Ningun selector de abajo vuelve a escribir un color a mano, asi
+   que un tema nuevo es esta lista y nada mas.
+
+   El oscuro es el default y vive en :root: es la identidad del sitio y es lo
+   que se ve si el JavaScript no corre. El claro se activa con el atributo
+   data-theme, que fija el script del <head> antes de pintar leyendo lo que el
+   visitante eligio, o la preferencia del sistema si nunca eligio. */
+:root {
+  color-scheme: dark;
+
+  --c-bg: #05060c;
+  --c-bg-deep: #03040a;
+  --c-panel: #0b1226;
+  --c-panel-2: #0a1024;
+  --c-panel-3: #111a36;
+  --c-panel-hover: #0f1733;
+  --c-edge: #3a4c78;
+  --c-edge-2: #2b3a63;
+  --c-edge-3: #16213f;
+  --c-shade: #2b4a8a;
+
+  --c-text: #e8f4ff;
+  --c-text-2: #bcd4e2;
+  --c-text-3: #b9cdd9;
+  --c-muted: #7f97a6;
+  --c-muted-2: #8fa6b4;
+  --c-muted-3: #9fb6c4;
+  --c-faint: #5a6b7a;
+
+  --c-accent: #3fb8c8;
+  --c-accent-shadow: #12495c;
+  --c-hi: #f7d51d;
+  --c-hi-shadow: #7a6a0a;
+  --c-hi-soft-bg: #191506;
+  --c-hi-soft-edge: #4a4327;
+  /* Texto encima de un boton relleno con el acento o con el ambar. */
+  --c-on-fill: #05060c;
+
+  --c-drop: rgba(0, 0, 0, 0.55);
+  --c-drop-soft: rgba(0, 0, 0, 0.5);
+  --c-line: rgba(232, 244, 255, 0.12);
+  --c-accent-line: rgba(63, 184, 200, 0.35);
+  --c-accent-wash: rgba(63, 184, 200, 0.06);
+  --c-grid-line: rgba(63, 184, 200, 0.05);
+  --c-scan: rgba(0, 0, 0, 0.22);
+  --c-nav-bg: rgba(5, 6, 12, 0.94);
+  --c-hud-bg: rgba(3, 5, 14, 0.75);
+  /* La grilla de proyectos y su cuadro de dialogo: la celda elegida se ilumina
+     y el cuadro es la pantalla donde "habla" el retrato. */
+  --c-cell-active-top: #1b2c60;
+  --c-cell-active-bottom: #101a3a;
+  --c-screen: #000;
+}
+
+/* Tema claro: el mismo fichin visto con la luz prendida. Papel tibio en vez de
+   noche, tinta azul en vez de blanco, y los dos colores de acento bajados de
+   brillo -- el cyan y el ambar de una NES sobre papel no llegan al contraste
+   minimo para leerse. */
+:root[data-theme="light"] {
+  /* Bordes, sombras y lineas en tonos tibios de papel: con el azul marino del
+     tema oscuro las tarjetas quedaban enmarcadas como de noche. La tinta del
+     texto si sigue azul. */
+  color-scheme: light;
+
+  --c-bg: #e6e0cf;
+  --c-bg-deep: #ddd5bf;
+  --c-panel: #f5f1e4;
+  --c-panel-2: #efe9d8;
+  --c-panel-3: #e8e1cd;
+  --c-panel-hover: #f8f4e8;
+  --c-edge: #8a7d62;
+  --c-edge-2: #b8ac8e;
+  --c-edge-3: #cbbfa2;
+  --c-shade: #c6b089;
+
+  --c-text: #14192b;
+  --c-text-2: #232a3f;
+  --c-text-3: #2c3448;
+  --c-muted: #5c6478;
+  --c-muted-2: #5c6478;
+  --c-muted-3: #4a5265;
+  --c-faint: #67707f;
+
+  --c-accent: #0b6f7d;
+  --c-accent-shadow: #063f48;
+  --c-hi: #a35a00;
+  --c-hi-shadow: #5c3300;
+  --c-hi-soft-bg: #f6ead6;
+  --c-hi-soft-edge: #d9b57e;
+  --c-on-fill: #f7f4ea;
+
+  --c-drop: rgba(92, 72, 40, 0.22);
+  --c-drop-soft: rgba(92, 72, 40, 0.18);
+  --c-line: rgba(92, 72, 40, 0.18);
+  --c-accent-line: rgba(11, 111, 125, 0.35);
+  --c-accent-wash: rgba(11, 111, 125, 0.07);
+  --c-grid-line: rgba(11, 111, 125, 0.07);
+  --c-scan: rgba(92, 72, 40, 0.05);
+  --c-nav-bg: rgba(240, 235, 222, 0.94);
+  --c-hud-bg: rgba(245, 241, 228, 0.75);
+  --c-cell-active-top: #fbf3dc;
+  --c-cell-active-bottom: #f1e4c4;
+  --c-screen: #fbf8ef;
 }
 
 
@@ -291,8 +402,8 @@
 /* ---------- Seleccion de proyectos ---------- */
 
 .stage {
-  border: 3px solid rgba(63, 184, 200, 0.35);
-  background: var(--nes-black);
+  border: 3px solid var(--c-accent-line);
+  background: var(--c-bg);
   padding: clamp(1rem, 3vw, 2rem);
 }
 
@@ -301,7 +412,7 @@
   font-size: clamp(0.6rem, 2.2vw, 0.8rem);
   letter-spacing: 0.24em;
   text-align: center;
-  color: var(--nes-amber);
+  color: var(--c-hi);
 }
 
 .stage__grid {
@@ -320,33 +431,35 @@
   align-content: center;
   min-height: 8rem;
   padding: 1rem 0.5rem;
-  border: 3px solid rgba(232, 244, 255, 0.12);
-  background: linear-gradient(180deg, #101a3a, #0a1024);
-  color: var(--nes-cyan);
+  border: 3px solid var(--c-line);
+  background: linear-gradient(180deg, var(--c-panel-3), var(--c-panel-2));
+  color: var(--c-accent);
   cursor: pointer;
 }
 
+/* El retrato no es un control: no clickea, asi que tampoco muestra la mano. */
 .stage__cell--center {
-  border-color: rgba(63, 184, 200, 0.4);
+  border-color: var(--c-accent-line);
+  cursor: default;
 }
 
 .stage__cell.is-active {
-  color: var(--nes-amber);
-  border-color: var(--nes-amber);
-  background: linear-gradient(180deg, #1b2c60, #101a3a);
+  color: var(--c-hi);
+  border-color: var(--c-hi);
+  background: linear-gradient(180deg, var(--c-cell-active-top), var(--c-cell-active-bottom));
 }
 
 .stage__cell.is-active::after {
   content: "";
   position: absolute;
   inset: -7px;
-  border: 3px solid var(--nes-amber);
+  border: 3px solid var(--c-hi);
   pointer-events: none;
   animation: blink 900ms steps(2, end) infinite;
 }
 
 .stage__cell:focus-visible {
-  outline: 3px solid var(--nes-white);
+  outline: 3px solid var(--c-text);
   outline-offset: 4px;
 }
 
@@ -360,35 +473,124 @@
   font-size: 0.52rem;
   line-height: 1.7;
   text-align: center;
-  color: var(--nes-white);
+  color: var(--c-text);
 }
 
-.stage__banner {
+/* Cuadro de dialogo estilo Mega Man X: caja negra, texto a la izquierda y el
+   retrato enmarcado a la derecha. */
+.stage__dialog {
   display: grid;
-  gap: 0.5rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
   margin-top: 1.6rem;
-  padding: 0.9rem;
-  text-align: center;
-  border: 3px solid rgba(232, 244, 255, 0.12);
-  background: #000;
+  padding: 1rem 1.1rem;
+  border: 3px solid var(--c-line);
+  background: var(--c-screen);
 }
 
-.stage__banner-name {
+.stage__dialog-body {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.stage__dialog-name {
   font-family: var(--pixel-stack);
-  font-size: clamp(0.65rem, 2.4vw, 0.95rem);
-  color: var(--nes-amber);
+  font-size: clamp(0.75rem, 2.6vw, 1.1rem);
+  color: var(--c-hi);
 }
 
-.stage__banner-meta {
-  font-size: 0.78rem;
-  color: #a1a1aa;
+.stage__dialog-meta {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+.stage__dialog-text {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--c-text);
+}
+
+.stage__dialog-ghost {
+  color: transparent;
+}
+
+/* El cuadro es una pantalla de juego, no texto para copiar (el mismo texto esta
+   en la tarjeta). Sin esto, un doble click o un arrastre pinta de azul la parte
+   que todavia no se escribio y deja ver donde esta. */
+.stage__dialog,
+.stage__grid {
+  user-select: none;
+}
+
+/* La flechita que avisa que hay para seguir. Titila a saltos, sin fundido,
+   como en la consola. */
+.stage__dialog-next {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  border-left: 0.35rem solid transparent;
+  border-right: 0.35rem solid transparent;
+  border-top: 0.45rem solid var(--c-accent);
+  animation: dialogNext 1s steps(2, jump-none) infinite;
+}
+
+@keyframes dialogNext {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage__dialog-next {
+    animation: none;
+  }
+}
+
+.stage__dialog-portrait {
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  border: 3px solid var(--c-shade);
+  background: var(--c-panel-3);
+}
+
+.stage__dialog-portrait svg {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@media (max-width: 640px) {
+  .stage__dialog {
+    gap: 0.7rem;
+    padding: 0.8rem;
+  }
+
+  .stage__dialog-text {
+    font-size: 1rem;
+  }
+
+  .stage__dialog-portrait svg {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+.stage__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .stage__hint {
   margin-top: 0.9rem;
   text-align: center;
   font-size: 0.75rem;
-  color: #71717a;
+  color: var(--c-faint);
 }
 
 /* La tarjeta a la que se salta parpadea un momento para no perder el hilo. */
@@ -397,7 +599,7 @@
 }
 
 @keyframes stageHit {
-  0%, 49% { box-shadow: 0 0 0 3px var(--nes-amber); }
+  0%, 49% { box-shadow: 0 0 0 3px var(--c-hi); }
   50%, 100% { box-shadow: 0 0 0 3px transparent; }
 }
 
@@ -407,15 +609,15 @@
   font-size: 0.5rem;
   letter-spacing: 0.08em;
   padding: 0.7rem 0.8rem;
-  color: var(--nes-cyan);
-  border: 2px solid rgba(63, 184, 200, 0.35);
-  background: rgba(63, 184, 200, 0.06);
+  color: var(--c-accent);
+  border: 2px solid var(--c-accent-line);
+  background: var(--c-accent-wash);
   cursor: pointer;
 }
 
 .intro-replay:hover {
-  color: var(--nes-amber);
-  border-color: var(--nes-amber);
+  color: var(--c-hi);
+  border-color: var(--c-hi);
 }
 
 /* ============================================================
@@ -427,10 +629,10 @@
 .r-page {
   position: relative;
   min-height: 100vh;
-  background-color: var(--nes-black);
+  background-color: var(--c-bg);
   background-image:
-    linear-gradient(rgba(63, 184, 200, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(63, 184, 200, 0.05) 1px, transparent 1px);
+    linear-gradient(var(--c-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -444,7 +646,7 @@
   opacity: 0.45;
   background: repeating-linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.22) 0 2px,
+    var(--c-scan) 0 2px,
     transparent 2px 4px
   );
 }
@@ -461,9 +663,9 @@
 }
 
 .r-section--alt {
-  background: rgba(3, 5, 14, 0.75);
-  border-top: var(--edge) solid #16213f;
-  border-bottom: var(--edge) solid #16213f;
+  background: var(--c-hud-bg);
+  border-top: var(--edge) solid var(--c-edge-3);
+  border-bottom: var(--edge) solid var(--c-edge-3);
 }
 
 .r-head {
@@ -476,13 +678,13 @@
   font-family: var(--pixel-stack);
   font-size: clamp(0.8rem, 3vw, 1.35rem);
   line-height: 1.5;
-  color: var(--nes-white);
-  text-shadow: 3px 3px 0 var(--nes-blue);
+  color: var(--c-text);
+  text-shadow: 3px 3px 0 var(--c-shade);
 }
 
 .r-head__title em {
   font-style: normal;
-  color: var(--nes-cyan);
+  color: var(--c-accent);
 }
 
 /* La barra de puntos que completa el titulo, como el borde de una ventana. */
@@ -491,15 +693,19 @@
   height: var(--edge);
   background: repeating-linear-gradient(
     90deg,
-    var(--nes-blue) 0 8px,
+    var(--c-shade) 0 8px,
     transparent 8px 16px
   );
 }
 
 .r-lead {
   margin-top: 1.2rem;
-  max-width: 48ch;
-  color: #9fb6c4;
+  /* Las bajadas son una frase: con un tope de ancho se partian dejando dos o
+     tres palabras solas abajo. Sin tope, el limite es el ancho del contenido, y
+     si en pantallas chicas no entra, se reparte pareja en dos lineas. */
+  max-width: none;
+  text-wrap: balance;
+  color: var(--c-muted-3);
 }
 
 /* ---------- Barra de navegacion ---------- */
@@ -510,8 +716,8 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(5, 6, 12, 0.94);
-  border-bottom: var(--edge) solid var(--nes-blue);
+  background: var(--c-nav-bg);
+  border-bottom: var(--edge) solid var(--c-shade);
 }
 
 .r-nav__inner {
@@ -527,12 +733,12 @@
 .r-nav__brand {
   font-family: var(--pixel-stack);
   font-size: 0.68rem;
-  color: var(--nes-white);
+  color: var(--c-text);
 }
 
 .r-nav__brand em {
   font-style: normal;
-  color: var(--nes-cyan);
+  color: var(--c-accent);
 }
 
 .r-nav__links {
@@ -546,12 +752,12 @@
   font-family: var(--pixel-stack);
   font-size: 0.55rem;
   letter-spacing: 0.04em;
-  color: #8fa6b4;
+  color: var(--c-muted-2);
 }
 
 .r-nav__link:hover,
 .r-nav__link:focus-visible {
-  color: var(--nes-amber);
+  color: var(--c-hi);
   outline: none;
 }
 
@@ -563,7 +769,7 @@
   left: 0.25rem;
   top: 50%;
   margin-top: -4px;
-  border-left: 7px solid var(--nes-amber);
+  border-left: 7px solid var(--c-hi);
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
   opacity: 0;
@@ -590,21 +796,21 @@
 
 .r-panel {
   position: relative;
-  background: #0b1226;
-  border: var(--edge) solid #3a4c78;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+  background: var(--c-panel);
+  border: var(--edge) solid var(--c-edge);
+  box-shadow: 6px 6px 0 var(--c-drop);
   padding: clamp(1.1rem, 3vw, 1.9rem);
 }
 
 .r-panel--lit {
-  border-color: var(--nes-cyan);
+  border-color: var(--c-accent);
 }
 
 .r-panel__label {
   font-family: var(--pixel-stack);
   font-size: 0.52rem;
   letter-spacing: 0.16em;
-  color: var(--nes-amber);
+  color: var(--c-hi);
 }
 
 .r-panel__title {
@@ -612,22 +818,32 @@
   font-family: var(--pixel-stack);
   font-size: clamp(0.7rem, 2.3vw, 0.95rem);
   line-height: 1.7;
-  color: var(--nes-white);
+  color: var(--c-text);
 }
 
 .r-panel__sub {
   margin-top: 0.7rem;
-  color: var(--nes-cyan);
+  color: var(--c-accent);
 }
 
 .r-panel__meta {
   margin-top: 0.35rem;
-  color: #7f97a6;
+  color: var(--c-muted);
 }
 
 .r-panel__text {
   margin-top: 1rem;
-  color: #b9cdd9;
+  color: var(--c-text-3);
+}
+
+.r-panel__text--tight {
+  margin-top: 0.3rem;
+}
+
+/* Una tarjeta que ocupa todo el ancho de su grilla, por ejemplo los cursos
+   debajo de la carrera y los idiomas. */
+.r-panel--span {
+  grid-column: 1 / -1;
 }
 
 .r-tags {
@@ -643,21 +859,21 @@
   letter-spacing: 0.03em;
   line-height: 1.4;
   padding: 0.5rem 0.55rem;
-  color: #bcd4e2;
-  background: #111a36;
-  border: 2px solid #2b3a63;
+  color: var(--c-text-2);
+  background: var(--c-panel-3);
+  border: 2px solid var(--c-edge-2);
 }
 
 .r-tag--lit {
-  color: var(--nes-black);
-  background: var(--nes-cyan);
-  border-color: var(--nes-cyan);
+  color: var(--c-on-fill);
+  background: var(--c-accent);
+  border-color: var(--c-accent);
 }
 
 .r-tag--soft {
-  color: var(--nes-amber);
-  border-color: #4a4327;
-  background: #191506;
+  color: var(--c-hi);
+  border-color: var(--c-hi-soft-edge);
+  background: var(--c-hi-soft-bg);
 }
 
 .r-list {
@@ -669,7 +885,7 @@
 .r-list li {
   position: relative;
   padding-left: 1.5rem;
-  color: #b9cdd9;
+  color: var(--c-text-3);
 }
 
 .r-list li::before {
@@ -679,11 +895,11 @@
   top: 0.55em;
   width: 8px;
   height: 8px;
-  background: var(--nes-cyan);
+  background: var(--c-accent);
 }
 
 .r-list--alt li::before {
-  background: var(--nes-amber);
+  background: var(--c-hi);
 }
 
 .r-sublabel {
@@ -691,7 +907,7 @@
   font-family: var(--pixel-stack);
   font-size: 0.52rem;
   letter-spacing: 0.14em;
-  color: #7f97a6;
+  color: var(--c-muted);
 }
 
 /* ---------- Botones y menu ---------- */
@@ -703,16 +919,16 @@
   letter-spacing: 0.05em;
   line-height: 1.4;
   padding: 0.95rem 1.15rem;
-  color: var(--nes-black);
-  background: var(--nes-cyan);
+  color: var(--c-on-fill);
+  background: var(--c-accent);
   border: none;
-  box-shadow: 4px 4px 0 #12495c;
+  box-shadow: 4px 4px 0 var(--c-accent-shadow);
   cursor: pointer;
 }
 
 .r-btn:hover {
-  background: var(--nes-amber);
-  box-shadow: 4px 4px 0 #7a6a0a;
+  background: var(--c-hi);
+  box-shadow: 4px 4px 0 var(--c-hi-shadow);
 }
 
 /* Se hunde al apretarla, como una tecla. */
@@ -722,16 +938,16 @@
 }
 
 .r-btn--ghost {
-  color: var(--nes-cyan);
+  color: var(--c-accent);
   background: transparent;
-  border: var(--edge) solid var(--nes-cyan);
+  border: var(--edge) solid var(--c-accent);
   padding: calc(0.95rem - 4px) calc(1.15rem - 4px);
   box-shadow: none;
 }
 
 .r-btn--ghost:hover {
-  color: var(--nes-amber);
-  border-color: var(--nes-amber);
+  color: var(--c-hi);
+  border-color: var(--c-hi);
   background: transparent;
   box-shadow: none;
 }
@@ -756,13 +972,13 @@
   font-family: var(--pixel-stack);
   font-size: 0.58rem;
   letter-spacing: 0.04em;
-  color: #bcd4e2;
+  color: var(--c-text-2);
 }
 
 .r-menu__item:hover,
 .r-menu__item:focus-visible {
-  color: var(--nes-amber);
-  background: #0f1733;
+  color: var(--c-hi);
+  background: var(--c-panel-hover);
   outline: none;
 }
 
@@ -772,7 +988,7 @@
   left: 0.7rem;
   top: 50%;
   margin-top: -5px;
-  border-left: 8px solid var(--nes-amber);
+  border-left: 8px solid var(--c-hi);
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   opacity: 0;
@@ -788,11 +1004,11 @@
   font-family: var(--term-stack);
   font-size: 1.15rem;
   letter-spacing: 0;
-  color: #8fa6b4;
+  color: var(--c-muted-2);
 }
 
 .r-menu__item:hover .r-menu__value {
-  color: var(--nes-white);
+  color: var(--c-text);
 }
 
 /* ---------- Pantalla de titulo (hero) ---------- */
@@ -812,7 +1028,7 @@
   display: block;
   height: clamp(9rem, 24vw, 15rem);
   width: auto;
-  filter: drop-shadow(6px 6px 0 rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(6px 6px 0 var(--c-drop-soft));
 }
 
 .r-hud {
@@ -823,14 +1039,14 @@
   font-family: var(--pixel-stack);
   font-size: 0.52rem;
   line-height: 1.6;
-  color: var(--nes-amber);
-  background: #0a1024;
-  border: 2px solid #2b3a63;
+  color: var(--c-hi);
+  background: var(--c-panel-2);
+  border: 2px solid var(--c-edge-2);
 }
 
 .r-hud em {
   font-style: normal;
-  color: #7f97a6;
+  color: var(--c-muted);
 }
 
 .r-title {
@@ -840,12 +1056,12 @@
   font-family: var(--pixel-stack);
   font-size: clamp(1.45rem, 7vw, 3.1rem);
   line-height: 1;
-  color: var(--nes-white);
-  text-shadow: 4px 4px 0 var(--nes-blue), 8px 8px 0 rgba(0, 0, 0, 0.5);
+  color: var(--c-text);
+  text-shadow: 4px 4px 0 var(--c-shade), 8px 8px 0 var(--c-drop-soft);
 }
 
 .r-title span:last-child {
-  color: var(--nes-cyan);
+  color: var(--c-accent);
 }
 
 .r-hero__role {
@@ -853,13 +1069,13 @@
   font-family: var(--pixel-stack);
   font-size: clamp(0.62rem, 2.6vw, 0.92rem);
   line-height: 1.7;
-  color: var(--nes-amber);
+  color: var(--c-hi);
 }
 
 .r-hero__tagline {
   margin-top: 1.3rem;
   max-width: 54ch;
-  color: #b9cdd9;
+  color: var(--c-text-3);
 }
 
 .r-actions {
@@ -873,7 +1089,7 @@
   margin-top: 2.6rem;
   font-family: var(--pixel-stack);
   font-size: 0.55rem;
-  color: #7f97a6;
+  color: var(--c-muted);
   animation: blink 1.2s steps(2, end) infinite;
 }
 
@@ -886,19 +1102,22 @@
 /* ---------- Pie ---------- */
 
 .r-footer {
-  border-top: var(--edge) solid var(--nes-blue);
-  background: #03040a;
+  border-top: var(--edge) solid var(--c-shade);
+  background: var(--c-bg-deep);
+  /* Es lo ultimo de la pagina: debajo del copyright no hace falta el aire de
+     una seccion entera. */
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 
 .r-copy {
   margin-top: 2.8rem;
   padding-top: 1.6rem;
-  border-top: 2px solid #16213f;
+  border-top: 2px solid var(--c-edge-3);
   text-align: center;
   font-family: var(--pixel-stack);
   font-size: 0.48rem;
   line-height: 2.2;
-  color: #5a6b7a;
+  color: var(--c-faint);
 }
 
 /* ---------- Grillas de contenido ---------- */
@@ -928,7 +1147,7 @@
 .r-btn--sm {
   font-size: 0.5rem;
   padding: 0.7rem 0.75rem;
-  box-shadow: 3px 3px 0 #12495c;
+  box-shadow: 3px 3px 0 var(--c-accent-shadow);
 }
 
 .r-btn--sm:active {
@@ -956,30 +1175,30 @@
   gap: 0.4rem;
   justify-items: start;
   padding: 1rem;
-  background: #0a1024;
-  border: 2px solid #2b3a63;
+  background: var(--c-panel-2);
+  border: 2px solid var(--c-edge-2);
 }
 
 .r-repo__name {
   font-family: var(--pixel-stack);
   font-size: 0.6rem;
   line-height: 1.6;
-  color: var(--nes-white);
+  color: var(--c-text);
 }
 
 .r-repo__meta {
   font-size: 1.05rem;
-  color: #7f97a6;
+  color: var(--c-muted);
 }
 
 .r-repo__text {
-  color: #b9cdd9;
+  color: var(--c-text-3);
 }
 
 /* ---------- Ajustes de la grilla de proyectos dentro del tema ---------- */
 
 .stage {
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.55);
+  box-shadow: 6px 6px 0 var(--c-drop);
 }
 
 /* ---------- Telefonos angostos ---------- */
@@ -1009,7 +1228,7 @@
   }
 
   .r-panel {
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.55);
+    box-shadow: 4px 4px 0 var(--c-drop);
   }
 }
 
@@ -1018,4 +1237,126 @@
    a las que apunta la grilla de seleccion, lo perdieron al reescribirlas. */
 .r-panel[id] {
   scroll-margin-top: 6.5rem;
+}
+
+/* ---------- Proyectos como acordeon ---------- */
+
+/* El padding pasa adentro: el titulo y el cuerpo lo llevan por separado, asi el
+   area clickeable del titulo llega hasta los bordes de la ventana. */
+.r-proj {
+  padding: 0;
+}
+
+.r-proj > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  cursor: pointer;
+  list-style: none;
+}
+
+.r-proj > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* El cursor triangular apunta a la derecha cuando esta cerrado y baja cuando
+   se abre, como en el menu de un juego. */
+.r-proj > summary::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 0;
+  height: 0;
+  border-left: 9px solid var(--c-accent);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.r-proj[open] > summary::before {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 9px solid var(--c-hi);
+  border-bottom: 0;
+}
+
+.r-proj > summary:hover {
+  background: var(--c-panel-hover);
+}
+
+.r-proj > summary:focus-visible {
+  outline: 3px solid var(--c-text);
+  outline-offset: -3px;
+}
+
+.r-proj[open] > summary {
+  border-bottom: 2px solid var(--c-edge-2);
+}
+
+.r-proj__name {
+  font-family: var(--pixel-stack);
+  font-size: clamp(0.7rem, 2.3vw, 0.95rem);
+  line-height: 1.6;
+  color: var(--c-text);
+}
+
+.r-proj__kind {
+  font-family: var(--pixel-stack);
+  font-size: 0.5rem;
+  color: var(--c-hi);
+}
+
+.r-proj__period {
+  color: var(--c-muted);
+}
+
+.r-proj__body {
+  padding: 0 clamp(1rem, 3vw, 1.4rem) clamp(1.2rem, 3vw, 1.6rem);
+}
+
+/* El primer bloque del cuerpo no necesita separarse del titulo: ya hay linea. */
+.r-proj__body > .r-panel__text {
+  margin-top: 1.2rem;
+}
+
+/* La cara del centro es mas ancha que alta: en la caja cuadrada del glifo
+   quedaria diminuta, asi que se le da mas lugar. */
+.stage__cell--center .stage__glyph svg {
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+
+/* ---------- Controles de idioma y tema ---------- */
+
+/* El cambio de idioma se ve como los otros controles del nav, pero en ambar:
+   es el unico de la barra que cambia de pagina en vez de moverse dentro de
+   esta. */
+.r-btn--lang {
+  color: var(--c-hi);
+  background: var(--c-hi-soft-bg);
+  border: 2px solid var(--c-hi-soft-edge);
+  box-shadow: none;
+  padding: 0.7rem 0.75rem;
+}
+
+.r-btn--lang:hover {
+  color: var(--c-on-fill);
+  background: var(--c-hi);
+  border-color: var(--c-hi);
+  box-shadow: none;
+}
+
+/* Con el tema y el idioma en la barra, el lado derecho del nav quedo largo
+   para un telefono. Lo que se esconde es el boton de repetir la intro, que es
+   un extra; tema e idioma se quedan siempre, porque son navegacion. */
+@media (max-width: 560px) {
+  .r-nav__side {
+    gap: 0.35rem;
+  }
+
+  .r-nav__extra {
+    display: none;
+  }
 }

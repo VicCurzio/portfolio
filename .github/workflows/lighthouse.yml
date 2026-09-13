@@ -5,8 +5,15 @@
 # no una barrera: si baja un punto, el sitio ya esta publicado igual. Lo que
 # importa es enterarse.
 #
-# Los umbrales son de "aviso" a proposito. Un portfolio que no llega a 100 en
-# rendimiento no es un problema; uno que se cae a 60 sin que nadie lo note, si.
+# Cuando se pasa un presupuesto, la corrida falla y llega el mail. Esa es la
+# notificacion: el sitio ya esta publicado igual, asi que no es una barrera,
+# pero uno se entera. Un portfolio que no llega a 100 en rendimiento no es un
+# problema; uno que se cae a 60 sin que nadie lo note, si.
+#
+# El presupuesto de script son 175 KiB. El numero sale de medir: React mas el
+# armazon de Next ocupan la mayor parte, y los tres componentes interactivos
+# (barra, intro y grilla de proyectos) dejan el total cerca de 154 KiB. Los 175
+# dan margen para que no salte por ruido y avisen si entra una libreria pesada.
 name: Lighthouse
 
 on:

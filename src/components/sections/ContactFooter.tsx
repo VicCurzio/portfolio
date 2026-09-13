@@ -1,25 +1,27 @@
-import { profile } from "@/content/portfolio";
+import { getContent } from "@/content/content";
+import type { Lang } from "@/content/i18n";
 import { asset } from "@/content/site";
 
-export function ContactFooter() {
+export function ContactFooter({ lang }: { lang: Lang }) {
+  const { profile, ui } = getContent(lang);
+  const t = ui.contact;
+
   return (
     <footer id="contacto" className="r-section r-footer">
       <div className="r-shell">
         <div className="r-head">
           <h2 className="r-head__title">
-            Seguir <em>jugando</em>
+            {t.title} <em>{t.titleEm}</em>
           </h2>
           <span className="r-head__bar" aria-hidden="true" />
         </div>
-        <p className="r-lead">
-          Si querés charlar sobre un proyecto, una oportunidad o una colaboración, escribime.
-        </p>
+        <p className="r-lead">{t.lead}</p>
 
         {/* Menu de seleccion: una opcion por linea, con el cursor a la izquierda
             de la que estas apuntando. */}
-        <nav className="r-menu" aria-label="Contacto">
+        <nav className="r-menu" aria-label={t.ariaLabel}>
           <a className="r-menu__item" href={`mailto:${profile.email}`}>
-            Email
+            {t.email}
             <span className="r-menu__value">{profile.email}</span>
           </a>
           <a
@@ -46,13 +48,13 @@ export function ContactFooter() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Curriculum
-            <span className="r-menu__value">CV en PDF</span>
+            {t.cv}
+            <span className="r-menu__value">{t.cvValue}</span>
           </a>
         </nav>
 
         <p className="r-copy">
-          {new Date().getFullYear()} {profile.shortName} — hecho con Next.js
+          {new Date().getFullYear()} {profile.shortName} — {t.madeWith}
         </p>
       </div>
     </footer>

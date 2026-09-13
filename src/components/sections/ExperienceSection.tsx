@@ -1,18 +1,20 @@
-import { experience } from "@/content/portfolio";
+import { getContent } from "@/content/content";
+import type { Lang } from "@/content/i18n";
 
-export function ExperienceSection() {
+export function ExperienceSection({ lang }: { lang: Lang }) {
+  const { experience, ui } = getContent(lang);
+  const t = ui.experience;
+
   return (
     <section id="experiencia" className="r-section">
       <div className="r-shell">
         <div className="r-head">
           <h2 className="r-head__title">
-            Experiencia <em>profesional</em>
+            {t.title} <em>{t.titleEm}</em>
           </h2>
           <span className="r-head__bar" aria-hidden="true" />
         </div>
-        <p className="r-lead">
-          Proyectos reales en producción: CRM, reservas, integraciones y equipos ágiles.
-        </p>
+        <p className="r-lead">{t.lead}</p>
 
         <ol className="r-grid">
           {experience.map((job, i) => (
@@ -20,7 +22,9 @@ export function ExperienceSection() {
               <article className="r-panel">
                 {/* La numeracion va al reves: el trabajo mas reciente primero,
                     con el numero mas alto, como el nivel al que llegaste. */}
-                <p className="r-panel__label">Nivel {String(experience.length - i).padStart(2, "0")}</p>
+                <p className="r-panel__label">
+                  {t.level} {String(experience.length - i).padStart(2, "0")}
+                </p>
                 <h3 className="r-panel__title">{job.role}</h3>
                 <p className="r-panel__sub">{job.company}</p>
                 <p className="r-panel__meta">
@@ -28,9 +32,9 @@ export function ExperienceSection() {
                 </p>
 
                 <div className="r-tags">
-                  {job.stack.map((t) => (
-                    <span key={t} className="r-tag">
-                      {t}
+                  {job.stack.map((tech) => (
+                    <span key={tech} className="r-tag">
+                      {tech}
                     </span>
                   ))}
                 </div>

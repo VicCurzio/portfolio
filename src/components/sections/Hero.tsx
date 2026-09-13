@@ -1,9 +1,13 @@
-import { profile } from "@/content/portfolio";
+import { getContent } from "@/content/content";
+import type { Lang } from "@/content/i18n";
 import { asset } from "@/content/site";
 import { HERO } from "@/components/retro/pixelArt";
 import { PixelSprite } from "@/components/retro/PixelSprite";
 
-export function Hero() {
+export function Hero({ lang }: { lang: Lang }) {
+  const { profile, ui } = getContent(lang);
+  const t = ui.hero;
+
   return (
     <section className="r-hero">
       <div className="r-shell">
@@ -13,13 +17,13 @@ export function Hero() {
                 la pantalla: los datos duros de un vistazo. */}
             <p className="r-hud">
               <span>
-                <em>Zona:</em> {profile.location}
+                <em>{t.zone}</em> {profile.location}
               </span>
               <span>
-                <em>Clase:</em> {profile.subtitle}
+                <em>{t.role}</em> {profile.subtitle}
               </span>
               <span>
-                <em>Estado:</em> Disponible
+                <em>{t.status}</em> {t.available}
               </span>
             </p>
 
@@ -33,7 +37,7 @@ export function Hero() {
 
             <div className="r-actions">
               <a href={`mailto:${profile.email}`} className="r-btn">
-                Escribime
+                {t.write}
               </a>
               <a
                 href={asset(profile.cv)}
@@ -41,7 +45,7 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="r-btn r-btn--ghost"
               >
-                Descargar CV
+                {t.cv}
               </a>
               <a
                 href={profile.github}
@@ -49,14 +53,14 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="r-btn r-btn--ghost"
               >
-                GitHub
+                {t.github}
               </a>
             </div>
 
-            <p className="r-scroll-cue">Bajá para empezar</p>
+            <p className="r-scroll-cue">{t.scrollCue}</p>
           </div>
 
-          <PixelSprite map={HERO} className="r-hero__sprite" title="Retrato en pixel art" />
+          <PixelSprite map={HERO} className="r-hero__sprite" title={t.portrait} />
         </div>
       </div>
     </section>

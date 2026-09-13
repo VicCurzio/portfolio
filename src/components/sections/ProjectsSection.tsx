@@ -1,84 +1,106 @@
-import { otherRepos, projects } from "@/content/projects";
-import { projectAnchor } from "@/content/slug";
+import { getContent } from "@/content/content";
+import type { Lang } from "@/content/i18n";
 import { StageSelect } from "@/components/retro/StageSelect";
 
-export function ProjectsSection() {
+export function ProjectsSection({ lang }: { lang: Lang }) {
+  const { profile, projects, otherRepos, ui } = getContent(lang);
+  const t = ui.projects;
+
   return (
     <section id="proyectos" className="r-section r-section--alt">
       <div className="r-shell">
         <div className="r-head">
           <h2 className="r-head__title">
-            Proyectos <em>y repositorios</em>
+            {t.title} <em>{t.titleEm}</em>
           </h2>
           <span className="r-head__bar" aria-hidden="true" />
         </div>
-        <p className="r-lead">
-          Qué construí en cada uno y con qué criterio técnico lo resolví.
-        </p>
+        <p className="r-lead">{t.lead}</p>
 
         {/* Indice tipo pantalla de seleccion: lleva a la tarjeta, no la
             reemplaza. */}
         <div className="r-grid">
-          <StageSelect />
+          <StageSelect
+            items={projects.map((p) => ({
+              name: p.name,
+              kind: p.kind,
+              kindLabel: p.kindLabel,
+              period: p.period,
+              summary: p.summary,
+              anchor: p.anchor,
+            }))}
+            text={t.stage}
+            center={{ name: profile.shortName, role: profile.title }}
+          />
         </div>
 
-        <div className="r-grid r-grid--2">
-          {projects.map((p) => (
-            <article key={p.name} id={projectAnchor(p.name)} className="r-panel">
-              <p className="r-panel__label">{p.kind}</p>
-              <h3 className="r-panel__title">{p.name}</h3>
-              <p className="r-panel__meta">{p.period}</p>
-              <p className="r-panel__text">{p.summary}</p>
+        {/* Cada proyecto es un <details> con el mismo `name`: el navegador se
+            encarga de que solo uno este abierto a la vez, y sin JavaScript
+            siguen abriendose a mano desde el titulo. */}
+        <div className="r-grid">
+          {projects.map((p, i) => (
+            <details
+              key={p.anchor}
+              id={p.anchor}
+              name="proyectos"
+              className="r-panel r-proj"
+              open={i === 0}
+            >
+              <summary className="r-proj__head">
+                <span className="r-proj__name">{p.name}</span>
+                <span className="r-proj__kind">{p.kindLabel}</span>
+                <span className="r-proj__period">{p.period}</span>
+              </summary>
 
-              <p className="r-sublabel">Qué hice</p>
-              <ul className="r-list">
-                {p.did.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
-              </ul>
+              <div className="r-proj__body">
+                <p className="r-panel__text">{p.summary}</p>
 
-              <p className="r-sublabel">Cómo lo resolví</p>
-              <ul className="r-list r-list--alt">
-                {p.how.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </ul>
+                <p className="r-sublabel">{t.did}</p>
+                <ul className="r-list">
+                  {p.did.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
 
-              <div className="r-tags">
-                {p.stack.map((t) => (
-                  <span key={t} className="r-tag">
-                    {t}
-                  </span>
-                ))}
-              </div>
+                <p className="r-sublabel">{t.how}</p>
+                <ul className="r-list r-list--alt">
+                  {p.how.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
 
-              {p.links && p.links.length > 0 ? (
-                <div className="r-actions">
-                  {p.links.map((l) => (
-                    <a
-                      key={l.url}
-                      href={l.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="r-btn r-btn--ghost r-btn--sm"
-                    >
-                      {l.label}
-                    </a>
+                <div className="r-tags">
+                  {p.stack.map((tech) => (
+                    <span key={tech} className="r-tag">
+                      {tech}
+                    </span>
                   ))}
                 </div>
-              ) : null}
-              {p.repoNote ? <p className="r-panel__meta">{p.repoNote}</p> : null}
-            </article>
+
+                {p.links.length > 0 ? (
+                  <div className="r-actions">
+                    {p.links.map((l) => (
+                      <a
+                        key={l.url}
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="r-btn r-btn--ghost r-btn--sm"
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+                {p.repoNote ? <p className="r-panel__meta">{p.repoNote}</p> : null}
+              </div>
+            </details>
           ))}
         </div>
-
         <div className="r-grid">
           <div className="r-panel">
-            <p className="r-panel__label">Otros repositorios</p>
-            <p className="r-panel__text">
-              Proyectos de terceros en los que participé como colaborador, y trabajos que quedaron
-              frenados.
-            </p>
+            <p className="r-panel__label">{t.others}</p>
+            <p className="r-panel__text">{t.othersText}</p>
 
             <ul className="r-repos">
               {otherRepos.map((r) => (
@@ -95,10 +117,10 @@ export function ProjectsSection() {
                       rel="noopener noreferrer"
                       className="r-btn r-btn--ghost r-btn--sm"
                     >
-                      Código
+                      {t.code}
                     </a>
                   ) : (
-                    <p className="r-repo__meta">Repositorio privado</p>
+                    <p className="r-repo__meta">{t.privateRepo}</p>
                   )}
                 </li>
               ))}

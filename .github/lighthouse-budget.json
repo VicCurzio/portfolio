@@ -7,7 +7,7 @@
       { "metric": "interactive", "budget": 3500 }
     ],
     "resourceSizes": [
-      { "resourceType": "script", "budget": 150 },
+      { "resourceType": "script", "budget": 175 },
       { "resourceType": "total", "budget": 800 }
     ]
   }

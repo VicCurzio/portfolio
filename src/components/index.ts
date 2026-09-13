@@ -1,6 +1,9 @@
 export { HomePage } from "./home/HomePage";
 export { PageShell } from "./layout/PageShell";
 export { Nav } from "./layout/Nav";
+export { Document, buildMetadata } from "./layout/Document";
+export { LangSwitch } from "./layout/LangSwitch";
+export { ThemeToggle } from "./layout/ThemeToggle";
 export { OpeningIntro } from "./retro/OpeningIntro";
 export { StageSelect } from "./retro/StageSelect";
 export { ContactFooter } from "./sections/ContactFooter";

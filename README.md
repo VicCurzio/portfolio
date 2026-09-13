@@ -113,17 +113,7 @@ npm run release -- minor --tag   # sube package.json, fecha el CHANGELOG y crea 
   Hasta que exista, al compartir el link se ve el título y la descripción, sin
   imagen.
 
-## Project memory
-
-La memoria de este proyecto vive en el vault memory-ia:
-
-    C:\Users\Vic\Downloads\memory-ia\IT\Projects\Portfolio\00 Overview.md
-
-Empezá ahí; seguí los links y abrí solo lo que necesites. Al terminar: registrá
-el trabajo en `Worklog/YYYY-MM-DD.md` y promové los cambios durables a las notas
-del hub (ver `AGENTS.md` del vault).
-
 ---
 
-**Victor Roberto Curzio** — Desarrollador Full Stack · La Plata, Argentina
+**Victor Roberto Curzio** — Desarrollador Full-Stack · La Plata, Argentina
 · [victor.curzio@hotmail.com](mailto:victor.curzio@hotmail.com)

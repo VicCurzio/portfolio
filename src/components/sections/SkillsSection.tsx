@@ -1,18 +1,20 @@
-import { skillGroups, softSkills } from "@/content/portfolio";
+import { getContent } from "@/content/content";
+import type { Lang } from "@/content/i18n";
 
-export function SkillsSection() {
+export function SkillsSection({ lang }: { lang: Lang }) {
+  const { skillGroups, softSkills, ui } = getContent(lang);
+  const t = ui.skills;
+
   return (
     <section id="habilidades" className="r-section r-section--alt">
       <div className="r-shell">
         <div className="r-head">
           <h2 className="r-head__title">
-            Stack <em>y herramientas</em>
+            {t.title} <em>{t.titleEm}</em>
           </h2>
           <span className="r-head__bar" aria-hidden="true" />
         </div>
-        <p className="r-lead">
-          Tecnologías que uso día a día para construir y mantener productos.
-        </p>
+        <p className="r-lead">{t.lead}</p>
 
         {/* El inventario: cada grupo es una casilla y cada tecnologia, un item. */}
         <div className="r-grid r-grid--3">
@@ -32,7 +34,7 @@ export function SkillsSection() {
 
         <div className="r-grid">
           <div className="r-panel">
-            <p className="r-panel__label">Habilidades blandas</p>
+            <p className="r-panel__label">{t.soft}</p>
             <div className="r-tags">
               {softSkills.map((s) => (
                 <span key={s} className="r-tag r-tag--soft">

@@ -58,9 +58,11 @@ export const SCARF = [
 // Solo la cabeza, para la celda central de la grilla de proyectos.
 export const FACE = HERO.slice(0, 8);
 
-// Glifos de 8x8, uno por tipo de proyecto. Usan currentColor.
+// Glifos de 8x8, uno por tipo de proyecto. Usan currentColor. Las claves son
+// las de `ProjectKind` en content/projects.ts: el dibujo depende del tipo de
+// proyecto, no del idioma en el que se lo muestre.
 export const GLYPHS: Record<string, string[]> = {
-  Trabajo: [
+  work: [
     "..xxxx..",
     "..x..x..",
     "xxxxxxxx",
@@ -70,7 +72,7 @@ export const GLYPHS: Record<string, string[]> = {
     "xxxxxxxx",
     ".xxxxxx.",
   ],
-  "Producto propio": [
+  product: [
     "...xx...",
     "..xxxx..",
     "..xxxx..",
@@ -80,7 +82,7 @@ export const GLYPHS: Record<string, string[]> = {
     "...xx...",
     "..x..x..",
   ],
-  Freelance: [
+  freelance: [
     "....xx..",
     "...xx...",
     "..xx....",
@@ -90,7 +92,7 @@ export const GLYPHS: Record<string, string[]> = {
     "...xx...",
     "..xx....",
   ],
-  "Prueba tecnica": [
+  "tech-test": [
     "..xxxx..",
     "...xx...",
     "...xx...",
@@ -100,7 +102,7 @@ export const GLYPHS: Record<string, string[]> = {
     "xx.xx.xx",
     ".xxxxxx.",
   ],
-  Herramienta: [
+  tool: [
     ".x.xx.x.",
     ".xxxxxx.",
     "xxxxxxxx",
@@ -112,10 +114,8 @@ export const GLYPHS: Record<string, string[]> = {
   ],
 };
 
-// El tipo "Prueba tecnica" llega con tilde desde el contenido; la clave del
-// glifo se escribe sin ella para que el archivo no dependa de la codificacion.
 export function glyphFor(kind: string): string[] {
-  return GLYPHS[kind.replace("é", "e")] ?? GLYPHS.Herramienta;
+  return GLYPHS[kind] ?? GLYPHS.tool;
 }
 
 // La marca: una V de 16 por 16, la inicial del apellido. De aca salen el favicon
@@ -143,3 +143,106 @@ export const LOGO = [
   "................",
   "................",
 ];
+
+// La cara mirando a donde se le pida. Los ojos son dos pixeles de contorno
+// dentro del ovalo de piel: correrlos una casilla en cada eje da las nueve
+// direcciones (las cuatro diagonales incluidas), que es todo lo que un dibujo
+// de este tamanio puede decir.
+//
+// `dx` y `dy` van de -1 a 1: -1 es izquierda y arriba, 1 es derecha y abajo.
+//
+// Las tres filas del ovalo se rehacen enteras en piel antes de poner los ojos:
+// si no, al moverlos quedarian los anteriores pintados y la cara terminaria con
+// cuatro ojos.
+export function faceLooking(dx: number, dy: number): string[] {
+  const fila = 4 + Math.sign(dy);
+  const izq = 5 + Math.sign(dx);
+  const der = 8 + Math.sign(dx);
+  return FACE.map((row, y) => {
+    if (y < 3 || y > 5) return row;
+    const cells = [...row];
+    for (let x = 4; x <= 9; x += 1) cells[x] = "f";
+    if (y === fila) {
+      cells[izq] = "k";
+      cells[der] = "k";
+    }
+    return cells.join("");
+  });
+}
+
+// Glifos por proyecto. El tipo de proyecto sirve para agrupar, pero cuando el
+// proyecto tiene una imagen propia y obvia -- una pelota, una nota -- decir eso
+// vale mas que decir "producto propio". La tabla de abajo pisa al glifo del tipo
+// solo donde hay algo mejor que mostrar.
+
+const BALL = [
+  "..xxxx..",
+  ".x.xx.x.",
+  "xx.xx.xx",
+  "x.xxxx.x",
+  "x.xxxx.x",
+  "xx.xx.xx",
+  ".x.xx.x.",
+  "..xxxx..",
+];
+
+const NOTE = [
+  "...xxxx.",
+  "...x..xx",
+  "...x...x",
+  "...x..x.",
+  "...x....",
+  "...x....",
+  "xxxx....",
+  "xxxx....",
+];
+
+// Aerosol, y no un bicho tachado. En ocho por ocho y con un solo color no hay
+// pixeles para dibujar el bicho y ademas una marca que se lea como tachadura:
+// probamos la diagonal y la equis recortadas del dibujo y las dos lo dejaban
+// hecho escombros. El aerosol dice lo mismo -- control de plagas -- y se lee de
+// una.
+const SPRAY = [
+  "...xx...",
+  "..xxxx..",
+  "..x..x..",
+  ".xxxxxx.",
+  ".x.xx.x.",
+  ".xxxxxx.",
+  ".xxxxxx.",
+  ".xxxxxx.",
+];
+
+const ROBOT = [
+  "...xx...",
+  ".xxxxxx.",
+  ".x.xx.x.",
+  ".xxxxxx.",
+  "..xxxx..",
+  "xxxxxxxx",
+  "x.xxxx.x",
+  "..x..x..",
+];
+
+const PAGE = [
+  "xxxxxx..",
+  "x.....x.",
+  "x......x",
+  "x.xxxx.x",
+  "x......x",
+  "x.xxxx.x",
+  "x......x",
+  "xxxxxxxx",
+];
+
+const PROJECT_GLYPHS: Record<string, string[]> = {
+  "Dial Sport": BALL,
+  Musik: NOTE,
+  "Plagas Out": SPRAY,
+  "Bot de WhatsApp": ROBOT,
+  Portfolio: PAGE,
+};
+
+export function glyphForProject(name: string, kind: string): string[] {
+  return PROJECT_GLYPHS[name] ?? glyphFor(kind);
+}

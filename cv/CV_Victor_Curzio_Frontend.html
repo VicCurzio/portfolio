@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Victor Roberto Curzio — CV</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font: 8.7pt/1.34 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1b1f24;
+  }
+  a { color: #1b1f24; text-decoration: none; }
+  h1 { font-size: 17.5pt; margin: 0; letter-spacing: -0.01em; }
+  .role { font-size: 9.8pt; color: #4a5158; margin: 2pt 0 5pt; font-weight: 600; }
+  .contact { font-size: 8.4pt; color: #4a5158; margin: 0; }
+  .contact + .contact { margin-top: 2pt; }
+  .contact .item { white-space: nowrap; }
+  .sep { padding: 0 5pt; color: #b6bcc2; }
+  header.top { border-bottom: 1.2pt solid #1b1f24; padding-bottom: 6pt; margin-bottom: 8pt; }
+  section { margin-bottom: 8pt; }
+  .job, .skills, .edu, .courses { break-inside: avoid; }
+  h2 {
+    font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.11em;
+    color: #6b7280; margin: 0 0 6pt; padding-bottom: 3pt;
+    border-bottom: 0.6pt solid #dfe3e7;
+    break-after: avoid;
+  }
+  .summary { margin: 0; text-align: justify; }
+  .job { margin-bottom: 7pt; break-inside: avoid; }
+  .job h3 { font-size: 9.4pt; margin: 0; }
+  .job .at { color: #9aa1a8; font-weight: 400; }
+  .meta { font-size: 8.4pt; color: #6b7280; margin: 1pt 0 4pt; }
+  .job ul { margin: 0; padding-left: 12pt; }
+  .job li { margin-bottom: 1.8pt; text-align: justify; }
+  .stack { font-size: 8.6pt; color: #4a5158; margin: 4pt 0 0; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 16pt; }
+  .skill-group h4 { font-size: 8.6pt; margin: 0 0 1pt; }
+  .skill-group p { margin: 0; font-size: 8.8pt; color: #4a5158; }
+  .edu { margin: 0 0 6pt; }
+  .courses-title { font-size: 8.6pt; margin: 0 0 2pt; }
+  .edu strong { font-size: 9.6pt; }
+  .courses { margin: 0; padding-left: 12pt; font-size: 8.8pt; color: #4a5158; }
+  .courses li { margin-bottom: 1.4pt; }
+  .langs { margin: 0; font-size: 8.8pt; color: #4a5158; }
+  .extra { font-size: 8.8pt; color: #4a5158; margin: 5pt 0 0; }
+</style>
+</head>
+<body>
+  <header class="top">
+    <h1>Victor Roberto Curzio</h1>
+    <p class="role">Desarrollador Frontend<span class="sep">·</span>React · TypeScript</p>
+    <p class="contact"><span class="item">La Plata, Argentina</span><span class="sep">·</span><span class="item"><a href="mailto:victor.curzio@hotmail.com">victor.curzio@hotmail.com</a></span><span class="sep">·</span><span class="item">+54 221 542 4585</span></p>
+    <p class="contact"><span class="item"><a href="https://linkedin.com/in/victor-roberto-curzio/">linkedin.com/in/victor-roberto-curzio</a></span><span class="sep">·</span><span class="item"><a href="https://github.com/VicCurzio">github.com/VicCurzio</a></span><span class="sep">·</span><span class="item"><a href="https://viccurzio.github.io/portfolio/">viccurzio.github.io/portfolio</a></span></p>
+  </header>
+
+  <section>
+    <h2>Resumen</h2>
+    <p class="summary">Tres años de experiencia, los últimos dos construyendo interfaces con React y TypeScript en producción. Trabajo el front contra APIs REST que también escribo, así que discuto el contrato de datos antes de que el problema llegue a la pantalla. En Grupo DELSUD fui referente técnico de un equipo de 5 personas y llevé a producción un sistema de gestión completo; en paralelo soy líder técnico de una red profesional B2B como freelance, donde también construyo el front y el sistema de diseño.</p>
+  </section>
+
+  <section>
+    <h2>Experiencia</h2>
+    
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Grupo DELSUD</h3>
+          <p class="meta">Ene 2026 — Actualidad<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.</li><li>Construí de punta a punta el Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes): las pantallas en React sobre Material UI y Sass, y la API que las alimenta.</li><li>Interfaces contra APIs REST propias: al escribir los dos lados, definía el contrato de datos que la pantalla necesita en vez de acomodarme a uno ajeno.</li><li>Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.</li><li>Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.</li><li>Del lado del dato: conecté el CRM existente (Sequelize) con el nuevo sistema (Drizzle) con sincronización bidireccional, control de acceso por rol (RBAC) y corrección de race conditions en escrituras concurrentes.</li><li>Hoy, en el SGD, el sistema interno del grupo, desarrollo con React 19 el ERP de Direcciones y el tablero de tareas de Producto y Tecnología (micro-frontends embebidos por iframe, comunicados por postMessage), tomando los reportes de QA hasta cerrarlos verificados en la app.</li></ul>
+        <p class="stack"><strong>Stack:</strong> React · Next.js · TypeScript · Material UI · Sass · Node.js · Express.js · PostgreSQL · MySQL · Socket.io</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack y Líder Técnico (Freelance)<span class="at"> — </span>2winGs International Group LLC</h3>
+          <p class="meta">Ago 2026 — Actualidad<span class="sep">·</span>Remoto</p>
+        </header>
+        <ul><li>Front en React + Vite + TypeScript con Tailwind: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña) con todas sus pantallas.</li><li>Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.</li><li>Despliegue del front estático en Cloudflare Pages, con el build siempre fuera de la máquina de producción.</li><li>Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado antes de escribir código.</li><li>Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.</li></ul>
+        <p class="stack"><strong>Stack:</strong> React · Vite · TypeScript · Tailwind CSS · NestJS · Fastify · PostgreSQL · Drizzle · Redis · Cloudflare Pages</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Cognitive Link — Consulting &amp; IT Solutions</h3>
+          <p class="meta">Mar 2025 — May 2026<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica) con Next.js 14, TypeScript y Tailwind CSS, con aislamiento de datos por cliente y control de acceso por roles.</li><li>Integraciones de cara al usuario: SDK de Mercado Pago para los pagos y API de Google Calendar (OAuth 2.0) para la gestión automática de turnos.</li><li>Tareas programadas para el envío automático de notificaciones y recordatorios, y despliegue continuo en Vercel gestionado de forma autónoma.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js 14 · Node.js · TypeScript · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack (Freelance)<span class="at"> — </span>Cicaré</h3>
+          <p class="meta">Mar 2025 — Ago 2025<span class="sep">·</span>Saladillo, Argentina</p>
+        </header>
+        <ul><li>Plataforma de documentación técnica con Next.js y Tailwind CSS: estructura jerárquica de contenidos con filtros de búsqueda avanzados y personalizables.</li><li>Mejoras de interfaz orientadas a una navegación más eficiente sobre un volumen grande de documentos, y automatización de las notificaciones clave.</li><li>Autenticación, permisos y flujos de aprobación administrativa sobre información confidencial.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js · Node.js · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Felanix Construcciones</h3>
+          <p class="meta">Sep 2023 — Sep 2024<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.</li><li>Desarrollo de la lógica de negocio central y de las vistas del sistema, trabajando con Scrum para la coordinación de tiempos y requisitos.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Ruby on Rails · Active Record · PostgreSQL · Docker · JavaScript · Bootstrap</p>
+      </article>
+  </section>
+
+  <section>
+    <h2>Formación</h2>
+    <p class="edu"><strong>Licenciatura en Sistemas</strong> — Universidad Nacional de La Plata (UNLP)<span class="sep">·</span>Dic 2023 — Actualidad</p>
+    <h4 class="courses-title">Cursos</h4>
+    <ul class="courses"><li>Carrera Desarrollo Front-end React — Coderhouse (Feb.–Jul. 2023)</li><li>Bootcamp POO JAVA — Alkemy (Abr. 2024)</li><li>Administración de Servidores GNU/Linux (Seguridad) — Min. Educación BA (Dic. 2023)</li><li>Administración de Base de Datos (MySQL) — Min. Educación BA (Nov. 2023)</li><li>Curso Profesional Ruby on Rails — Código Facilito (Nov. 2023)</li><li>Git y GitHub — Alura Latam (Abr. 2023)</li></ul>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4>Front-end</h4>
+        <p>React · Next.js · TypeScript · JavaScript · Tailwind CSS · Material UI · Sass · Bootstrap · PWA</p>
+      </div>
+      <div class="skill-group">
+        <h4>Integración y trabajo en equipo</h4>
+        <p>APIs REST · Git · GitHub · Postman · Vitest · Scrum</p>
+      </div>
+      <div class="skill-group">
+        <h4>Back-end</h4>
+        <p>Node.js · Express.js · NestJS · Ruby on Rails · Python</p>
+      </div>
+      <div class="skill-group">
+        <h4>Bases de datos</h4>
+        <p>PostgreSQL · MySQL · SQLite · Redis · Supabase</p>
+      </div>
+      <div class="skill-group">
+        <h4>Arquitectura</h4>
+        <p>Dual-DB · RBAC · Migraciones · Clean Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Infraestructura</h4>
+        <p>Docker · PM2 · Vercel · Cloudflare Pages · Amazon S3 · Cloudflare R2</p>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>Idiomas</h2>
+    <p class="langs"><strong>Español</strong> — Nativo<span class="sep">·</span><strong>Inglés</strong> — Intermedio (B1) — lectura y escritura técnica a diario</p>
+  </section>
+
+  <section>
+    <h2>Competencias</h2>
+    <p class="langs">Pensamiento analítico<span class="sep">·</span>Comunicación clara<span class="sep">·</span>Trabajo en equipo<span class="sep">·</span>Adaptabilidad<span class="sep">·</span>Iniciativa</p>
+  </section>
+</body>
+</html>

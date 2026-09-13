@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { profile } from "@/content/portfolio";
 import { HERO, SCARF } from "./pixelArt";
 import { PixelSprite } from "./PixelSprite";
 import { Skyline, Tower } from "./Skyline";
@@ -16,6 +15,13 @@ const TITLE_MS = 2600;
 const FADE_MS = 500;
 
 export const PLAY_INTRO_EVENT = "portfolio:play-intro";
+
+// Ya corrio en este documento. Es una variable de modulo y no algo guardado:
+// se reinicia sola cuando el navegador carga la pagina de nuevo -- que es
+// cuando queremos que vuelva a correr -- y sobrevive a las transiciones de
+// cliente, como el cambio de idioma, que es cuando no. El boton del nav la
+// ignora: ese pide la intro a proposito.
+let yaCorrio = false;
 
 type Phase = "city" | "tower" | "title" | "out" | null;
 
@@ -40,7 +46,23 @@ const STARS = [
   [73, 55, 1.3],
 ] as const;
 
-export function OpeningIntro() {
+export type IntroText = {
+  ariaLabel: string;
+  kicker: string;
+  press: string;
+  skip: string;
+};
+
+type OpeningIntroProps = {
+  name: string;
+  role: string;
+  place: string;
+  text: IntroText;
+};
+
+// Los textos llegan por props: este componente corre en el navegador, y con un
+// import se llevaria el contenido de los dos idiomas al bundle.
+export function OpeningIntro({ name, role, place, text }: OpeningIntroProps) {
   const [phase, setPhase] = useState<Phase>(null);
   const timers = useRef<number[]>([]);
 
@@ -70,7 +92,9 @@ export function OpeningIntro() {
     const quiet = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     // El arranque va en un timer y no directo: pintar el primer cuadro y
     // recien despues cambiar de estado evita el render en cascada.
-    const boot = quiet ? undefined : window.setTimeout(start, 0);
+    const salta = quiet || yaCorrio;
+    if (!salta) yaCorrio = true;
+    const boot = salta ? undefined : window.setTimeout(start, 0);
     window.addEventListener(PLAY_INTRO_EVENT, start);
     return () => {
       if (boot) window.clearTimeout(boot);
@@ -97,7 +121,7 @@ export function OpeningIntro() {
       data-phase={phase}
       role="dialog"
       aria-modal="true"
-      aria-label="Intro del sitio"
+      aria-label={text.ariaLabel}
     >
       {phase === "city" ? (
         <div className="intro__scene intro__city">
@@ -111,10 +135,10 @@ export function OpeningIntro() {
           </div>
           <Skyline className="intro__skyline" />
           <div className="intro__credits">
-            <p className="intro__credits-kicker">Un sitio de</p>
-            <p className="intro__credits-name">{profile.shortName}</p>
-            <p className="intro__credits-role">{profile.title}</p>
-            <p className="intro__credits-place">{profile.location}</p>
+            <p className="intro__credits-kicker">{text.kicker}</p>
+            <p className="intro__credits-name">{name}</p>
+            <p className="intro__credits-role">{role}</p>
+            <p className="intro__credits-place">{place}</p>
           </div>
         </div>
       ) : null}
@@ -138,15 +162,15 @@ export function OpeningIntro() {
             <span>Victor R.</span>
             <span className="intro__logo-strong">Curzio</span>
           </h2>
-          <p className="intro__logo-sub">{profile.title}</p>
-          <p className="intro__press">Press Start</p>
+          <p className="intro__logo-sub">{role}</p>
+          <p className="intro__press">{text.press}</p>
         </div>
       ) : null}
 
       <div className="intro__scanlines" aria-hidden="true" />
 
       <button type="button" className="intro__skip" onClick={finish}>
-        Saltar intro
+        {text.skip}
       </button>
     </div>
   );

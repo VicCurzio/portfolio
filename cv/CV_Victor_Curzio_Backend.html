@@ -51,14 +51,14 @@
 <body>
   <header class="top">
     <h1>Victor Roberto Curzio</h1>
-    <p class="role">Desarrollador Full-Stack<span class="sep">·</span>Arquitectura de Software</p>
+    <p class="role">Desarrollador Backend<span class="sep">·</span>Node.js · TypeScript · Arquitectura</p>
     <p class="contact"><span class="item">La Plata, Argentina</span><span class="sep">·</span><span class="item"><a href="mailto:victor.curzio@hotmail.com">victor.curzio@hotmail.com</a></span><span class="sep">·</span><span class="item">+54 221 542 4585</span></p>
     <p class="contact"><span class="item"><a href="https://linkedin.com/in/victor-roberto-curzio/">linkedin.com/in/victor-roberto-curzio</a></span><span class="sep">·</span><span class="item"><a href="https://github.com/VicCurzio">github.com/VicCurzio</a></span><span class="sep">·</span><span class="item"><a href="https://viccurzio.github.io/portfolio/">viccurzio.github.io/portfolio</a></span></p>
   </header>
 
   <section>
     <h2>Resumen</h2>
-    <p class="summary">Foco en arquitectura de software e integridad de datos. En Grupo DELSUD fui referente técnico de un equipo de 5 personas: diseñé desde cero un sistema de gestión administrativo-contable, lo conecté con un CRM existente mediante una arquitectura dual-DB y lo llevé a producción. En paralelo, líder técnico de 2winGs, una plataforma B2B de talento que construyo de punta a punta: arquitectura, infraestructura, seguridad y diseño.</p>
+    <p class="summary">Tres años de experiencia construyendo APIs y sistemas de datos en producción con Node.js y TypeScript, con foco en arquitectura e integridad de datos. En Grupo DELSUD fui referente técnico de un equipo de 5 personas y llevé a producción un sistema de gestión administrativo-contable conectado a un CRM existente mediante una arquitectura dual-DB. En paralelo, líder técnico de 2winGs, una plataforma B2B que construyo de punta a punta: API, infraestructura y seguridad.</p>
   </section>
 
   <section>
@@ -69,16 +69,16 @@
           <h3>Desarrollador Full-Stack<span class="at"> — </span>Grupo DELSUD</h3>
           <p class="meta">Ene 2026 — Actualidad<span class="sep">·</span>La Plata, Argentina</p>
         </header>
-        <ul><li>Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.</li><li>Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).</li><li>Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.</li><li>Saneé el código heredado del CRM para reutilizarlo en un producto nuevo: estructura de carpetas, variables de entorno, consultas SQL, dependencias y código muerto.</li><li>Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo los endpoints según el perfil de usuario.</li><li>Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.</li><li>Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.</li><li>Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.</li><li>Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.</li><li>Ahí desarrollo el ERP de Direcciones y el tablero de tareas de Producto y Tecnología (React 19, micro-frontends embebidos por iframe con postMessage), tomando reportes de QA hasta cerrarlos verificados en la app.</li></ul>
-        <p class="stack"><strong>Stack:</strong> TypeScript · Node.js · Express.js · React · Next.js · MySQL · PostgreSQL · Sequelize · Drizzle · Socket.io · Sass · Material UI · Amazon S3</p>
+        <ul><li>Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.</li><li>Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).</li><li>Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.</li><li>Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.</li><li>Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo los endpoints según el perfil de usuario.</li><li>Saneé el código heredado del CRM para reutilizarlo en un producto nuevo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno, dependencias sin uso y código muerto.</li><li>Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.</li><li>Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Node.js · TypeScript · Express.js · MySQL · PostgreSQL · Sequelize · Drizzle · Socket.io · Amazon S3 · React</p>
       </article>
       <article class="job">
         <header>
           <h3>Desarrollador Full-Stack y Líder Técnico (Freelance)<span class="at"> — </span>2winGs International Group LLC</h3>
           <p class="meta">Ago 2026 — Actualidad<span class="sep">·</span>Remoto</p>
         </header>
-        <ul><li>Diseño de la arquitectura y del orden de construcción de una red profesional B2B de talento creativo, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.</li><li>Primera etapa entregada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas.</li><li>Infraestructura y despliegue definidos de punta a punta: front estático en Cloudflare Pages, API y trabajos en segundo plano en un servidor propio bajo PM2, y el build siempre fuera de la máquina de producción.</li><li>Seguridad: archivos privados con URLs firmadas de vida corta, acceso al CV del profesional restringido al equipo de validación, e identificador de operación en toda escritura para que un reintento no duplique el efecto.</li><li>Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.</li><li>Sistema de reputación y gamificación configurable en base de datos (planes, precios, límites, permisos y pesos del índice), sin valores fijos en el código.</li><li>Sistema de diseño del front: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.</li><li>Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.</li><li>Análisis técnico y regulatorio previo de la custodia de fondos prevista en el roadmap: por qué se resuelve apoyándose en un procesador licenciado y por qué el dinero se modela como asientos que no se editan desde el primer esquema, aunque el módulo llegue después.</li></ul>
-        <p class="stack"><strong>Stack:</strong> TypeScript · NestJS · Fastify · PostgreSQL · Drizzle · Redis · BullMQ · React · Vite · Tailwind CSS · Cloudflare Pages · Cloudflare R2 · PM2</p>
+        <ul><li>Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.</li><li>API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña).</li><li>Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.</li><li>Seguridad: archivos privados con URLs firmadas de vida corta, e identificador de operación en toda escritura para que un reintento no duplique el efecto.</li><li>Planes, precios, límites, permisos y pesos del índice de reputación viven en base de datos, sin valores fijos en el código.</li><li>Infraestructura: API y worker en un servidor propio bajo PM2, front estático en Cloudflare Pages y el build siempre fuera de la máquina de producción.</li><li>Análisis técnico y regulatorio de la custodia de fondos del roadmap: se resuelve sobre un procesador licenciado y el dinero se modela como asientos que no se editan desde el primer esquema.</li></ul>
+        <p class="stack"><strong>Stack:</strong> TypeScript · NestJS · Fastify · PostgreSQL · Drizzle · Redis · BullMQ · Cloudflare R2 · PM2 · React</p>
       </article>
       <article class="job">
         <header>
@@ -110,19 +110,15 @@
     <h2>Formación</h2>
     <p class="edu"><strong>Licenciatura en Sistemas</strong> — Universidad Nacional de La Plata (UNLP)<span class="sep">·</span>Dic 2023 — Actualidad</p>
     <h4 class="courses-title">Cursos</h4>
-    <ul class="courses"><li>Bootcamp POO JAVA — Alkemy (Abr. 2024)</li><li>Administración de Servidores GNU/Linux (Seguridad) — Min. Educación BA (Dic. 2023)</li><li>Administración de Base de Datos (MySQL) — Min. Educación BA (Nov. 2023)</li><li>Curso Profesional Ruby on Rails — Código Facilito (Nov. 2023)</li><li>Carrera Desarrollo Front-end React — Coderhouse (Feb.–Jul. 2023)</li><li>Git y GitHub — Alura Latam (Abr. 2023)</li></ul>
+    <ul class="courses"><li>Administración de Base de Datos (MySQL) — Min. Educación BA (Nov. 2023)</li><li>Administración de Servidores GNU/Linux (Seguridad) — Min. Educación BA (Dic. 2023)</li><li>Curso Profesional Ruby on Rails — Código Facilito (Nov. 2023)</li><li>Bootcamp POO JAVA — Alkemy (Abr. 2024)</li><li>Carrera Desarrollo Front-end React — Coderhouse (Feb.–Jul. 2023)</li><li>Git y GitHub — Alura Latam (Abr. 2023)</li></ul>
   </section>
 
   <section>
     <h2>Habilidades</h2>
     <div class="skills">
       <div class="skill-group">
-        <h4>Front-end</h4>
-        <p>Next.js · React · JavaScript · Tailwind CSS · Material UI · Sass · Bootstrap · PWA</p>
-      </div>
-      <div class="skill-group">
         <h4>Back-end</h4>
-        <p>Node.js · Express.js · NestJS · TypeScript · Ruby on Rails · Python</p>
+        <p>Node.js · TypeScript · Express.js · NestJS · Fastify · Ruby on Rails · Python</p>
       </div>
       <div class="skill-group">
         <h4>Bases de datos</h4>
@@ -130,11 +126,15 @@
       </div>
       <div class="skill-group">
         <h4>Arquitectura</h4>
-        <p>Dual-DB · RBAC · Migraciones · Clean Code</p>
+        <p>Dual-DB · APIs REST · Microservicios · RBAC · Migraciones · Clean Code</p>
       </div>
       <div class="skill-group">
         <h4>Infraestructura</h4>
-        <p>Docker · PM2 · Vercel · Cloudflare Pages · Amazon S3 · Cloudflare R2</p>
+        <p>Docker · PM2 · BullMQ · Vercel · Cloudflare Pages · Amazon S3 · Cloudflare R2</p>
+      </div>
+      <div class="skill-group">
+        <h4>Front-end</h4>
+        <p>React · Next.js · Tailwind CSS · Material UI</p>
       </div>
       <div class="skill-group">
         <h4>Herramientas</h4>

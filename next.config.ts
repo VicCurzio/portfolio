@@ -9,6 +9,11 @@ const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 const nextConfig: NextConfig = {
   output: "export",
   basePath,
+  // Cada ruta se exporta como carpeta con su index.html (/en/index.html) en vez
+  // de un archivo suelto (/en.html). GitHub Pages sirve archivos, no rutas: sin
+  // esto, /portfolio/en/ -- el link que publica el sitio y el que declara el
+  // sitemap -- no existe como archivo y da 404.
+  trailingSlash: true,
   images: { unoptimized: true },
   // next/link y next/image agregan el prefijo solos; un <a> o un <img> crudo no.
   // Esta variable es la que usa asset() en src/content/site.ts para esos casos.
