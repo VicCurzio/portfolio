@@ -26,7 +26,7 @@ ofrece para descargar.
 
 | | |
 |---|---|
-| Node | 20 o superior para el sitio; **22.6 o superior** para los scripts que generan archivos |
+| Node | 22.6 o superior (la misma versión mayor que usa la publicación) |
 | Chrome o Edge | para generar los CV y la imagen para compartir |
 | Base de datos | no usa |
 | Servicios externos | ninguno: no hay variables de entorno |

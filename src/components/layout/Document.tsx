@@ -57,6 +57,8 @@ export function buildMetadata(lang: Lang): Metadata {
     metadataBase: new URL(siteUrl),
     title: ui.meta.title,
     description: ui.meta.description,
+    // Lo lee LinkedIn (y cualquier lector de metadatos) como autor de la pagina.
+    authors: [{ name: profile.name, url: siteUrl }],
     alternates: {
       canonical: langPath[lang],
       languages: { ...languageAlternates, "x-default": langPath.es },

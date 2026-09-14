@@ -48,6 +48,7 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 - El inicio muestra un resumen de dos frases; el CV sigue con el completo.
 - README reescrito contra el estado real del proyecto: qué tiene, requisitos (los scripts que generan archivos piden Node 22.6), archivos generados, cómo actualizar el contenido con sus traducciones y las decisiones técnicas al día.
 - Los datos para buscadores suman el perfil de GitHub.
+- La página declara su autor, que LinkedIn marcaba como faltante al inspeccionar el link.
 - Los botones muestran un contorno marcado al recibir el foco con el teclado; el anillo por defecto casi no se veía en el tema oscuro.
 - Datos al día contra el estado real de cada proyecto: la tarjeta del portfolio describía el sitio de antes del estilo de 8 bits; 2winGs ya tiene el panel y la API desplegados, no solo definidos; CV Match pasó de 282 a más de 300 tests y suma pruebas de punta a punta.
 - La ayuda de la selección de proyectos dice "Tocá un proyecto" en pantallas táctiles, donde no hay flechas ni Enter.
@@ -55,6 +56,7 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 
 ### Arreglado
 
+- GitHub avisaba en cada publicación que las acciones del workflow estaban hechas para Node 20, que ya no tiene soporte. Se actualizaron a las versiones que corren en Node 24 (`checkout` y `setup-node` v7, `upload-pages-artifact` v5), y el build pasa de Node 20 a 22.
 - Se quitó el script `npm run start`: con el sitio exportado como estático, `next start` no funciona.
 - La configuración local de Claude Code (`.claude/`) ya no se versiona, y `AGENTS.md` quedó solo con las reglas del proyecto.
 - En el tema claro, la selección de proyectos y el diálogo seguían negros, y bordes y sombras usaban el azul del tema oscuro.
