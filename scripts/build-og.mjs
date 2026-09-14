@@ -2,7 +2,7 @@
 // del sitio (Open Graph), una por idioma, a partir del mismo contenido y del
 // mismo pixel art del sitio.
 //
-//   npm run og   ->   public/og.png y public/og-en.png  (1200 x 630)
+//   npm run og   ->   public/og-es.png y public/og-en.png  (1200 x 630)
 //
 // Arma un HTML con el cartel y lo fotografia con Chrome o Edge headless, igual
 // que el CV: sin dependencias nuevas. Las fuentes salen de Google Fonts, asi que
@@ -45,7 +45,7 @@ function sprite(map) {
 }
 
 const COPY = {
-  es: { title: profile.title, line: "Arquitectura de software · Node.js · TypeScript · React", file: "og.png" },
+  es: { title: profile.title, line: "Arquitectura de software · Node.js · TypeScript · React", file: "og-es.png" },
   en: { title: profileText.title, line: "Software architecture · Node.js · TypeScript · React", file: "og-en.png" },
 };
 

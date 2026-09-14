@@ -41,8 +41,12 @@ export function buildMetadata(lang: Lang): Metadata {
   const { profile, ui } = getContent(lang);
   // La imagen la genera `npm run og`. Va con URL absoluta: metadataBase tiene
   // el subdirectorio /portfolio, y una ruta que empieza con / lo perderia.
+  //
+  // LinkedIn guarda su propia copia de la imagen y no la vuelve a bajar aunque
+  // el archivo cambie. Si una vista previa queda mal, lo que la arregla es
+  // publicar la imagen con otro nombre (asi paso con og.png -> og-es.png).
   const image = {
-    url: `${siteUrl}/${lang === "en" ? "og-en" : "og"}.png`,
+    url: `${siteUrl}/og-${lang}.png`,
     width: 1200,
     height: 630,
     alt: ui.meta.title,
