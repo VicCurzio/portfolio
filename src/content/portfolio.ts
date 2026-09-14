@@ -3,6 +3,10 @@ export const profile = {
   shortName: "Victor R. Curzio",
   title: "Desarrollador Full-Stack",
   subtitle: "Arquitectura de Software",
+  // `intro` es lo que dice el inicio del sitio: dos frases. `tagline` es el
+  // resumen completo y lo usa el CV.
+  intro:
+    "Arquitectura de software e integridad de datos. Llevé a producción un sistema de gestión en Grupo DELSUD y hoy soy líder técnico de 2winGs.",
   tagline:
     "Foco en arquitectura de software e integridad de datos. En Grupo DELSUD fui referente técnico de un equipo de 5 personas: diseñé desde cero un sistema de gestión administrativo-contable, lo conecté con un CRM existente mediante una arquitectura dual-DB y lo llevé a producción. En paralelo, líder técnico de 2winGs, una plataforma B2B de talento que construyo de punta a punta: arquitectura, infraestructura, seguridad y diseño.",
   location: "La Plata, Argentina",
@@ -74,7 +78,7 @@ export const experience = [
     highlights: [
       "Diseño de la arquitectura y del orden de construcción de una red profesional B2B de talento creativo, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.",
       "Primera etapa entregada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas.",
-      "Infraestructura y despliegue definidos de punta a punta: front estático en Cloudflare Pages, API y trabajos en segundo plano en un servidor propio bajo PM2, y el build siempre fuera de la máquina de producción.",
+      "Infraestructura y despliegue automático de punta a punta: panel publicado en Cloudflare Pages y API en producción en un servidor propio bajo PM2, con el build siempre fuera de la máquina de producción.",
       "Seguridad: archivos privados con URLs firmadas de vida corta, acceso al CV del profesional restringido al equipo de validación, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
       "Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.",
       "Sistema de reputación y gamificación configurable en base de datos (planes, precios, límites, permisos y pesos del índice), sin valores fijos en el código.",

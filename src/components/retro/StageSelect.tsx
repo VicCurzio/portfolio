@@ -46,6 +46,7 @@ export type StageText = {
   title: string;
   groupLabel: string;
   hint: string;
+  hintTouch: string;
 };
 
 function scrollTo(id: string) {
@@ -258,7 +259,10 @@ export function StageSelect({ items, text, center: portrait }: StageSelectProps)
         </span>
       </div>
 
-      <p className="stage__hint">{text.hint}</p>
+      <p className="stage__hint">
+        <span className="stage__hint-keys">{text.hint}</span>
+        <span className="stage__hint-touch">{text.hintTouch}</span>
+      </p>
     </div>
   );
 }

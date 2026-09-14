@@ -28,6 +28,8 @@ export const profileText = {
   subtitle: "Software Architecture",
   // Lo genera `npm run cv -- en` y lo copia a public/, igual que el de espanol.
   cv: "/CV_Victor_Curzio_EN.pdf",
+  intro:
+    "Software architecture and data integrity. I took a management system to production at Grupo DELSUD and I am now tech lead at 2winGs.",
   tagline:
     "Focused on software architecture and data integrity. At Grupo DELSUD I was the technical reference for a team of 5: I designed an administrative and accounting management system from scratch, connected it to an existing CRM through a dual-database architecture and took it to production. In parallel, tech lead of 2winGs, a B2B talent platform I build end to end: architecture, infrastructure, security and design.",
 };
@@ -57,7 +59,7 @@ export const experienceText: Record<Company, JobText> = {
     highlights: [
       "Design of the architecture and of the build order of a B2B professional network for creative talent, from the data model to the API contract, written down as technical decisions before any code.",
       "First stage delivered end to end: sign-up, sign-in, email verification and password recovery, with their screens.",
-      "Infrastructure and deployment defined end to end: static front on Cloudflare Pages, API and background jobs on a dedicated server under PM2, and the build always outside the production machine.",
+      "Infrastructure and automated deployment end to end: the dashboard published on Cloudflare Pages and the API live on a dedicated server under PM2, with the build always outside the production machine.",
       "Security: private files behind short-lived signed URLs, the professional's CV restricted to the validation team, and an operation id on every write so a retry cannot duplicate its effect.",
       "Privacy rules enforced in the data layer instead of the interface: a company reaches a full profile only for someone who applied to its opening.",
       "Reputation and gamification system configurable in the database (plans, prices, limits, permissions and index weights), with no hard-coded values.",

@@ -3,6 +3,7 @@ import type { Lang } from "@/content/i18n";
 import { asset } from "@/content/site";
 import { HERO } from "@/components/retro/pixelArt";
 import { PixelSprite } from "@/components/retro/PixelSprite";
+import { EmailLink } from "./EmailLink";
 
 export function Hero({ lang }: { lang: Lang }) {
   const { profile, ui } = getContent(lang);
@@ -33,12 +34,10 @@ export function Hero({ lang }: { lang: Lang }) {
             </h1>
 
             <p className="r-hero__role">{profile.title}</p>
-            <p className="r-hero__tagline">{profile.tagline}</p>
+            <p className="r-hero__tagline">{profile.intro}</p>
 
             <div className="r-actions">
-              <a href={`mailto:${profile.email}`} className="r-btn">
-                {t.write}
-              </a>
+              <EmailLink email={profile.email} label={t.write} copiedText={t.copied} className="r-btn" />
               <a
                 href={asset(profile.cv)}
                 target="_blank"

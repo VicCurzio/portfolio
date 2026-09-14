@@ -1,4 +1,5 @@
 import { getContent } from "@/content/content";
+import { EmailLink } from "./EmailLink";
 import type { Lang } from "@/content/i18n";
 import { asset } from "@/content/site";
 
@@ -20,10 +21,13 @@ export function ContactFooter({ lang }: { lang: Lang }) {
         {/* Menu de seleccion: una opcion por linea, con el cursor a la izquierda
             de la que estas apuntando. */}
         <nav className="r-menu" aria-label={t.ariaLabel}>
-          <a className="r-menu__item" href={`mailto:${profile.email}`}>
-            {t.email}
-            <span className="r-menu__value">{profile.email}</span>
-          </a>
+          <EmailLink
+            className="r-menu__item"
+            email={profile.email}
+            label={t.email}
+            value={profile.email}
+            copiedText={ui.hero.copied}
+          />
           <a
             className="r-menu__item"
             href={profile.linkedin}

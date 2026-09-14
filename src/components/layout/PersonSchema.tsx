@@ -18,7 +18,7 @@ export function PersonSchema({ lang }: { lang: Lang }) {
     jobTitle: profile.title,
     email: `mailto:${profile.email}`,
     url: siteUrl,
-    sameAs: [profile.linkedin],
+    sameAs: [profile.linkedin, profile.github],
     address: {
       "@type": "PostalAddress",
       addressLocality: "La Plata",

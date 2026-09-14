@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vista previa local del export (README)
+/preview
+
+# configuracion local de Claude Code (personal, no del proyecto)
+/.claude/

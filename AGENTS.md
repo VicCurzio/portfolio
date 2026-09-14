@@ -4,26 +4,13 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-## Estilo de trabajo
-
-Priorizá el bajo consumo de tokens. Hacé el cambio pedido y nada más — no corras
-tests, no levantes el server, no verifiques en browser salvo que se pida
-explícitamente. Eso lo prueba el autor.
-
-Nunca uses emojis (ni en código, comentarios, notas o commits). No agregues
-líneas de co-autoría en los commits.
-
 ## Estándares del repo
 
-Piso mínimo y entrega, definidos en el vault:
-
-- `Templates\Repo-Standards.md` — README de cinco minutos, `.env.example` con
-  validación al arrancar, verificación automática antes de que el código entre,
-  logs útiles, fechas en UTC.
-- `Templates\Release-and-Changelog.md` — Conventional Commits, versión
-  semántica con etiqueta de git, `CHANGELOG.md` escrito para quien lo usa.
+- README que deja el proyecto andando en cinco minutos.
+- Verificación automática antes de publicar: lint y chequeo de tipos.
+- Versión semántica con etiqueta de git y `CHANGELOG.md` escrito para quien lo
+  lee, con los cambios bajo "Sin publicar" hasta cerrar la versión.
 
 Qué NO aplica acá y por qué: es un sitio estático sin backend ni variables de
 entorno, así que no van `/health`, identificador de pedido ni tabla de errores.
-Meter un patrón sin el problema que lo justifica es el error que la nota de
-kickoff manda evitar.
+Meter un patrón sin el problema que lo justifica solo agrega código que mantener.

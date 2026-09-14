@@ -61,7 +61,7 @@ const es = {
       highlights: [
         "Front en React + Vite + TypeScript con Tailwind: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña) con todas sus pantallas.",
         "Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.",
-        "Despliegue del front estático en Cloudflare Pages, con el build siempre fuera de la máquina de producción.",
+        "Front estático publicado en Cloudflare Pages con despliegue automático, y el build siempre fuera de la máquina de producción.",
         "Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado antes de escribir código.",
         "Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.",
       ],
@@ -147,7 +147,7 @@ const en = {
       highlights: [
         "Front end in React + Vite + TypeScript with Tailwind: first stage delivered end to end (sign-up, sign-in, email verification and password recovery) with all its screens.",
         "Own design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.",
-        "Static front end deployed on Cloudflare Pages, with the build always outside the production machine.",
+        "Static front end published on Cloudflare Pages with automated deployment, and the build always outside the production machine.",
         "Designed the architecture and build order of the product, from the data model to the API contract, written down before any code.",
         "Technical counterpart for the client: turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.",
       ],

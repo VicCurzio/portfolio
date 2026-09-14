@@ -39,6 +39,14 @@ const languageAlternates = Object.fromEntries(
 
 export function buildMetadata(lang: Lang): Metadata {
   const { profile, ui } = getContent(lang);
+  // La imagen la genera `npm run og`. Va con URL absoluta: metadataBase tiene
+  // el subdirectorio /portfolio, y una ruta que empieza con / lo perderia.
+  const image = {
+    url: `${siteUrl}/${lang === "en" ? "og-en" : "og"}.png`,
+    width: 1200,
+    height: 630,
+    alt: ui.meta.title,
+  };
   return {
     // Sin metadataBase, las URLs de las tarjetas para compartir quedan relativas y
     // el que las lee (WhatsApp, LinkedIn) no sabe resolverlas.
@@ -66,11 +74,13 @@ export function buildMetadata(lang: Lang): Metadata {
       siteName: profile.name,
       locale: ogLocale[lang],
       type: "website",
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: ui.meta.title,
       description: ui.meta.shortDescription,
+      images: [image.url],
     },
   };
 }

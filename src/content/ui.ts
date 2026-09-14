@@ -37,6 +37,7 @@ const es = {
     status: "Estado:",
     available: "Disponible",
     write: "Escribime",
+    copied: "Mail copiado",
     cv: "Descargar CV",
     github: "GitHub",
     scrollCue: "Bajá para empezar",
@@ -63,6 +64,7 @@ const es = {
       title: "Seleccionar proyecto",
       groupLabel: "Proyectos",
       hint: "Flechas para moverte, Enter para entrar. O tocá la celda.",
+      hintTouch: "Tocá un proyecto para verlo.",
     },
     kinds: {
       work: "Trabajo",
@@ -133,6 +135,7 @@ const en: Ui = {
     status: "Status:",
     available: "Available",
     write: "Email me",
+    copied: "Email copied",
     cv: "Download CV",
     github: "GitHub",
     scrollCue: "Scroll down to start",
@@ -159,6 +162,7 @@ const en: Ui = {
       title: "Select a project",
       groupLabel: "Projects",
       hint: "Arrow keys to move, Enter to select. Or tap a cell.",
+      hintTouch: "Tap a project to open it.",
     },
     kinds: {
       work: "Job",

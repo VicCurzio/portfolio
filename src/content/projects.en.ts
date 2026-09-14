@@ -55,7 +55,7 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "Design of the architecture and of the build order of the system, from the data model to the API contract.",
       "First stage finished end to end: sign-up, sign-in, email verification and password recovery, with their screens.",
       "Reputation (a 0 to 100 index) and gamification, separated by design: activity inside the platform never raises professional reputation.",
-      "Infrastructure and deployment: static front on Cloudflare Pages, API and background jobs on a dedicated server with PM2, user files in private storage.",
+      "Infrastructure and automated deployment: the dashboard published on Cloudflare Pages and the API live on a dedicated server with PM2; user files in private storage.",
       "Front-end design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.",
       "I turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.",
       "Upfront analysis of the fund custody the roadmap plans for: it is regulated activity, it is solved on top of a licensed processor, and it forces money to be modelled as entries that are never edited from the very first schema.",
@@ -101,7 +101,7 @@ export const projectsText: Record<ProjectName, ProjectText> = {
     how: [
       "Everything runs in the browser, with no server or database: the CV carries personal data and never leaves the user's machine.",
       "The PDF is generated with react-pdf as real text rather than an image, so an applicant tracking system can read it.",
-      "Data is validated with zod, and the rule engine and the rest of the domain are covered by 282 tests with Vitest.",
+      "Data is validated with zod; the domain is covered by more than 300 tests with Vitest, and end-to-end tests with Playwright stop the release if they fail.",
       "Each version per application is a layer on top of the base CV: it inherits the facts and only changes how they are told.",
     ],
   },
@@ -159,14 +159,16 @@ export const projectsText: Record<ProjectName, ProjectText> = {
   Portfolio: {
     period: "2026",
     summary:
-      "The site you are reading: a single page with experience, projects, stack, education and contact.",
+      "The site you are reading, styled like an 8-bit console: experience, projects, stack, education and contact, in Spanish and English.",
     did: [
-      "Full design and development, from the palette to the section structure.",
-      "Content separated from the code: updating the site means editing data, not JSX.",
+      "Full design and development: animated intro, project select screen with a dialogue box, and original pixel art.",
+      "Two languages and light and dark themes, with text contrast measured in both.",
+      "Content separated from the code: the site, the six PDF CVs and the share image all come from the same data.",
     ],
     how: [
-      "Next.js with the App Router and static output, so it loads instantly and stays indexable.",
-      "Tailwind CSS 4 with colour tokens defined in CSS, and variable fonts loaded through next/font.",
+      "Next.js with the App Router and static output, published on GitHub Pages after lint and type checks pass.",
+      "Translations are tables typed against the Spanish content: an untranslated entry does not compile.",
+      "The CVs and the image are generated with headless Chrome, without adding dependencies to the project.",
     ],
   },
 };
