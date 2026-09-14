@@ -1365,6 +1365,26 @@
   padding: 0 clamp(1rem, 3vw, 1.4rem) clamp(1.2rem, 3vw, 1.6rem);
 }
 
+/* Carátula del proyecto: la primera pantalla del sistema enmarcada como una
+   ventana más. La captura es de alta resolución, no pixel art: se escala suave. */
+.r-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  margin-top: 1.2rem;
+  border: var(--edge) solid var(--c-edge);
+  box-shadow: 6px 6px 0 var(--c-drop);
+  background: var(--c-panel-2);
+}
+
+.r-shot--sm {
+  max-width: 20rem;
+  margin: 0 0 0.6rem;
+  border-width: 2px;
+  box-shadow: 4px 4px 0 var(--c-drop);
+}
+
 /* El primer bloque del cuerpo no necesita separarse del titulo: ya hay linea. */
 .r-proj__body > .r-panel__text {
   margin-top: 1.2rem;

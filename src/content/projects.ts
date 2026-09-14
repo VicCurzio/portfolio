@@ -17,11 +17,14 @@ export type Project = {
   stack: readonly string[];
   links?: readonly ProjectLink[];
   repoNote?: string;
+  // Carátula: captura de la primera pantalla (inicio o login), en public/projects/.
+  image?: string;
 };
 
 export const projects = [
   {
     name: "Desarrollos Del Sud",
+    image: "/projects/desarrollos-del-sud.webp",
     kind: "work",
     period: "Grupo DELSUD · Ene — Ago 2026 · 5 repos · Entregado",
     summary:
@@ -57,6 +60,7 @@ export const projects = [
   },
   {
     name: "2winGs",
+    image: "/projects/2wings.webp",
     kind: "freelance",
     period: "2026 — En desarrollo",
     summary:
@@ -97,6 +101,7 @@ export const projects = [
   },
   {
     name: "Dial Sport",
+    image: "/projects/dial-sport.webp",
     kind: "product",
     period: "2026 — En desarrollo",
     summary:
@@ -127,6 +132,7 @@ export const projects = [
   },
   {
     name: "CV Match",
+    image: "/projects/cv-match.webp",
     kind: "product",
     period: "2026 · Online",
     summary:
@@ -151,6 +157,7 @@ export const projects = [
   },
   {
     name: "Musik",
+    image: "/projects/musik.webp",
     kind: "product",
     period: "2026 · Online",
     summary:
@@ -189,6 +196,7 @@ export const projects = [
   },
   {
     name: "Plagas Out",
+    image: "/projects/plagas-out.webp",
     kind: "freelance",
     period: "2026",
     summary: "Sitio de un servicio de control de plagas, con formulario de contacto que envía mails reales sin backend propio.",
@@ -205,6 +213,7 @@ export const projects = [
   },
   {
     name: "Bot de WhatsApp",
+    image: "/projects/bot-de-whatsapp.webp",
     kind: "tool",
     period: "2025",
     summary: "Herramienta de escritorio para enviar un mensaje de WhatsApp a una lista de contactos cargada desde un Excel.",
@@ -224,6 +233,7 @@ export const projects = [
   },
   {
     name: "Portfolio",
+    image: "/projects/portfolio.webp",
     kind: "product",
     period: "2026",
     summary: "El sitio que estás leyendo, con el estilo de una consola de 8 bits: experiencia, proyectos, stack, formación y contacto, en español e inglés.",
@@ -248,11 +258,13 @@ export type OtherRepo = {
   status: string;
   description: string;
   url?: string;
+  image?: string;
 };
 
 export const otherRepos = [
   {
     name: "SGD — Grupo DELSUD",
+    image: "/projects/sgd.webp",
     role: "Colaborador",
     status: "En desarrollo",
     description:
@@ -260,6 +272,7 @@ export const otherRepos = [
   },
   {
     name: "Sistema Asclepio",
+    image: "/projects/sistema-asclepio.webp",
     role: "Colaborador",
     status: "Repositorio del equipo",
     description:
@@ -267,6 +280,7 @@ export const otherRepos = [
   },
   {
     name: "Sistema Inari",
+    image: "/projects/sistema-inari.webp",
     role: "Colaborador",
     status: "Repositorio del equipo",
     description:
@@ -288,6 +302,7 @@ export const otherRepos = [
   },
   {
     name: "Cicaré",
+    image: "/projects/cicare.webp",
     role: "Freelance",
     status: "Retomado en 2026",
     description:
@@ -295,6 +310,7 @@ export const otherRepos = [
   },
   {
     name: "Dashboard Financiero",
+    image: "/projects/dashboard-financiero.webp",
     role: "Prueba técnica",
     status: "Backends en producción",
     description:
@@ -302,6 +318,7 @@ export const otherRepos = [
   },
   {
     name: "Landing Grupo DELSUD",
+    image: "/projects/landing-grupo-delsud.webp",
     role: "Prueba técnica",
     status: "Online",
     description:

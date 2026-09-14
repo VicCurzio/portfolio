@@ -60,6 +60,7 @@ const es = {
       "Proyectos de terceros en los que participé como colaborador, y trabajos que quedaron frenados.",
     code: "Código",
     privateRepo: "Repositorio privado",
+    coverAlt: "Primera pantalla de",
     stage: {
       title: "Seleccionar proyecto",
       groupLabel: "Proyectos",
@@ -158,6 +159,7 @@ const en: Ui = {
       "Third-party projects I contributed to, and work that was put on hold.",
     code: "Code",
     privateRepo: "Private repository",
+    coverAlt: "Opening screen of",
     stage: {
       title: "Select a project",
       groupLabel: "Projects",

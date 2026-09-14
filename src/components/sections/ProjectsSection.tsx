@@ -1,6 +1,8 @@
 import { getContent } from "@/content/content";
 import type { Lang } from "@/content/i18n";
 import { StageSelect } from "@/components/retro/StageSelect";
+import Image from "next/image";
+import { asset } from "@/content/site";
 
 export function ProjectsSection({ lang }: { lang: Lang }) {
   const { profile, projects, otherRepos, ui } = getContent(lang);
@@ -53,6 +55,18 @@ export function ProjectsSection({ lang }: { lang: Lang }) {
               </summary>
 
               <div className="r-proj__body">
+                {/* La carátula es la primera pantalla del sistema (inicio o login):
+                    muestra cómo se ve sin exponer datos de nadie. Carga diferida:
+                    en una tarjeta cerrada no se descarga. */}
+                {p.image ? (
+                  <Image
+                    className="r-shot"
+                    src={asset(p.image)}
+                    alt={`${t.coverAlt} ${p.name}`}
+                    width={960}
+                    height={600}
+                  />
+                ) : null}
                 <p className="r-panel__text">{p.summary}</p>
 
                 <p className="r-sublabel">{t.did}</p>
@@ -105,6 +119,15 @@ export function ProjectsSection({ lang }: { lang: Lang }) {
             <ul className="r-repos">
               {otherRepos.map((r) => (
                 <li key={r.name} className="r-repo">
+                  {r.image ? (
+                    <Image
+                      className="r-shot r-shot--sm"
+                      src={asset(r.image)}
+                      alt={`${t.coverAlt} ${r.name}`}
+                      width={960}
+                      height={600}
+                    />
+                  ) : null}
                   <p className="r-repo__name">{r.name}</p>
                   <p className="r-repo__meta">
                     {r.role} · {r.status}

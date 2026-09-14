@@ -21,6 +21,7 @@ ofrece para descargar.
 - **CV generados del mismo contenido**: completo, Front-end y Back-end, en
   español e inglés. El sitio y el CV no pueden decir cosas distintas.
 - **Imagen para compartir** el link en LinkedIn, WhatsApp y compañía.
+- **Carátula en cada proyecto**: la primera pantalla del sistema (inicio o login), que muestra cómo se ve sin exponer datos de nadie.
 
 ## Requisitos
 
@@ -73,9 +74,10 @@ Para un solo CV: `npm run cv -- backend en` (variantes `full`, `frontend`,
    formación, habilidades) y `projects.ts` (tarjetas y otros repositorios).
 2. Poné la traducción en `portfolio.en.ts` y `projects.en.ts`. Si falta, el
    chequeo de tipos no pasa: un idioma no se puede quedar atrás sin avisar.
-3. Si el cambio toca el CV, ajustá también las variantes de
+3. Para una carátula nueva, guardá la captura de la primera pantalla (inicio o login, 1280 × 800 escalada a 960 × 600, en WebP) en `public/projects/` y referenciala con `image` en el proyecto.
+4. Si el cambio toca el CV, ajustá también las variantes de
    `scripts/cv-targets/`, que tienen sus propios textos.
-4. Regenerá lo que corresponda (ver arriba) y anotá el cambio en `CHANGELOG.md`,
+5. Regenerá lo que corresponda (ver arriba) y anotá el cambio en `CHANGELOG.md`,
    bajo "Sin publicar".
 
 ## Verificación
@@ -136,7 +138,7 @@ src/
     sections/       inicio, experiencia, proyectos, stack, formación y contacto
 scripts/            generadores de CV, imagen para compartir, favicon y release
 cv/                 los seis CV generados (HTML y PDF)
-public/             CV del sitio e imágenes para compartir
+public/             CV del sitio, imágenes para compartir y carátulas de proyectos (projects/)
 ```
 
 ## Entrega y versiones

@@ -44,6 +44,7 @@ export type ProjectView = {
   stack: readonly string[];
   links: readonly { label: string; url: string }[];
   repoNote?: string;
+  image?: string;
 };
 
 export type RepoView = {
@@ -52,6 +53,7 @@ export type RepoView = {
   status: string;
   description: string;
   url?: string;
+  image?: string;
 };
 
 export type Content = {
@@ -118,6 +120,7 @@ function build(lang: Lang): Content {
       const p = project as (typeof projects)[number] & {
         links?: readonly { label: string; url: string }[];
         repoNote?: string;
+        image?: string;
       };
       const tr = en ? projectText[p.name] : undefined;
       return {
@@ -135,16 +138,18 @@ function build(lang: Lang): Content {
           label: (en ? linkLabels[link.label] : undefined) ?? link.label,
         })),
         repoNote: en ? tr?.repoNote : p.repoNote,
+        image: p.image,
       };
     }),
     otherRepos: otherRepos.map((repo) => {
-      const r = repo as (typeof otherRepos)[number] & { url?: string };
+      const r = repo as (typeof otherRepos)[number] & { url?: string; image?: string };
       return {
         name: r.name,
         role: (en ? repoRoles[r.role] : undefined) ?? r.role,
         status: (en ? repoStatuses[r.status] : undefined) ?? r.status,
         description: (en ? repoDescriptions[r.name] : undefined) ?? r.description,
         url: r.url,
+        image: r.image,
       };
     }),
   };
