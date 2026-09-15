@@ -28,7 +28,7 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 - Tema claro, con botón para cambiarlo; sin elegir nada, sigue la preferencia del sistema.
 - CV en tres variantes (completo, Front-end y Back-end) y en dos idiomas: `npm run cv:all` genera los seis.
 - Cuadro de diálogo en la selección de proyectos, al estilo de Mega Man X: el resumen del proyecto se escribe letra por letra junto al retrato. Con el sistema pidiendo menos movimiento, aparece entero.
-- Imagen para compartir el link en redes y mensajería, una por idioma (`og-es.png` y `og-en.png`), generada con `npm run og`. La española cambió de nombre porque LinkedIn había guardado una copia de 160 px y no la volvía a bajar.
+- Imagen para compartir el link en redes y mensajería, una por idioma, generada con `npm run og`. El nombre del archivo lleva un hash del contenido: LinkedIn reconocía la imagen en español por su contenido y seguía mostrando una copia de 160 px aunque cambiara de nombre.
 - Tarjetas de 2winGs y CV Match, y 2winGs como experiencia en el CV.
 - Carátula en cada proyecto: la primera pantalla del sistema (inicio o login), enmarcada como una ventana más. Están las ocho tarjetas y seis de los otros repositorios; se descargan recién al abrir cada tarjeta.
 - "Escribime" y el mail de Contacto, además de abrir el correo, copian la dirección y avisan "Mail copiado": a quien usa el correo desde el navegador el enlace solo no le abría nada.

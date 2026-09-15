@@ -3,6 +3,7 @@ import { Press_Start_2P, VT323 } from "next/font/google";
 import type { ReactNode } from "react";
 import { getContent } from "@/content/content";
 import { htmlLang, langPath, langs, ogLocale, type Lang } from "@/content/i18n";
+import ogImages from "@/content/og-images.json";
 import { asset, siteUrl } from "@/content/site";
 import { THEME_INIT_SCRIPT } from "./theme";
 
@@ -42,11 +43,11 @@ export function buildMetadata(lang: Lang): Metadata {
   // La imagen la genera `npm run og`. Va con URL absoluta: metadataBase tiene
   // el subdirectorio /portfolio, y una ruta que empieza con / lo perderia.
   //
-  // LinkedIn guarda su propia copia de la imagen y no la vuelve a bajar aunque
-  // el archivo cambie. Si una vista previa queda mal, lo que la arregla es
-  // publicar la imagen con otro nombre (asi paso con og.png -> og-es.png).
+  // El nombre del archivo lleva un hash del contenido y lo escribe el mismo
+  // script en og-images.json: LinkedIn guarda su copia por contenido, asi que
+  // cada imagen nueva tiene que salir con una direccion nueva.
   const image = {
-    url: `${siteUrl}/og-${lang}.png`,
+    url: `${siteUrl}/${ogImages[lang]}`,
     width: 1200,
     height: 630,
     alt: ui.meta.title,

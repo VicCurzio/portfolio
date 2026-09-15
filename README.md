@@ -1,6 +1,6 @@
 # Portfolio — Victor Roberto Curzio
 
-![Victor R. Curzio, Desarrollador Full-Stack](public/og-es.png)
+![Inicio del portfolio, con el estilo de una consola de 8 bits](public/projects/portfolio.webp)
 
 Sitio personal con el estilo de una consola de 8 bits: experiencia, proyectos,
 stack, formación y contacto, en español y en inglés. Es estático, carga rápido y
@@ -62,7 +62,7 @@ las copia. Si cambia el contenido del que salen, hay que volver a correrlos.
 | Comando | Qué genera |
 |---|---|
 | `npm run cv:all` | Los seis CV en `cv/`. El completo de cada idioma también va a `public/`, que es el que se descarga del sitio |
-| `npm run og` | La imagen para compartir: `public/og-es.png` y `public/og-en.png` |
+| `npm run og` | La imagen para compartir, una por idioma (`public/og-es.<hash>.png` y `og-en.<hash>.png`), y `src/content/og-images.json` con sus nombres. El hash cambia con el contenido, así LinkedIn nunca reutiliza una copia vieja |
 | `npm run favicon` | `src/app/icon.svg` y `src/app/favicon.ico`, desde el pixel art |
 
 Para un solo CV: `npm run cv -- backend en` (variantes `full`, `frontend`,

@@ -2,15 +2,23 @@
 // del sitio (Open Graph), una por idioma, a partir del mismo contenido y del
 // mismo pixel art del sitio.
 //
-//   npm run og   ->   public/og-es.png y public/og-en.png  (1200 x 630)
+//   npm run og   ->   public/og-es.<hash>.png y public/og-en.<hash>.png  (1200 x 630)
+//                    y src/content/og-images.json con los nombres
+//
+// El nombre lleva un hash del contenido. LinkedIn guarda su propia copia de la
+// imagen y la reconoce por el contenido: en septiembre de 2026 renombrar el
+// archivo no alcanzo, porque los bytes eran los mismos y siguio mostrando la
+// version chica. Con el hash, toda imagen distinta sale con una direccion nueva
+// y ninguna copia vieja se reutiliza.
 //
 // Arma un HTML con el cartel y lo fotografia con Chrome o Edge headless, igual
 // que el CV: sin dependencias nuevas. Las fuentes salen de Google Fonts, asi que
 // necesita conexion.
 
 import { execFile } from "node:child_process";
+import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -45,8 +53,8 @@ function sprite(map) {
 }
 
 const COPY = {
-  es: { title: profile.title, line: "Arquitectura de software · Node.js · TypeScript · React", file: "og-es.png" },
-  en: { title: profileText.title, line: "Software architecture · Node.js · TypeScript · React", file: "og-en.png" },
+  es: { title: profile.title, line: "Arquitectura de software · Node.js · TypeScript · React", file: "og-es" },
+  en: { title: profileText.title, line: "Software architecture · Node.js · TypeScript · React", file: "og-en" },
 };
 
 function render(lang) {
@@ -67,6 +75,7 @@ function render(lang) {
       linear-gradient(rgba(63, 184, 200, 0.07) 1px, transparent 1px),
       linear-gradient(90deg, rgba(63, 184, 200, 0.07) 1px, transparent 1px);
     background-size: 30px 30px;
+    background-position: 15px 15px;
     font-family: "VT323", monospace;
     color: #e8f4ff;
   }
@@ -106,9 +115,15 @@ if (!browser) {
 const tmpDir = resolve(tmpdir(), "portfolio-og");
 await mkdir(tmpDir, { recursive: true });
 
+// Las versiones anteriores se borran: el sitio solo publica la vigente.
+for (const name of await readdir(resolve(root, "public"))) {
+  if (/^og-(es|en)(\.[0-9a-f]{8})?\.png$/.test(name)) await rm(resolve(root, "public", name));
+}
+
+const names = {};
 for (const lang of ["es", "en"]) {
   const htmlPath = resolve(tmpDir, `og-${lang}.html`);
-  const pngPath = resolve(root, "public", COPY[lang].file);
+  const tmpPng = resolve(tmpDir, `og-${lang}.png`);
   await writeFile(htmlPath, render(lang), "utf8");
   await execFileAsync(browser, [
     "--headless=new",
@@ -117,8 +132,15 @@ for (const lang of ["es", "en"]) {
     "--window-size=1200,630",
     // Tiempo para que lleguen las fuentes antes de la foto.
     "--virtual-time-budget=8000",
-    `--screenshot=${pngPath}`,
+    `--screenshot=${tmpPng}`,
     pathToFileURL(htmlPath).href,
   ]);
-  console.log(`OG:   ${pngPath}`);
+  const hash = createHash("sha256").update(await readFile(tmpPng)).digest("hex").slice(0, 8);
+  const file = `${COPY[lang].file}.${hash}.png`;
+  await rename(tmpPng, resolve(root, "public", file));
+  names[lang] = file;
+  console.log(`OG:   public/${file}`);
 }
+
+await writeFile(resolve(root, "src/content/og-images.json"), `${JSON.stringify(names, null, 2)}\n`, "utf8");
+console.log("OG:   src/content/og-images.json");
