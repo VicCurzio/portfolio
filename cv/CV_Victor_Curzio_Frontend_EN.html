@@ -58,7 +58,7 @@
 
   <section>
     <h2>Summary</h2>
-    <p class="summary">Three years of experience, the last two building interfaces with React and TypeScript in production. I work the front end against REST APIs I also write, so I discuss the data contract before the problem reaches the screen. At Grupo DELSUD I was the technical reference for a team of 5 and took a full management system to production; in parallel I am tech lead of a B2B professional network as a freelancer, where I also build the front end and the design system.</p>
+    <p class="summary">Three years of experience, the last two building interfaces with React and TypeScript in production. I currently work on a micro-frontend architecture in React 19, and I write the front end against REST APIs I also write, so I discuss the data contract before the problem reaches the screen. At Grupo DELSUD I was the technical reference for a team of 5 and took a full management system to production; in parallel I am tech lead of a B2B professional network as a freelancer, where I build the design system and the browser test suite that verifies it.</p>
   </section>
 
   <section>
@@ -69,7 +69,7 @@
           <h3>Full-Stack Developer<span class="at"> — </span>Grupo DELSUD</h3>
           <p class="meta">Jan 2026 — Present<span class="sep">·</span>La Plata, Argentina</p>
         </header>
-        <ul><li>Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026.</li><li>Built the Management System end to end, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting): the React screens on Material UI and Sass, and the API that feeds them.</li><li>Interfaces against my own REST APIs: writing both sides, I defined the data contract the screen needed instead of adapting to someone else's.</li><li>Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.</li><li>Closed around 65% of the team's tickets each sprint, consistently assigned the most technically complex ones.</li><li>On the data side: connected the existing CRM (Sequelize) with the new system (Drizzle) with two-way sync, role-based access control (RBAC) and fixes for race conditions on concurrent writes.</li><li>Currently on SGD, the group's internal system, I build with React 19 the Directions ERP and the Product and Technology task board (micro-frontends embedded through iframes, talking over postMessage), taking QA reports through to verified fixes in the app.</li></ul>
+        <ul><li>On SGD, the group's internal system, I build with React 19 a micro-frontend architecture: a shell front end that embeds the tasks and requests front ends through iframes, each with its own repo, build and deployment, talking over postMessage with origin validation.</li><li>Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026.</li><li>Built the Management System end to end, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting): the React screens on Material UI and Sass, and the API that feeds them.</li><li>Interfaces against my own REST APIs: writing both sides, I defined the data contract the screen needed instead of adapting to someone else's.</li><li>Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.</li><li>Closed around 65% of the team's tickets each sprint, consistently assigned the most technically complex ones.</li><li>On the data side: connected the existing CRM (Sequelize) with the new system (Drizzle) with two-way sync, role-based access control (RBAC) and fixes for race conditions on concurrent writes.</li><li>On top of that architecture I build the Directions ERP and the Product and Technology task board, and I take QA reports through to verified fixes in the app.</li></ul>
         <p class="stack"><strong>Stack:</strong> React · Next.js · TypeScript · Material UI · Sass · Node.js · Express.js · PostgreSQL · MySQL · Socket.io</p>
       </article>
       <article class="job">
@@ -77,8 +77,8 @@
           <h3>Full-Stack Developer and Tech Lead (Freelance)<span class="at"> — </span>2winGs International Group LLC</h3>
           <p class="meta">Aug 2026 — Present<span class="sep">·</span>Remote</p>
         </header>
-        <ul><li>Front end in React + Vite + TypeScript with Tailwind: first stage delivered end to end (sign-up, sign-in, email verification and password recovery) with all its screens.</li><li>Own design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.</li><li>Static front end published on Cloudflare Pages with automated deployment, and the build always outside the production machine.</li><li>Designed the architecture and build order of the product, from the data model to the API contract, written down before any code.</li><li>Technical counterpart for the client: turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.</li></ul>
-        <p class="stack"><strong>Stack:</strong> React · Vite · TypeScript · Tailwind CSS · NestJS · Fastify · PostgreSQL · Drizzle · Redis · Cloudflare Pages</p>
+        <ul><li>Front end in React + Vite + TypeScript with Tailwind, inside a monorepo that shares the type contracts between the front end and the API: first stage delivered end to end (sign-up, sign-in, email verification and password recovery) with all its screens.</li><li>Own design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.</li><li>Browser tests with Playwright running against the build rather than the dev server: layout at four widths, accessibility with axe against WCAG 2.1 AA, and the design-system rules, each one citing the CSS that holds it up.</li><li>I only trust a test after breaking on purpose what it guards and watching it fail: that is how two tests that passed without proving anything showed up.</li><li>Static front end published on Cloudflare Pages with automated deployment, and the build always outside the production machine.</li><li>Designed the architecture and build order of the product, from the data model to the API contract, written down before any code.</li><li>Technical counterpart for the client: turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.</li></ul>
+        <p class="stack"><strong>Stack:</strong> React · Vite · TypeScript · Tailwind CSS · NestJS · Fastify · PostgreSQL · Drizzle · Redis · Playwright · Cloudflare Pages</p>
       </article>
       <article class="job">
         <header>
@@ -121,8 +121,16 @@
         <p>React · Next.js · TypeScript · JavaScript · Tailwind CSS · Material UI · Sass · Bootstrap · PWA</p>
       </div>
       <div class="skill-group">
+        <h4>Front-end architecture</h4>
+        <p>Micro-frontends · Design systems · Monorepos · Reusable components · Clean Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Testing and accessibility</h4>
+        <p>Playwright · Vitest · axe · WCAG 2.1 AA · E2E tests</p>
+      </div>
+      <div class="skill-group">
         <h4>Integration and teamwork</h4>
-        <p>REST APIs · Git · GitHub · Postman · Vitest · Scrum</p>
+        <p>REST APIs · Git · GitHub · Postman · Scrum</p>
       </div>
       <div class="skill-group">
         <h4>Back-end</h4>
@@ -134,7 +142,7 @@
       </div>
       <div class="skill-group">
         <h4>Architecture</h4>
-        <p>Dual-DB · RBAC · Migrations · Clean Code</p>
+        <p>Dual-DB · RBAC · Migrations</p>
       </div>
       <div class="skill-group">
         <h4>Infrastructure</h4>

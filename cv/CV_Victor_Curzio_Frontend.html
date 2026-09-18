@@ -58,7 +58,7 @@
 
   <section>
     <h2>Resumen</h2>
-    <p class="summary">Tres años de experiencia, los últimos dos construyendo interfaces con React y TypeScript en producción. Trabajo el front contra APIs REST que también escribo, así que discuto el contrato de datos antes de que el problema llegue a la pantalla. En Grupo DELSUD fui referente técnico de un equipo de 5 personas y llevé a producción un sistema de gestión completo; en paralelo soy líder técnico de una red profesional B2B como freelance, donde también construyo el front y el sistema de diseño.</p>
+    <p class="summary">Tres años de experiencia, los últimos dos construyendo interfaces con React y TypeScript en producción. Hoy trabajo sobre una arquitectura de micro-frontends en React 19, y el front lo escribo contra APIs REST que también escribo, así que discuto el contrato de datos antes de que el problema llegue a la pantalla. En Grupo DELSUD fui referente técnico de un equipo de 5 personas y llevé a producción un sistema de gestión completo; en paralelo soy líder técnico de una red profesional B2B como freelance, donde construyo el sistema de diseño y la suite de pruebas de navegador que lo verifica.</p>
   </section>
 
   <section>
@@ -69,7 +69,7 @@
           <h3>Desarrollador Full-Stack<span class="at"> — </span>Grupo DELSUD</h3>
           <p class="meta">Ene 2026 — Actualidad<span class="sep">·</span>La Plata, Argentina</p>
         </header>
-        <ul><li>Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.</li><li>Construí de punta a punta el Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes): las pantallas en React sobre Material UI y Sass, y la API que las alimenta.</li><li>Interfaces contra APIs REST propias: al escribir los dos lados, definía el contrato de datos que la pantalla necesita en vez de acomodarme a uno ajeno.</li><li>Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.</li><li>Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.</li><li>Del lado del dato: conecté el CRM existente (Sequelize) con el nuevo sistema (Drizzle) con sincronización bidireccional, control de acceso por rol (RBAC) y corrección de race conditions en escrituras concurrentes.</li><li>Hoy, en el SGD, el sistema interno del grupo, desarrollo con React 19 el ERP de Direcciones y el tablero de tareas de Producto y Tecnología (micro-frontends embebidos por iframe, comunicados por postMessage), tomando los reportes de QA hasta cerrarlos verificados en la app.</li></ul>
+        <ul><li>En el SGD, el sistema interno del grupo, construyo con React 19 una arquitectura de micro-frontends: un front shell que embebe por iframe los fronts de tareas y de solicitudes, cada uno con su repo, su build y su despliegue propios, comunicados por postMessage con validación de origen.</li><li>Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.</li><li>Construí de punta a punta el Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes): las pantallas en React sobre Material UI y Sass, y la API que las alimenta.</li><li>Interfaces contra APIs REST propias: al escribir los dos lados, definía el contrato de datos que la pantalla necesita en vez de acomodarme a uno ajeno.</li><li>Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.</li><li>Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.</li><li>Del lado del dato: conecté el CRM existente (Sequelize) con el nuevo sistema (Drizzle) con sincronización bidireccional, control de acceso por rol (RBAC) y corrección de race conditions en escrituras concurrentes.</li><li>Sobre esa arquitectura desarrollo el ERP de Direcciones y el tablero de tareas de Producto y Tecnología, y tomo los reportes de QA hasta cerrarlos verificados en la app.</li></ul>
         <p class="stack"><strong>Stack:</strong> React · Next.js · TypeScript · Material UI · Sass · Node.js · Express.js · PostgreSQL · MySQL · Socket.io</p>
       </article>
       <article class="job">
@@ -77,8 +77,8 @@
           <h3>Desarrollador Full-Stack y Líder Técnico (Freelance)<span class="at"> — </span>2winGs International Group LLC</h3>
           <p class="meta">Ago 2026 — Actualidad<span class="sep">·</span>Remoto</p>
         </header>
-        <ul><li>Front en React + Vite + TypeScript con Tailwind: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña) con todas sus pantallas.</li><li>Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.</li><li>Front estático publicado en Cloudflare Pages con despliegue automático, y el build siempre fuera de la máquina de producción.</li><li>Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado antes de escribir código.</li><li>Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.</li></ul>
-        <p class="stack"><strong>Stack:</strong> React · Vite · TypeScript · Tailwind CSS · NestJS · Fastify · PostgreSQL · Drizzle · Redis · Cloudflare Pages</p>
+        <ul><li>Front en React + Vite + TypeScript con Tailwind, dentro de un monorepo que comparte los contratos de tipos entre el front y la API: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña) con todas sus pantallas.</li><li>Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.</li><li>Pruebas de navegador con Playwright corriendo contra el build y no contra el servidor de desarrollo: layout a cuatro anchos, accesibilidad con axe sobre WCAG 2.1 AA y las reglas del sistema de diseño, cada una citando el CSS que la sostiene.</li><li>Doy por buena una prueba solo después de romper a propósito lo que cuida y verla fallar: así aparecieron dos que pasaban sin probar nada.</li><li>Front estático publicado en Cloudflare Pages con despliegue automático, y el build siempre fuera de la máquina de producción.</li><li>Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado antes de escribir código.</li><li>Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.</li></ul>
+        <p class="stack"><strong>Stack:</strong> React · Vite · TypeScript · Tailwind CSS · NestJS · Fastify · PostgreSQL · Drizzle · Redis · Playwright · Cloudflare Pages</p>
       </article>
       <article class="job">
         <header>
@@ -121,8 +121,16 @@
         <p>React · Next.js · TypeScript · JavaScript · Tailwind CSS · Material UI · Sass · Bootstrap · PWA</p>
       </div>
       <div class="skill-group">
+        <h4>Arquitectura de front</h4>
+        <p>Micro-frontends · Sistemas de diseño · Monorepos · Componentes reutilizables · Clean Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Testing y accesibilidad</h4>
+        <p>Playwright · Vitest · axe · WCAG 2.1 AA · Tests E2E</p>
+      </div>
+      <div class="skill-group">
         <h4>Integración y trabajo en equipo</h4>
-        <p>APIs REST · Git · GitHub · Postman · Vitest · Scrum</p>
+        <p>APIs REST · Git · GitHub · Postman · Scrum</p>
       </div>
       <div class="skill-group">
         <h4>Back-end</h4>
@@ -134,7 +142,7 @@
       </div>
       <div class="skill-group">
         <h4>Arquitectura</h4>
-        <p>Dual-DB · RBAC · Migraciones · Clean Code</p>
+        <p>Dual-DB · RBAC · Migraciones</p>
       </div>
       <div class="skill-group">
         <h4>Infraestructura</h4>
