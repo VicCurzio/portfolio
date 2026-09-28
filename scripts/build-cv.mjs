@@ -6,7 +6,8 @@
 //   npm run cv -- backend en    -> variante y/o idioma puntual
 //   npm run cv:all              -> las tres variantes en los dos idiomas
 //
-// Variantes: full (por defecto), frontend, backend. Idiomas: es (por defecto), en.
+// Variantes: full (por defecto), frontend, backend y nextjs (esta ultima solo en
+// espanol, a mano). Idiomas: es (por defecto), en.
 // El HTML intermedio queda en cv/ por si hay que retocar estilos: abrilo en el
 // browser y recarga, sin volver a imprimir.
 //
@@ -244,12 +245,16 @@ function applyTarget(content, overrides) {
   };
 }
 
-const VARIANTS = ["full", "frontend", "backend"];
+// `BULK` son las que salen con `cv:all` (las tres que publica el sitio y las dos
+// generales). `VARIANTS` suma las apuntadas a un stack puntual, que se piden a
+// mano cuando hace falta y no tienen por que entrar en cada build.
+const BULK = ["full", "frontend", "backend"];
+const VARIANTS = [...BULK, "nextjs"];
 const LANGS = ["es", "en"];
 
 const args = process.argv.slice(2);
 const all = args.includes("all");
-const variants = all ? VARIANTS : [args.find((a) => VARIANTS.includes(a)) ?? "full"];
+const variants = all ? BULK : [args.find((a) => VARIANTS.includes(a)) ?? "full"];
 const langs = all ? LANGS : [args.find((a) => LANGS.includes(a)) ?? "es"];
 
 const browser = BROWSERS.find((path) => existsSync(path));
@@ -265,6 +270,12 @@ for (const variant of variants) {
       : (await import(pathToFileURL(resolve(root, "scripts/cv-targets", `${variant}.mjs`)).href)).default;
 
   for (const lang of langs) {
+    // Una variante que no declara el idioma pedido imprimiria el CV general con
+    // nombre de variante: mejor cortar que entregar el PDF equivocado.
+    if (target && !target[lang]) {
+      throw new Error(`La variante "${variant}" no esta escrita en "${lang}". Usa el CV general para ese idioma.`);
+    }
+
     const content = applyTarget(localize(base, en, lang), target?.[lang]);
     const suffix = `${target ? `_${target.suffix}` : ""}${lang === "en" ? "_EN" : ""}`;
     const htmlPath = resolve(outDir, `CV_Victor_Curzio${suffix}.html`);
