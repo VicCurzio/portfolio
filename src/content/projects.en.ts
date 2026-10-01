@@ -139,21 +139,21 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "Oxlint instead of ESLint as the linter, for speed on a project this size, and PostCSS for the styles.",
     ],
   },
-  "Bot de WhatsApp": {
-    name: "WhatsApp Bot",
-    period: "2025",
+  "vault-rag": {
+    period: "2026",
     summary:
-      "Desktop tool to send a WhatsApp message to a list of contacts loaded from an Excel file.",
+      "Meaning-based search and question agent over a folder of markdown notes: it finds the note even when the question shares none of its words, answers citing where it got it from, and says it does not know when the answer is not there.",
     did: [
-      "Version with a graphical interface: pick the sheet and the column of the Excel file, edit the message and adjust the timings without touching code.",
-      "CLI version to run it unattended over a fixed file.",
-      "Automatic normalisation of the numbers to international format.",
-      "Versioned with a what's-new notice: after an update, the app tells you what changed when you open it.",
+      "Incremental indexing of 340 notes into 5338 chunks: a note that did not change is not processed again.",
+      "Hybrid search: by meaning and by exact words, fused by rank.",
+      "Agent with a single search tool, no framework: it can search, read what came back and search again with different words.",
+      "Automated measurement of accuracy: recall went from 29% to 71% once each chunk was indexed together with the title of its note, and the rejection of unanswerable questions from 0% to 100% with a threshold that was measured instead of guessed.",
     ],
     how: [
-      "pandas and openpyxl to read the Excel file, pywhatkit to drive WhatsApp Web and customtkinter for the interface.",
-      "Random pauses of 25 to 40 seconds between messages and configurable loading times, so WhatsApp Web is not flooded and no blocks are triggered.",
-      "The repository changelog is the single source of the version and of the news, with a release script that closes and dates them.",
+      "Vectors are computed on the machine itself with a multilingual model: indexing costs nothing, so trying a change and measuring it is free.",
+      "PostgreSQL with pgvector stores the text and its vector together, with an HNSW index and cosine distance.",
+      "The two searches are fused by rank and not by score: a cosine distance and a text ranking do not live on the same scale and cannot be averaged.",
+      "The evals include questions whose answer is not in the notes: a green run that was never given anything to reject does not prove the control is switched on.",
     ],
   },
   Portfolio: {
@@ -209,6 +209,8 @@ export const repoDescriptions: Record<RepoName, string> = {
     "Services marketplace with Spring Boot and React. I took part as a contributor in a team of several developers; the project never got past the idea stage.",
   Cicaré:
     "Technical documentation portal for helicopters with Next.js and Supabase: permissions over sensitive data, hierarchical content and approval flows. I built it end to end as a freelancer; it was on hold and started moving again in 2026. With the same client a second system began, for stock of parts and assemblies at the plant (React + Express + SQLite), in development today.",
+  "Bot de WhatsApp":
+    "Python desktop tool to send a WhatsApp message to a list of contacts loaded from an Excel file, with a graphical interface and a command-line version to run it unattended. It normalises the numbers to international format and spaces the messages with random pauses of 25 to 40 seconds so WhatsApp Web is not flooded. The repository changelog is the single source of the version and of the news the app shows when it opens.",
   "Dashboard Financiero":
     "The technical test that got me into Grupo DELSUD: two independent microservices (authentication with Drizzle and finance with Sequelize, on PostgreSQL) and a React front end with KPIs, charts and transaction management.",
   "Landing Grupo DELSUD":

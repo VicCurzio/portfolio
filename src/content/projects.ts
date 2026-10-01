@@ -212,24 +212,26 @@ export const projects = [
     links: [{ label: "Código", url: "https://github.com/VicCurzio/plagas-out" }],
   },
   {
-    name: "Bot de WhatsApp",
-    image: "/projects/bot-de-whatsapp.webp",
+    name: "vault-rag",
+    image: "/projects/vault-rag.webp",
     kind: "tool",
-    period: "2025",
-    summary: "Herramienta de escritorio para enviar un mensaje de WhatsApp a una lista de contactos cargada desde un Excel.",
+    period: "2026",
+    summary:
+      "Buscador por significado y agente de preguntas sobre una carpeta de notas en markdown: encuentra aunque la pregunta no use ninguna de las palabras de la nota, responde citando de dónde lo sacó y, si no está, dice que no sabe.",
     did: [
-      "Versión con interfaz gráfica: elegís la pestaña y la columna del Excel, editás el mensaje y ajustás los tiempos sin tocar código.",
-      "Versión CLI para correrlo desatendido sobre un archivo fijo.",
-      "Normalización automática de los números al formato internacional.",
-      "Versionado con aviso de novedades: al abrir después de una actualización, la app cuenta qué cambió.",
+      "Indexación incremental de 340 notas en 5338 pedazos: una nota que no cambió no se vuelve a procesar.",
+      "Búsqueda híbrida: por significado y por palabras exactas, fusionadas por posición.",
+      "Agente con una herramienta de búsqueda, sin framework: puede buscar, leer lo que trajo y volver a buscar con otras palabras.",
+      "Evaluación automática del acierto: el recall pasó de 29% a 71% al indexar cada pedazo junto con el título de su nota, y el rechazo de preguntas sin respuesta de 0% a 100% con un umbral medido en vez de estimado.",
     ],
     how: [
-      "pandas y openpyxl para leer el Excel, pywhatkit para manejar WhatsApp Web y customtkinter para la interfaz.",
-      "Pausas aleatorias de 25 a 40 segundos entre mensajes y tiempos de carga configurables, para no saturar WhatsApp Web ni disparar bloqueos.",
-      "El changelog del repositorio es la única fuente de la versión y de las novedades, con un script de release que las cierra y las fecha.",
+      "Los vectores se calculan en la propia máquina con un modelo multilingüe: indexar no cuesta nada, así que probar un cambio y medirlo es gratis.",
+      "PostgreSQL con pgvector guarda el texto y su vector juntos, con índice HNSW y distancia coseno.",
+      "Las dos búsquedas se fusionan por puesto y no por puntaje: una distancia coseno y un ranking de texto no viven en la misma escala y no se pueden promediar.",
+      "Los evals incluyen preguntas cuya respuesta no está en las notas: una corrida en verde a la que nunca se le dio algo que rechazar no prueba que el control esté encendido.",
     ],
-    stack: ["Python", "pandas", "openpyxl", "pywhatkit", "customtkinter"],
-    links: [{ label: "Código", url: "https://github.com/VicCurzio/bot_whatsapp" }],
+    stack: ["TypeScript", "Node.js", "PostgreSQL", "pgvector", "Transformers.js", "Docker"],
+    links: [{ label: "Código", url: "https://github.com/VicCurzio/vault-rag" }],
   },
   {
     name: "Portfolio",
@@ -307,6 +309,15 @@ export const otherRepos = [
     status: "Retomado en 2026",
     description:
       "Portal de documentación técnica de helicópteros con Next.js y Supabase: permisos sobre datos sensibles, contenidos jerárquicos y flujos de aprobación. Lo desarrollé de punta a punta como freelance; estuvo frenado y volvió a moverse en 2026. Con el mismo cliente arrancó un segundo sistema, de stock de partes y conjuntos para la planta (React + Express + SQLite), hoy en desarrollo.",
+  },
+  {
+    name: "Bot de WhatsApp",
+    image: "/projects/bot-de-whatsapp.webp",
+    role: "Herramienta propia",
+    status: "Uso personal",
+    url: "https://github.com/VicCurzio/bot_whatsapp",
+    description:
+      "Herramienta de escritorio en Python para enviar un mensaje de WhatsApp a una lista de contactos cargada desde un Excel, con interfaz gráfica y una versión de línea de comandos para correrla desatendida. Normaliza los números al formato internacional y espacia los envíos con pausas aleatorias de 25 a 40 segundos para no saturar WhatsApp Web. El changelog del repositorio es la única fuente de la versión y de las novedades que la app muestra al abrirse.",
   },
   {
     name: "Dashboard Financiero",
