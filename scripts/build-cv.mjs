@@ -249,7 +249,7 @@ function applyTarget(content, overrides) {
 // generales). `VARIANTS` suma las apuntadas a un stack puntual, que se piden a
 // mano cuando hace falta y no tienen por que entrar en cada build.
 const BULK = ["full", "frontend", "backend"];
-const VARIANTS = [...BULK, "nextjs"];
+const VARIANTS = [...BULK, "nextjs", "node-python", "security", "ai"];
 const LANGS = ["es", "en"];
 
 const args = process.argv.slice(2);
