@@ -38,6 +38,7 @@ const es = {
         "Sequelize",
         "Socket.io",
         "Amazon S3",
+        "Trello",
       ],
       highlights: [
         "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.",
@@ -115,7 +116,7 @@ const es = {
       title: "Infraestructura",
       items: ["Vercel", "Cloudflare Pages", "Docker", "PM2", "Amazon S3", "Cloudflare R2"],
     },
-    { title: "Herramientas", items: ["Git", "GitHub", "Postman", "Vitest", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
   ],
 };
 

@@ -37,6 +37,7 @@ const es = {
         "Socket.io",
         "Amazon S3",
         "React",
+        "Trello",
       ],
       highlights: [
         "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo cada endpoint de la API según el perfil de usuario.",

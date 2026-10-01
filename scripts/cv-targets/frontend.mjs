@@ -33,6 +33,7 @@ const es = {
         "PostgreSQL",
         "MySQL",
         "Socket.io",
+        "Trello",
       ],
       highlights: [
         "En el SGD, el sistema interno del grupo, construyo con React 19 una arquitectura de micro-frontends: un front shell que embebe por iframe los fronts de tareas y de solicitudes, cada uno con su repo, su build y su despliegue propios, comunicados por postMessage con validación de origen.",
@@ -110,7 +111,7 @@ const es = {
     },
     {
       title: "Integración y trabajo en equipo",
-      items: ["APIs REST", "Git", "GitHub", "Postman", "Scrum"],
+      items: ["APIs REST", "Git", "GitHub", "Trello", "Postman", "Scrum"],
     },
     { title: "Back-end", items: ["Node.js", "Express.js", "NestJS", "Ruby on Rails", "Python"] },
     { title: "Bases de datos", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase"] },
@@ -142,7 +143,7 @@ const en = {
 
   experience: {
     "Grupo DELSUD": {
-      stack: ["React", "Next.js", "TypeScript", "Material UI", "Sass", "Node.js", "Express.js", "PostgreSQL", "MySQL", "Socket.io"],
+      stack: ["React", "Next.js", "TypeScript", "Material UI", "Sass", "Node.js", "Express.js", "PostgreSQL", "MySQL", "Socket.io", "Trello"],
       highlights: [
         "On SGD, the group's internal system, I build with React 19 a micro-frontend architecture: a shell front end that embeds the tasks and requests front ends through iframes, each with its own repo, build and deployment, talking over postMessage with origin validation.",
         "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026.",
@@ -196,7 +197,7 @@ const en = {
     { title: "Front-end", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Material UI", "Sass", "Bootstrap", "PWA"] },
     { title: "Front-end architecture", items: ["Micro-frontends", "Design systems", "Monorepos", "Reusable components", "Clean Code"] },
     { title: "Testing and accessibility", items: ["Playwright", "Vitest", "axe", "WCAG 2.1 AA", "E2E tests"] },
-    { title: "Integration and teamwork", items: ["REST APIs", "Git", "GitHub", "Postman", "Scrum"] },
+    { title: "Integration and teamwork", items: ["REST APIs", "Git", "GitHub", "Trello", "Postman", "Scrum"] },
     { title: "Back-end", items: ["Node.js", "Express.js", "NestJS", "Ruby on Rails", "Python"] },
     { title: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase"] },
     { title: "Architecture", items: ["Dual-DB", "RBAC", "Migrations"] },

@@ -20,7 +20,7 @@ const es = {
 
   experience: {
     "Grupo DELSUD": {
-      stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React"],
+      stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React", "Trello"],
       highlights: [
         "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.",
         "Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).",
@@ -53,7 +53,7 @@ const es = {
     { title: "Arquitectura", items: ["Dual-DB", "APIs REST", "Microservicios", "RBAC", "Migraciones", "Clean Code"] },
     { title: "Infraestructura", items: ["Docker", "PM2", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Postman", "Vitest", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
   ],
 
   // Mismo listado del CV general, con los de back primero.
@@ -77,7 +77,7 @@ const en = {
 
   experience: {
     "Grupo DELSUD": {
-      stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React"],
+      stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React", "Trello"],
       highlights: [
         "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and public website), delivered in August 2026.",
         "Designed the architecture of the Management System from scratch, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting, among others).",
@@ -110,7 +110,7 @@ const en = {
     { title: "Architecture", items: ["Dual-DB", "REST APIs", "Microservices", "RBAC", "Migrations", "Clean Code"] },
     { title: "Infrastructure", items: ["Docker", "PM2", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Tools", items: ["Git", "GitHub", "Postman", "Vitest", "DBeaver"] },
+    { title: "Tools", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
   ],
 
   courses: [

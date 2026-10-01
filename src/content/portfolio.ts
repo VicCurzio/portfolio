@@ -41,6 +41,7 @@ export const experience = [
       "Sass",
       "Material UI",
       "Amazon S3",
+      "Trello",
     ],
     highlights: [
       "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.",
@@ -118,7 +119,7 @@ export const experience = [
     role: "Desarrollador Full-Stack",
     period: "Sep 2023 — Sep 2024",
     location: "La Plata, Argentina",
-    stack: ["Ruby on Rails", "Active Record", "PostgreSQL", "Docker", "JavaScript", "Bootstrap"],
+    stack: ["Ruby on Rails", "Active Record", "PostgreSQL", "Docker", "JavaScript", "Bootstrap", "Trello"],
     highlights: [
       "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
       "Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.",
@@ -141,7 +142,7 @@ export const skills = {
   databases: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase", "Drizzle", "Sequelize", "Active Record"],
   architecture: ["Dual-DB", "RBAC", "Migraciones", "Clean Code"],
   infrastructure: ["Docker", "PM2", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"],
-  tools: ["Git", "GitHub", "Postman", "Vitest", "DBeaver"],
+  tools: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"],
 } as const;
 
 export const skillGroups = [

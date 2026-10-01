@@ -38,6 +38,7 @@ const es = {
         "Socket.io",
         "Amazon S3",
         "React",
+        "Trello",
       ],
       highlights: [
         "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
@@ -121,7 +122,7 @@ const es = {
     },
     { title: "Infraestructura", items: ["Docker", "PM2", "CI/CD", "Vercel", "Cloudflare Pages", "Amazon S3"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Pull requests", "Claude Code", "Postman", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Pull requests", "Claude Code", "Postman", "DBeaver"] },
   ],
 
   // Mismo listado del CV general, con los de servidor y datos primero.
