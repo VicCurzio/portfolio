@@ -10,6 +10,13 @@
 # pero uno se entera. Un portfolio que no llega a 100 en rendimiento no es un
 # problema; uno que se cae a 60 sin que nadie lo note, si.
 #
+# Las metricas de tiempo son first-contentful-paint, largest-contentful-paint y
+# total-blocking-time. Time to Interactive estaba aca y se saco el 2026-10-01:
+# Google lo quito del informe en Lighthouse 10 porque una sola tarea larga o un
+# pedido de red perdido lo corren muchisimo, que es exactamente como fallo esa
+# vez. Total Blocking Time es el reemplazo en laboratorio, y 600 ms es el borde
+# de lo que Lighthouse considera malo, no un numero inventado.
+#
 # El presupuesto de script son 175 KiB. El numero sale de medir: React mas el
 # armazon de Next ocupan la mayor parte, y los tres componentes interactivos
 # (barra, intro y grilla de proyectos) dejan el total cerca de 154 KiB. Los 175
@@ -40,6 +47,17 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: https://viccurzio.github.io/portfolio/
+          # Tres corridas y se queda con la mediana.
+          #
+          # El 2026-10-01 esta medicion fallo con el sitio sano: el runner
+          # estaba ahogado y dio Time to Interactive 5548 ms contra un
+          # presupuesto de 3500, con Total Blocking Time en 3588 ms. El mismo
+          # commit, vuelto a correr sin tocar nada, paso. Medido despues contra
+          # el sitio publicado: 756 ms de pintado y 210 KiB en total.
+          #
+          # Una sola corrida en un runner compartido mide tanto la maquina como
+          # el sitio. La mediana de tres saca el pico y deja la senal.
+          runs: 3
           uploadArtifacts: true
           temporaryPublicStorage: true
           budgetPath: .github/lighthouse-budget.json
