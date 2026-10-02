@@ -47,9 +47,12 @@ export const experienceText: Record<Company, JobText> = {
       "Access control (RBAC): token verification and role authorisation middlewares, protecting every endpoint according to the user profile.",
       "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
       "Fixed critical data-integrity bugs, including race conditions on concurrent record creation and on the synchronisation between systems.",
+      "Presented the Management System to the end client and trained the people who would operate it.",
       "Closed around 65% of the team's tickets each sprint, consistently assigned the most technically complex ones.",
       "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket.",
       "There I build the Directions ERP and the Product and Technology task board (React 19, micro-frontends embedded through iframes with postMessage), taking QA reports through to verified fixes in the app.",
+      "Built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, and on the front the workday control and the reporting view, with role-based permissions and live updates over sockets.",
+      "I also work on the system's performance (leaner responses and indexing for the heaviest queries) and on security fixes across the microservice ecosystem.",
     ],
   },
   "2winGs International Group LLC": {

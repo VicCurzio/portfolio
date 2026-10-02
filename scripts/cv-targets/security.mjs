@@ -46,6 +46,7 @@ const es = {
         "Diseñé desde cero el esquema y la API del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026.",
         "Saneé el código heredado del CRM antes de reutilizarlo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno expuestas, dependencias sin uso y código muerto.",
         "Hoy trabajo en el SGD, el sistema interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
+        "Ahí construí el módulo de trackeo de jornada sobre un registro inmutable append-only —ninguna hora se edita ni se borra— con permisos por rol verificados en el servidor, y trabajo sobre las correcciones de seguridad del ecosistema de microservicios.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
       ],
     },

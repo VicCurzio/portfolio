@@ -30,6 +30,7 @@ const es = {
         "Saneé el código heredado del CRM para reutilizarlo en un producto nuevo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno, dependencias sin uso y código muerto.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
         "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
+        "Ahí construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además trabajo sobre la indexación de las consultas más pesadas.",
       ],
     },
 
@@ -87,6 +88,7 @@ const en = {
         "Cleaned up the inherited CRM code so it could be reused in a new product: SQL queries (N+1 and selects without a field list), environment variables, unused dependencies and dead code.",
         "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
         "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket.",
+        "There I built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, with role-based permissions and live updates over sockets; I also work on indexing the heaviest queries.",
       ],
     },
 

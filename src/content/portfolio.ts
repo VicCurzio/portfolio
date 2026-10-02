@@ -51,9 +51,12 @@ export const experience = [
       "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo los endpoints según el perfil de usuario.",
       "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
       "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
+      "Presenté el Sistema de Gestión al cliente final y capacité a los usuarios que lo iban a operar.",
       "Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.",
       "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
       "Ahí desarrollo el ERP de Direcciones y el tablero de tareas de Producto y Tecnología (React 19, micro-frontends embebidos por iframe con postMessage), tomando reportes de QA hasta cerrarlos verificados en la app.",
+      "Construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y registro inmutable append-only en el backend, y en el front el control de jornada y la vista de reporte, con permisos por rol y actualización en vivo por sockets.",
+      "También trabajo sobre la performance del sistema (respuestas más acotadas e indexación de las consultas más pesadas) y sobre correcciones de seguridad en el ecosistema de microservicios.",
     ],
   },
   {
