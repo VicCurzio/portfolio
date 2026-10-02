@@ -153,7 +153,7 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "Incremental indexing of 340 notes into 5338 chunks: a note that did not change is not processed again.",
       "Hybrid search: by meaning and by exact words, fused by rank.",
       "Agent with a single search tool, no framework: it can search, read what came back and search again with different words.",
-      "Automated measurement of accuracy: recall went from 29% to 71% once each chunk was indexed together with the title of its note, and the rejection of unanswerable questions from 0% to 100% with a threshold that was measured instead of guessed.",
+      "Automated measurement of accuracy, today at 89% retrieval and 100% rejection over 34 questions. Both jumps came from measuring rather than guessing: indexing each chunk together with the title of its note, and giving less weight to the daily log notes, which are 41% of the vault and used to win on sheer volume.",
     ],
     how: [
       "Vectors are computed on the machine itself with a multilingual model: indexing costs nothing, so trying a change and measuring it is free.",

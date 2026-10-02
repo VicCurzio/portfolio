@@ -231,7 +231,7 @@ export const projects = [
       "Indexación incremental de 340 notas en 5338 pedazos: una nota que no cambió no se vuelve a procesar.",
       "Búsqueda híbrida: por significado y por palabras exactas, fusionadas por posición.",
       "Agente con una herramienta de búsqueda, sin framework: puede buscar, leer lo que trajo y volver a buscar con otras palabras.",
-      "Evaluación automática del acierto: el recall pasó de 29% a 71% al indexar cada pedazo junto con el título de su nota, y el rechazo de preguntas sin respuesta de 0% a 100% con un umbral medido en vez de estimado.",
+      "Evaluación automática del acierto, hoy en 89% de recuperación y 100% de rechazo sobre 34 preguntas. Los dos saltos salieron de medir, no de intuir: indexar cada pedazo junto al título de su nota, y bajarle el peso al registro diario, que es el 41% de las notas y ganaba por volumen.",
     ],
     how: [
       "Los vectores se calculan en la propia máquina con un modelo multilingüe: indexar no cuesta nada, así que probar un cambio y medirlo es gratis.",
