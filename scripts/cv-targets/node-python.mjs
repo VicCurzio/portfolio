@@ -42,14 +42,13 @@ const es = {
       ],
       highlights: [
         "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
-        "Ahí construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además trabajo sobre la indexación de las consultas más pesadas.",
-        "Diseñé desde cero el esquema y la API del Sistema de Gestión de Desarrollos Del Sud, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026.",
+        "Ahí construí de punta a punta el módulo de trackeo de jornada que hoy usan 20 personas de 3 departamentos: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además bajé de 3 segundos a 0,6 las consultas más pesadas, indexándolas.",
+        "Diseñé desde cero el esquema y la API del Sistema de Gestión de Desarrollos Del Sud, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
         "Optimicé el código heredado del CRM: consultas SQL (N+1 y selects sin lista de campos), variables de entorno, dependencias sin uso y código muerto.",
         "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo cada endpoint según el perfil de usuario.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
-        "Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.",
       ],
     },
 
@@ -74,13 +73,14 @@ const es = {
         "Seguridad: archivos privados con URLs firmadas de vida corta, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
         "Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.",
         "Infraestructura y despliegue automático: API y worker en producción bajo PM2, panel en Cloudflare Pages y el build siempre fuera de la máquina de producción.",
+        "Despliegue automatizado en GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia, con nginx de reverse proxy delante de la API y dos entornos separados con HTTPS. La base se copia a diario hacia otro proveedor, y la copia se restauró contra una base descartable para comprobar que sirve.",
         "Interlocutor técnico del cliente: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.",
       ],
     },
 
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
-        "Construí desde cero una plataforma SaaS multi-tenant, extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles.",
+        "Construí desde cero una plataforma SaaS multi-tenant, extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
         "Integraciones con el SDK de Mercado Pago y la API de Google Calendar (OAuth 2.0) para la gestión automática de turnos y pagos.",
         "Tareas programadas (cron jobs) para el envío automático de notificaciones y recordatorios a los usuarios.",
         "Despliegue continuo: configuración y gestión autónoma de los entornos productivos.",
@@ -97,7 +97,7 @@ const es = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
+        "Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
         "Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.",
         "Entornos reproducibles con Docker y soporte técnico integral para garantizar la continuidad operativa.",
       ],
@@ -115,11 +115,11 @@ const es = {
     },
     {
       title: "Arquitectura",
-      items: ["Microservicios", "APIs REST", "Dual-DB", "RBAC", "Integridad de datos", "Clean Code"],
+      items: ["Microservicios", "APIs REST", "CI/CD", "Dual-DB", "RBAC", "Integridad de datos", "Clean Code"],
     },
     {
       title: "Calidad",
-      items: ["Vitest", "TDD", "Pruebas automatizadas", "Code review", "Documentación en el repo"],
+      items: ["Vitest", "Playwright", "TDD", "Pruebas automatizadas", "Code review", "Documentación en el repo"],
     },
     { title: "Infraestructura", items: ["Docker", "PM2", "CI/CD", "Vercel", "Cloudflare Pages", "Amazon S3"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },

@@ -44,12 +44,11 @@ const es = {
       highlights: [
         "Hoy desarrollo el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con solicitudes entre áreas y notificaciones en tiempo real por WebSocket.",
         "Integración entre sistemas: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM) en una arquitectura dual-DB, con sincronización bidireccional automática de los datos compartidos.",
-        "Diseñé desde cero el esquema y la API del Sistema de Gestión de Desarrollos Del Sud, con 20 módulos funcionales (contratos, cobranza, flujo de caja, actualización por IPC, reportes), y lo llevé a producción en agosto de 2026.",
+        "Diseñé desde cero el esquema y la API del Sistema de Gestión de Desarrollos Del Sud, con 20 módulos funcionales (contratos, cobranza, flujo de caja, actualización por IPC, reportes), y lo llevé a producción en agosto de 2026. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Resolución de incidentes: bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre los dos sistemas.",
         "Análisis técnico con las áreas de negocio: traduje los requerimientos de administración y cobranza a modelo de datos y endpoints, y fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM) definiendo estándares de código junto al tech lead.",
         "Mantenimiento del código heredado del CRM: consultas SQL (N+1 y selects sin lista de campos), variables de entorno, dependencias sin uso y código muerto.",
         "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo cada endpoint según el perfil de usuario.",
-        "En sprints resolvía alrededor del 65% de las tareas del equipo, asignado consistentemente a las de mayor complejidad técnica.",
       ],
     },
 
@@ -71,6 +70,7 @@ const es = {
         "API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña).",
         "Testing: cada funcionalidad se entrega con su suite de pruebas automatizadas en Vitest, escritas contra la clase de error que cuidan y verificadas fallando antes de darlas por buenas.",
         "Infraestructura en la nube y despliegue automático: API y worker en producción bajo PM2, panel en Cloudflare Pages, archivos en almacenamiento de objetos y el build siempre fuera de la máquina de producción.",
+        "Despliegue automatizado en GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia, con nginx de reverse proxy delante de la API y dos entornos separados con HTTPS. La base se copia a diario hacia otro proveedor, y la copia se restauró contra una base descartable para comprobar que sirve.",
         "Seguridad: archivos privados con URLs firmadas de vida corta, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
         "Interlocutor técnico del cliente, un área no técnica: ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio de decisión.",
       ],
@@ -79,7 +79,7 @@ const es = {
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
         "Integraciones con terceros: SDK de Mercado Pago y API de Google Calendar (OAuth 2.0) para la gestión automática de turnos y pagos.",
-        "Construí desde cero una plataforma SaaS multi-tenant, extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles.",
+        "Construí desde cero una plataforma SaaS multi-tenant, extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
         "Tareas programadas (cron jobs) para el envío automático de notificaciones y recordatorios a los usuarios.",
         "Despliegue continuo: configuración y gestión autónoma de los entornos productivos.",
       ],
@@ -95,7 +95,7 @@ const es = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema interno de gestión de obras.",
+        "Automaticé procesos clave de un sistema interno de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
         "Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos con el equipo.",
         "Entornos reproducibles con Docker y soporte técnico integral para garantizar la continuidad operativa.",
       ],
@@ -113,11 +113,11 @@ const es = {
     },
     {
       title: "Arquitectura",
-      items: ["APIs REST", "Microservicios", "Integraciones entre sistemas", "Dual-DB", "RBAC", "Clean Code"],
+      items: ["APIs REST", "Microservicios", "CI/CD", "Integraciones entre sistemas", "Dual-DB", "RBAC", "Clean Code"],
     },
     {
       title: "Calidad",
-      items: ["Vitest", "Pruebas automatizadas", "Code review", "Documentación en el repo"],
+      items: ["Vitest", "Playwright", "Pruebas automatizadas", "Code review", "Documentación en el repo"],
     },
     { title: "Infraestructura", items: ["Docker", "PM2", "CI/CD", "Vercel", "Cloudflare Pages", "Amazon S3"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },

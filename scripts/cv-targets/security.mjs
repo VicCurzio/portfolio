@@ -43,10 +43,10 @@ const es = {
         "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo cada endpoint de la API según el perfil de usuario.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre dos sistemas distintos.",
         "Arquitectura dual-DB: conecté el CRM existente (MySQL, Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (PostgreSQL, Drizzle) y sostuve la sincronización bidireccional automática entre ambos.",
-        "Diseñé desde cero el esquema y la API del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026.",
+        "Diseñé desde cero el esquema y la API del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Saneé el código heredado del CRM antes de reutilizarlo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno expuestas, dependencias sin uso y código muerto.",
         "Hoy trabajo en el SGD, el sistema interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
-        "Ahí construí el módulo de trackeo de jornada sobre un registro inmutable append-only —ninguna hora se edita ni se borra— con permisos por rol verificados en el servidor, y trabajo sobre las correcciones de seguridad del ecosistema de microservicios.",
+        "Ahí construí el módulo de trackeo de jornada que hoy usan 20 personas de 3 departamentos, sobre un registro inmutable append-only —ninguna hora se edita ni se borra— con permisos por rol verificados en el servidor, y trabajo sobre las correcciones de seguridad del ecosistema de microservicios.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
       ],
     },
@@ -74,15 +74,15 @@ const es = {
         "Identificador de operación en toda escritura: el reintento de un cliente no duplica el efecto. Es una decisión técnica documentada del proyecto, no un parche.",
         "Gestión de secretos y entorno: el servicio se niega a arrancar en producción si falta un secreto o si la conexión a la base no viaja con verificación completa del certificado.",
         "Datos privados por diseño: una empresa accede al perfil completo solo de quien se postuló a su oferta, impuesto en la capa de datos y no en la interfaz, y los archivos privados se sirven con URLs firmadas de vida corta.",
-        "Operación: API y worker sobre un servidor Linux propio bajo PM2, panel en Cloudflare Pages, migraciones aplicadas antes del reload y el build siempre fuera de la máquina de producción.",
-        "Copias de seguridad cifradas y verificadas antes de subirse, con el control de frescura corriendo fuera del servidor que respalda, para que la caída del servidor no apague también su vigilancia.",
+        "Operación: API y worker sobre un servidor Linux propio bajo PM2 detrás de nginx, panel en Cloudflare Pages, despliegue por GitHub Actions con las migraciones aplicadas antes del reload y el build siempre fuera de la máquina de producción.",
+        "Copias de seguridad cifradas y verificadas antes de subirse, restauradas contra una base descartable para comprobar que sirven, con el control de frescura corriendo fuera del servidor que respalda, para que la caída del servidor no apague también su vigilancia.",
         "486 pruebas automatizadas en verde (unitarias, de integración y de navegador), con la suite completa como puerta de entrada a cada despliegue.",
       ],
     },
 
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
-        "Construí desde cero una plataforma SaaS multi-tenant con aislamiento de datos por cliente y control de acceso por roles, extendiendo el modelo relacional a más de 24 tablas.",
+        "Construí desde cero una plataforma SaaS multi-tenant con aislamiento de datos por cliente y control de acceso por roles, extendiendo el modelo relacional a más de 24 tablas. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
         "Integraciones autenticadas con servicios externos: SDK de Mercado Pago y API de Google Calendar por OAuth 2.0, con manejo de credenciales y renovación de permisos.",
         "Tareas programadas (cron jobs) para notificaciones y recordatorios automáticos.",
         "Despliegue continuo: configuración y gestión autónoma de los entornos productivos.",
@@ -98,7 +98,7 @@ const es = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
+        "Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
         "Entornos reproducibles con Docker y soporte técnico integral para garantizar la continuidad operativa.",
       ],
     },
@@ -128,7 +128,7 @@ const es = {
     },
     {
       title: "Infraestructura",
-      items: ["Linux", "Docker", "PM2", "Cloudflare", "Backups cifrados", "CI/CD", "Amazon S3", "Cloudflare R2"],
+      items: ["Linux", "Docker", "PM2", "nginx", "GitHub Actions", "Cloudflare", "Backups cifrados", "CI/CD", "Amazon S3", "Cloudflare R2"],
     },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Supabase"] },
     { title: "Calidad", items: ["Vitest", "Playwright", "TDD", "Code review", "Claude Code"] },

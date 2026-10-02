@@ -41,13 +41,12 @@ const es = {
         "Trello",
       ],
       highlights: [
-        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.",
+        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026. Hoy la operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes): las pantallas y la API que las alimenta.",
         "Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.",
         "Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo los endpoints según el perfil de usuario.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
-        "Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.",
         "Hoy trabajo en el SGD, el sistema interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket y un front en React 19.",
       ],
     },
@@ -80,7 +79,7 @@ const es = {
 
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
-        "Construí desde cero una plataforma SaaS multi-tenant con Next.js 14, TypeScript y Supabase, extendiendo el modelo relacional a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles.",
+        "Construí desde cero una plataforma SaaS multi-tenant con Next.js 14, TypeScript y Supabase, extendiendo el modelo relacional a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
         "Integraciones con el SDK de Mercado Pago y la API de Google Calendar (OAuth 2.0) para la gestión automática de turnos y pagos.",
         "Tareas programadas (cron jobs) para el envío automático de notificaciones y recordatorios a los usuarios.",
         "Despliegue continuo: configuración y gestión autónoma de los entornos productivos en Vercel.",
@@ -97,7 +96,7 @@ const es = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
+        "Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
         "Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.",
       ],
     },

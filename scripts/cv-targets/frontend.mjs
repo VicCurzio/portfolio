@@ -37,11 +37,10 @@ const es = {
       ],
       highlights: [
         "En el SGD, el sistema interno del grupo, construyo con React 19 una arquitectura de micro-frontends: un front shell que embebe por iframe los fronts de tareas y de solicitudes, cada uno con su repo, su build y su despliegue propios, comunicados por postMessage con validación de origen.",
-        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026.",
+        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional en Next.js), con entrega en agosto de 2026. Hoy la operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Construí de punta a punta el Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes): las pantallas en React sobre Material UI y Sass, y la API que las alimenta.",
         "Interfaces contra APIs REST propias: al escribir los dos lados, definía el contrato de datos que la pantalla necesita en vez de acomodarme a uno ajeno.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
-        "Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.",
         "Del lado del dato: conecté el CRM existente (Sequelize) con el nuevo sistema (Drizzle) con sincronización bidireccional, control de acceso por rol (RBAC) y corrección de race conditions en escrituras concurrentes.",
         "Sobre esa arquitectura desarrollo el ERP de Direcciones y el tablero de tareas de Producto y Tecnología, y tomo los reportes de QA hasta cerrarlos verificados en la app.",
       ],
@@ -74,7 +73,7 @@ const es = {
 
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
-        "Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica) con Next.js 14, TypeScript y Tailwind CSS, con aislamiento de datos por cliente y control de acceso por roles.",
+        "Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica) con Next.js 14, TypeScript y Tailwind CSS, con aislamiento de datos por cliente y control de acceso por roles. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
         "Integraciones de cara al usuario: SDK de Mercado Pago para los pagos y API de Google Calendar (OAuth 2.0) para la gestión automática de turnos.",
         "Tareas programadas para el envío automático de notificaciones y recordatorios, y despliegue continuo en Vercel gestionado de forma autónoma.",
       ],
@@ -90,7 +89,7 @@ const es = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
+        "Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
         "Desarrollo de la lógica de negocio central y de las vistas del sistema, trabajando con Scrum para la coordinación de tiempos y requisitos.",
       ],
     },
@@ -146,11 +145,10 @@ const en = {
       stack: ["React", "Next.js", "TypeScript", "Material UI", "Sass", "Node.js", "Express.js", "PostgreSQL", "MySQL", "Socket.io", "Trello"],
       highlights: [
         "On SGD, the group's internal system, I build with React 19 a micro-frontend architecture: a shell front end that embeds the tasks and requests front ends through iframes, each with its own repo, build and deployment, talking over postMessage with origin validation.",
-        "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026.",
+        "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
         "Built the Management System end to end, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting): the React screens on Material UI and Sass, and the API that feeds them.",
         "Interfaces against my own REST APIs: writing both sides, I defined the data contract the screen needed instead of adapting to someone else's.",
         "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
-        "Closed around 65% of the team's tickets each sprint, consistently assigned the most technically complex ones.",
         "On the data side: connected the existing CRM (Sequelize) with the new system (Drizzle) with two-way sync, role-based access control (RBAC) and fixes for race conditions on concurrent writes.",
         "On top of that architecture I build the Directions ERP and the Product and Technology task board, and I take QA reports through to verified fixes in the app.",
       ],
@@ -171,7 +169,7 @@ const en = {
 
     "Cognitive Link — Consulting & IT Solutions": {
       highlights: [
-        "Built a multi-tenant SaaS platform from scratch (retail and clinical) with Next.js 14, TypeScript and Tailwind CSS, with per-client data isolation and role-based access control.",
+        "Built a multi-tenant SaaS platform from scratch (retail and clinical) with Next.js 14, TypeScript and Tailwind CSS, with per-client data isolation and role-based access control. It reached production with 5 businesses operating in parallel on the same instance.",
         "User-facing integrations: the Mercado Pago SDK for payments and the Google Calendar API (OAuth 2.0) for automatic appointment handling.",
         "Scheduled jobs for automatic notifications and reminders, and continuous deployment on Vercel managed autonomously.",
       ],
@@ -187,7 +185,7 @@ const en = {
 
     "Felanix Construcciones": {
       highlights: [
-        "Cut task processing time by 20% by automating key processes of a construction management system.",
+        "Automated key processes of a construction management system that used to be manual, shortening task processing time.",
         "Developed the core business logic and the system's views, working with Scrum to coordinate timelines and requirements.",
       ],
     },

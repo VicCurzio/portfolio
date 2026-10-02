@@ -22,7 +22,7 @@ const es = {
     "Grupo DELSUD": {
       stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React", "Trello"],
       highlights: [
-        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.",
+        "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026. Hoy la operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).",
         "Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
@@ -30,7 +30,7 @@ const es = {
         "Saneé el código heredado del CRM para reutilizarlo en un producto nuevo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno, dependencias sin uso y código muerto.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
         "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
-        "Ahí construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además trabajo sobre la indexación de las consultas más pesadas.",
+        "Ahí construí de punta a punta el módulo de trackeo de jornada que hoy usan 20 personas de 3 departamentos: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además bajé de 3 segundos a 0,6 las consultas más pesadas, indexándolas.",
       ],
     },
 
@@ -43,6 +43,7 @@ const es = {
         "Seguridad: archivos privados con URLs firmadas de vida corta, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
         "Planes, precios, límites, permisos y pesos del índice de reputación viven en base de datos, sin valores fijos en el código.",
         "Infraestructura y despliegue automático: API y worker en producción en un servidor propio bajo PM2, panel en Cloudflare Pages y el build siempre fuera de la máquina de producción.",
+        "Despliegue automatizado en GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia, con nginx de reverse proxy delante de la API y dos entornos separados con HTTPS. La base se copia a diario hacia otro proveedor, y la copia se restauró contra una base descartable para comprobar que sirve.",
         "Análisis técnico y regulatorio de la custodia de fondos del roadmap: se resuelve sobre un procesador licenciado y el dinero se modela como asientos que no se editan desde el primer esquema.",
       ],
     },
@@ -52,9 +53,9 @@ const es = {
     { title: "Back-end", items: ["Node.js", "TypeScript", "Express.js", "NestJS", "Fastify", "Ruby on Rails", "Python"] },
     { title: "Bases de datos", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase", "Drizzle", "Sequelize", "Active Record"] },
     { title: "Arquitectura", items: ["Dual-DB", "APIs REST", "Microservicios", "RBAC", "Migraciones", "Clean Code"] },
-    { title: "Infraestructura", items: ["Docker", "PM2", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
+    { title: "Infraestructura", items: ["Linux", "Docker", "PM2", "nginx", "GitHub Actions", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Postman", "Playwright", "Vitest", "DBeaver"] },
   ],
 
   // Mismo listado del CV general, con los de back primero.
@@ -80,7 +81,7 @@ const en = {
     "Grupo DELSUD": {
       stack: ["Node.js", "TypeScript", "Express.js", "MySQL", "PostgreSQL", "Sequelize", "Drizzle", "Socket.io", "Amazon S3", "React", "Trello"],
       highlights: [
-        "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and public website), delivered in August 2026.",
+        "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and public website), delivered in August 2026. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
         "Designed the architecture of the Management System from scratch, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting, among others).",
         "Dual-database architecture: connected the existing CRM (Sequelize, ~25 models) with the new Management System (Drizzle ORM), with automatic two-way data synchronisation.",
         "Fixed critical data-integrity bugs, including race conditions on concurrent record creation and on the synchronisation between systems.",
@@ -88,7 +89,7 @@ const en = {
         "Cleaned up the inherited CRM code so it could be reused in a new product: SQL queries (N+1 and selects without a field list), environment variables, unused dependencies and dead code.",
         "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
         "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket.",
-        "There I built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, with role-based permissions and live updates over sockets; I also work on indexing the heaviest queries.",
+        "There I built the workday time-tracking module, now used by 20 people across 3 departments: 14 endpoints and an immutable append-only log on the backend, with role-based permissions and live updates over sockets; I also took the heaviest queries from 3 seconds down to 0.6 by indexing them.",
       ],
     },
 
@@ -101,6 +102,7 @@ const en = {
         "Security: private files behind short-lived signed URLs, and an operation id on every write so a retry cannot duplicate its effect.",
         "Plans, prices, limits, permissions and reputation index weights live in the database, with no hard-coded values.",
         "Infrastructure and automated deployment: API and worker live on a dedicated server under PM2, dashboard on Cloudflare Pages, and the build always outside the production machine.",
+        "Automated deployment on GitHub Actions: it builds off the server, copies the artifact over SSH, runs the migrations and only then restarts, with nginx as a reverse proxy in front of the API and two separate environments over HTTPS. The database is dumped daily to another provider, and the dump was restored against a throwaway database to prove it works.",
         "Technical and regulatory analysis of the fund custody in the roadmap: built on top of a licensed processor, with money modelled as entries that are never edited from the very first schema.",
       ],
     },
@@ -110,9 +112,9 @@ const en = {
     { title: "Back-end", items: ["Node.js", "TypeScript", "Express.js", "NestJS", "Fastify", "Ruby on Rails", "Python"] },
     { title: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase", "Drizzle", "Sequelize", "Active Record"] },
     { title: "Architecture", items: ["Dual-DB", "REST APIs", "Microservices", "RBAC", "Migrations", "Clean Code"] },
-    { title: "Infrastructure", items: ["Docker", "PM2", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
+    { title: "Infrastructure", items: ["Linux", "Docker", "PM2", "nginx", "GitHub Actions", "BullMQ", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Tools", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
+    { title: "Tools", items: ["Git", "GitHub", "Trello", "Postman", "Playwright", "Vitest", "DBeaver"] },
   ],
 
   courses: [

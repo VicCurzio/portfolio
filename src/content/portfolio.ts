@@ -44,7 +44,7 @@ export const experience = [
       "Trello",
     ],
     highlights: [
-      "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026.",
+      "Desarrollos Del Sud: llevé a producción la plataforma de venta de lotes en cuotas (CRM, Sistema de Gestión y web institucional), con entrega en agosto de 2026. Hoy la operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
       "Diseñé desde cero la arquitectura del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes, entre otros).",
       "Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.",
       "Saneé el código heredado del CRM para reutilizarlo en un producto nuevo: estructura de carpetas, variables de entorno, consultas SQL, dependencias y código muerto.",
@@ -52,11 +52,10 @@ export const experience = [
       "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
       "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
       "Presenté el Sistema de Gestión al cliente final y capacité a los usuarios que lo iban a operar.",
-      "Resolvía alrededor del 65% de las tareas del equipo en cada sprint, asignado consistentemente a las de mayor complejidad técnica.",
       "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
       "Ahí desarrollo el ERP de Direcciones y el tablero de tareas de Producto y Tecnología (React 19, micro-frontends embebidos por iframe con postMessage), tomando reportes de QA hasta cerrarlos verificados en la app.",
-      "Construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y registro inmutable append-only en el backend, y en el front el control de jornada y la vista de reporte, con permisos por rol y actualización en vivo por sockets.",
-      "También trabajo sobre la performance del sistema (respuestas más acotadas e indexación de las consultas más pesadas) y sobre correcciones de seguridad en el ecosistema de microservicios.",
+      "Construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y registro inmutable append-only en el backend, y en el front el control de jornada y la vista de reporte, con permisos por rol y actualización en vivo por sockets. Hoy registran su jornada ahí 20 personas de 3 departamentos.",
+      "También trabajo sobre la performance del sistema (respuestas más acotadas e indexación de las consultas más pesadas, que bajaron de 3 segundos a 0,6) y sobre correcciones de seguridad en el ecosistema de microservicios.",
     ],
   },
   {
@@ -78,11 +77,18 @@ export const experience = [
       "Cloudflare Pages",
       "Cloudflare R2",
       "PM2",
+      "nginx",
+      "GitHub Actions",
+      "Playwright",
     ],
     highlights: [
       "Diseño de la arquitectura y del orden de construcción de una red profesional B2B de talento creativo, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.",
       "Primera etapa entregada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas.",
       "Infraestructura y despliegue automático de punta a punta: panel publicado en Cloudflare Pages y API en producción en un servidor propio bajo PM2, con el build siempre fuera de la máquina de producción.",
+      "Pipeline de despliegue en GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia el proceso, con nginx de reverse proxy delante de la API y dos entornos separados con HTTPS.",
+      "Backups con restauración probada: copia diaria de la base por cron hacia un proveedor distinto del que tiene el servidor, y restaurada contra una base descartable para comprobar que sirve. La alarma salta por silencio, cuando la copia no llegó, y no cuando sale bien.",
+      "Seis guardas al arrancar que abortan el proceso si el entorno declarado no coincide con la base o si hay claves de producción fuera de producción, más endpoint de salud vigilado desde afuera que avisa por correo, logs con identificador de pedido y rotación de logs compatible con el gestor de procesos.",
+      "End-to-end en Playwright contra el build como suite principal, más tests unitarios para la lógica pura.",
       "Seguridad: archivos privados con URLs firmadas de vida corta, acceso al CV del profesional restringido al equipo de validación, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
       "Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.",
       "Sistema de reputación y gamificación configurable en base de datos (planes, precios, límites, permisos y pesos del índice), sin valores fijos en el código.",
@@ -98,7 +104,7 @@ export const experience = [
     location: "La Plata, Argentina",
     stack: ["Next.js 14", "Node.js", "TypeScript", "PostgreSQL", "Supabase", "Tailwind CSS"],
     highlights: [
-      "Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica), extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles.",
+      "Construí desde cero una plataforma SaaS multi-tenant (comercial y clínica), extendiendo el modelo relacional base a más de 24 tablas con aislamiento seguro de datos por cliente y control de acceso por roles. Llegó a producción con 5 negocios operando en paralelo sobre la misma instancia.",
       "Integraciones con el SDK de Mercado Pago y la API de Google Calendar (OAuth 2.0) para la gestión automática de turnos y pagos.",
       "Tareas programadas (cron jobs) para el envío automático de notificaciones y recordatorios a los usuarios.",
       "Despliegue continuo: configuración y gestión autónoma de los entornos productivos en Vercel.",
@@ -124,7 +130,7 @@ export const experience = [
     location: "La Plata, Argentina",
     stack: ["Ruby on Rails", "Active Record", "PostgreSQL", "Docker", "JavaScript", "Bootstrap", "Trello"],
     highlights: [
-      "Reduje el tiempo de procesamiento de tareas un 20% automatizando procesos clave de un sistema de gestión de obras.",
+      "Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.",
       "Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.",
       "Gestión de tiempos y requisitos, asegurando el cumplimiento de los plazos del proyecto.",
       "Soporte técnico integral: incidencias de hardware y software para garantizar la continuidad operativa.",
@@ -143,9 +149,9 @@ export const skills = {
   frontend: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Material UI", "Sass", "Bootstrap", "PWA"],
   backend: ["Node.js", "Express.js", "NestJS", "TypeScript", "Ruby on Rails", "Python"],
   databases: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase", "Drizzle", "Sequelize", "Active Record"],
-  architecture: ["Dual-DB", "RBAC", "Migraciones", "Clean Code"],
-  infrastructure: ["Docker", "PM2", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"],
-  tools: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"],
+  architecture: ["Dual-DB", "RBAC", "Microservicios", "CI/CD", "Migraciones", "Clean Code"],
+  infrastructure: ["Docker", "PM2", "nginx", "Linux", "GitHub Actions", "DigitalOcean", "Vercel", "Cloudflare Pages", "Amazon S3", "Cloudflare R2"],
+  tools: ["Git", "GitHub", "Trello", "Postman", "Playwright", "Vitest", "DBeaver"],
 } as const;
 
 export const skillGroups = [
