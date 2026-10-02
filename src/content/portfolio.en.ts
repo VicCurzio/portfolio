@@ -114,6 +114,8 @@ export const educationText = {
   school: "Universidad Nacional de La Plata (UNLP)",
   period: "Dec 2023 — Present",
   location: "La Plata, Argentina",
+  detail:
+    "Five-year degree at the Facultad de Informática (2021 curriculum): 37 courses and a final thesis. I study it alongside a full-time job. What I am after there is the groundwork the day-to-day does not give: algorithms, concurrency, operating systems and databases.",
 } satisfies Record<keyof typeof education, string>;
 
 export const skillGroupTitles: Record<SkillGroupTitle, string> = {

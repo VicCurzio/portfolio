@@ -143,6 +143,9 @@ export const education = {
   school: "Universidad Nacional de La Plata (UNLP)",
   period: "Dic 2023 — Actualidad",
   location: "La Plata, Argentina",
+  // `detail` sale solo en la pagina; el CV imprime la linea corta de arriba.
+  detail:
+    "Carrera de cinco años en la Facultad de Informática (plan 2021): 37 materias y tesina final. La curso en paralelo al trabajo full time. Lo que busco ahí es la base que el día a día no da: algoritmos, concurrencia, sistemas operativos y bases de datos.",
 } as const;
 
 export const skills = {

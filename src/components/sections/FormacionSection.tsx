@@ -30,6 +30,7 @@ export function FormacionSection({ lang }: { lang: Lang }) {
             <p className="r-panel__meta">
               {education.period} · {education.location}
             </p>
+            <p className="r-panel__text">{education.detail}</p>
           </div>
 
           <div className="r-panel">
