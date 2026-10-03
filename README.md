@@ -1,5 +1,7 @@
 # Portfolio — Victor Roberto Curzio
 
+[![Deploy](https://github.com/VicCurzio/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/VicCurzio/portfolio/actions/workflows/deploy.yml) [![Lighthouse](https://github.com/VicCurzio/portfolio/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/VicCurzio/portfolio/actions/workflows/lighthouse.yml)
+
 ![Inicio del portfolio, con el estilo de una consola de 8 bits](public/projects/portfolio.webp)
 
 Sitio personal con el estilo de una consola de 8 bits: experiencia, proyectos,
