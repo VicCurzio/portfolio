@@ -10,6 +10,9 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 
 ## [Sin publicar]
 
+
+## [1.0.0] - 2026-10-03
+
 ### Agregado
 
 - Intro animada al arrancar, en el estilo de la pantalla de presentación de una consola de 8 bits: ciudad de noche con los créditos subiendo, paneo por una torre y pantalla de título. Dura nueve segundos, se saltea con el botón de la esquina y no aparece si el sistema pide menos movimiento. Queda un botón en la barra de arriba para volver a verla.
