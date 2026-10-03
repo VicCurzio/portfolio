@@ -229,7 +229,7 @@ export const projects = [
       "Buscador por significado y agente de preguntas sobre una carpeta de notas en markdown: encuentra aunque la pregunta no use ninguna de las palabras de la nota, responde citando de dónde lo sacó y, si no está, dice que no sabe.",
     did: [
       "Indexación incremental de 340 notas en 5338 pedazos: una nota que no cambió no se vuelve a procesar.",
-      "Búsqueda híbrida: por significado y por palabras exactas, fusionadas por posición.",
+      "Búsqueda híbrida: por significado y por palabras exactas, fusionadas por posición. Aislada contra un control, sube la recuperación de 82% a 89%: rescata las preguntas que dependen de un término literal, que es justo lo que el vector borronea.",
       "Agente con una herramienta de búsqueda, sin framework: puede buscar, leer lo que trajo y volver a buscar con otras palabras.",
       "Evaluación automática del acierto, hoy en 89% de recuperación y 100% de rechazo sobre 34 preguntas. Los dos saltos salieron de medir, no de intuir: indexar cada pedazo junto al título de su nota, y bajarle el peso al registro diario, que es el 41% de las notas y ganaba por volumen.",
     ],
@@ -238,6 +238,7 @@ export const projects = [
       "PostgreSQL con pgvector guarda el texto y su vector juntos, con índice HNSW y distancia coseno.",
       "Las dos búsquedas se fusionan por puesto y no por puntaje: una distancia coseno y un ranking de texto no viven en la misma escala y no se pueden promediar.",
       "Los evals incluyen preguntas cuya respuesta no está en las notas: una corrida en verde a la que nunca se le dio algo que rechazar no prueba que el control esté encendido.",
+      "Cada mejora entra contra un control medido, y alguna no entra: reordenar los candidatos con un segundo modelo es lo que se recomienda para esta etapa, da el mismo 89% y cuesta veinte pasadas de modelo por pregunta. Quedó en el repo apagado, con la medición al lado.",
     ],
     stack: ["TypeScript", "Node.js", "PostgreSQL", "pgvector", "Transformers.js", "Docker"],
     links: [{ label: "Código", url: "https://github.com/VicCurzio/vault-rag" }],

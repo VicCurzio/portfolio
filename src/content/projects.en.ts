@@ -151,7 +151,7 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "Meaning-based search and question agent over a folder of markdown notes: it finds the note even when the question shares none of its words, answers citing where it got it from, and says it does not know when the answer is not there.",
     did: [
       "Incremental indexing of 340 notes into 5338 chunks: a note that did not change is not processed again.",
-      "Hybrid search: by meaning and by exact words, fused by rank.",
+      "Hybrid search: by meaning and by exact words, fused by rank. Isolated against a control, it lifts retrieval from 82% to 89%: it rescues the questions that hinge on a literal term, which is exactly what the vector blurs.",
       "Agent with a single search tool, no framework: it can search, read what came back and search again with different words.",
       "Automated measurement of accuracy, today at 89% retrieval and 100% rejection over 34 questions. Both jumps came from measuring rather than guessing: indexing each chunk together with the title of its note, and giving less weight to the daily log notes, which are 41% of the vault and used to win on sheer volume.",
     ],
@@ -160,6 +160,7 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "PostgreSQL with pgvector stores the text and its vector together, with an HNSW index and cosine distance.",
       "The two searches are fused by rank and not by score: a cosine distance and a text ranking do not live on the same scale and cannot be averaged.",
       "The evals include questions whose answer is not in the notes: a green run that was never given anything to reject does not prove the control is switched on.",
+      "Every improvement has to beat a measured control, and some do not: reranking the candidates with a second model is the standard next step here, returns the same 89% and costs twenty model passes per question. It stayed in the repo switched off, with the measurement next to it.",
     ],
   },
   Portfolio: {
