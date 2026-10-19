@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Victor Roberto Curzio — CV</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    font: 8.7pt/1.34 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1b1f24;
+  }
+  a { color: #1b1f24; text-decoration: none; }
+  h1 { font-size: 17.5pt; margin: 0; letter-spacing: -0.01em; }
+  .role { font-size: 9.8pt; color: #4a5158; margin: 2pt 0 5pt; font-weight: 600; }
+  .contact { font-size: 8.4pt; color: #4a5158; margin: 0; }
+  .contact + .contact { margin-top: 2pt; }
+  .contact .item { white-space: nowrap; }
+  .sep { padding: 0 5pt; color: #b6bcc2; }
+  header.top { border-bottom: 1.2pt solid #1b1f24; padding-bottom: 6pt; margin-bottom: 8pt; }
+  section { margin-bottom: 8pt; }
+  .job, .skills, .edu, .courses { break-inside: avoid; }
+  h2 {
+    font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.11em;
+    color: #6b7280; margin: 0 0 6pt; padding-bottom: 3pt;
+    border-bottom: 0.6pt solid #dfe3e7;
+    break-after: avoid;
+  }
+  .summary { margin: 0; text-align: justify; }
+  .job { margin-bottom: 7pt; break-inside: avoid; }
+  .job h3 { font-size: 9.4pt; margin: 0; }
+  .job .at { color: #9aa1a8; font-weight: 400; }
+  .meta { font-size: 8.4pt; color: #6b7280; margin: 1pt 0 4pt; }
+  .job ul { margin: 0; padding-left: 12pt; }
+  .job li { margin-bottom: 1.8pt; text-align: justify; }
+  .stack { font-size: 8.6pt; color: #4a5158; margin: 4pt 0 0; }
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 16pt; }
+  .skill-group h4 { font-size: 8.6pt; margin: 0 0 1pt; }
+  .skill-group p { margin: 0; font-size: 8.8pt; color: #4a5158; }
+  .edu { margin: 0 0 6pt; }
+  .courses-title { font-size: 8.6pt; margin: 0 0 2pt; }
+  .edu strong { font-size: 9.6pt; }
+  .courses { margin: 0; padding-left: 12pt; font-size: 8.8pt; color: #4a5158; }
+  .courses li { margin-bottom: 1.4pt; }
+  .langs { margin: 0; font-size: 8.8pt; color: #4a5158; }
+  .extra { font-size: 8.8pt; color: #4a5158; margin: 5pt 0 0; }
+</style>
+</head>
+<body>
+  <header class="top">
+    <h1>Victor Roberto Curzio</h1>
+    <p class="role">Desarrollador Backend<span class="sep">·</span>Node.js · TypeScript · Arquitecturas escalables · IA aplicada</p>
+    <p class="contact"><span class="item">La Plata, Argentina</span><span class="sep">·</span><span class="item"><a href="mailto:victor.curzio@hotmail.com">victor.curzio@hotmail.com</a></span><span class="sep">·</span><span class="item">+54 221 542 4585</span></p>
+    <p class="contact"><span class="item"><a href="https://linkedin.com/in/victor-roberto-curzio/">linkedin.com/in/victor-roberto-curzio</a></span><span class="sep">·</span><span class="item"><a href="https://github.com/VicCurzio">github.com/VicCurzio</a></span><span class="sep">·</span><span class="item"><a href="https://viccurzio.github.io/portfolio/">viccurzio.github.io/portfolio</a></span></p>
+  </header>
+
+  <section>
+    <h2>Resumen</h2>
+    <p class="summary">Tres años construyendo backend en producción con Node.js y TypeScript, con foco en arquitectura e integridad de datos. En Grupo DELSUD soy referente técnico de un equipo de 5 personas: diseñé desde cero un sistema de gestión de 20 módulos, lo conecté con un CRM de ~25 modelos que ya estaba en producción y lo puse en marcha sin ventana de corte; hoy lo operan 15 personas sobre más de 200 contratos, y bajé sus consultas más pesadas de 3 segundos a 0,6. En paralelo soy líder técnico de 2winGs, una plataforma B2B donde las decisiones de arquitectura son mías: NestJS sobre Fastify, PostgreSQL, colas con Redis y despliegue automatizado. En proyecto propio construí un sistema de preguntas sobre documentación privada (RAG con PostgreSQL y pgvector) sobre 340 notas y 5.338 fragmentos, con una evaluación automática de 34 preguntas que hoy da 89% de acierto y 100% de rechazo correcto cuando la respuesta no está en los documentos. Trabajo todos los días con agentes de codificación, con la especificación escrita antes del código.</p>
+  </section>
+
+  <section>
+    <h2>Experiencia</h2>
+    
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack · Referente Técnico<span class="at"> — </span>Grupo DELSUD</h3>
+          <p class="meta">Ene 2026 — Actualidad<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>20 módulos funcionales (contratos, cobranza, flujo de caja, indexación por IPC, reportes): diseñé desde cero la arquitectura de un sistema de gestión administrativo-contable y lo llevé a producción. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.</li><li>De 3 segundos a 0,6 las consultas más pesadas del sistema, cinco veces más rápidas: las indexé a partir de la medición y no de la intuición.</li><li>Dos bases en un solo producto: conecté el CRM existente (Sequelize, ~25 modelos) con el sistema nuevo (Drizzle ORM) mediante una arquitectura dual-DB con sincronización bidireccional automática, sin ventana de corte para el usuario.</li><li>20 personas de 3 departamentos usan el módulo de trackeo de jornada que construí de punta a punta: 14 endpoints y un registro inmutable append-only que nadie puede editar después del hecho, con permisos por rol.</li><li>Equipo de 5 personas (2 devs, UX, QA, PM) del que soy referente técnico: definí los estándares de código, reviso los cambios y participo en las decisiones técnicas clave junto al tech lead.</li><li>Arquitectura de microservicios en el ERP interno del grupo: un servicio Node/PostgreSQL por departamento, con notificaciones en tiempo real por WebSocket entre ellos.</li><li>Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre los dos sistemas.</li><li>Control de acceso (RBAC): middlewares de verificación de token y autorización por rol, protegiendo cada endpoint según el perfil de usuario.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Node.js · TypeScript · Express.js · NestJS · PostgreSQL · MySQL · Drizzle · Sequelize · Socket.io · Docker · Amazon S3 · React</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack y Líder Técnico (Freelance)<span class="at"> — </span>2winGs International Group LLC</h3>
+          <p class="meta">Ago 2026 — Actualidad<span class="sep">·</span>Remoto</p>
+        </header>
+        <ul><li>Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado como decisiones técnicas antes de escribir una línea de código.</li><li>API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajo pesado movido a segundo plano con BullMQ y Redis para que la petición del usuario no espere por él.</li><li>Despliegue automatizado con GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia, con nginx de reverse proxy delante de la API y dos entornos separados bajo HTTPS.</li><li>Copia de seguridad diaria de la base hacia un proveedor distinto del que aloja el servidor, restaurada contra una base descartable para comprobar que sirve: una copia que nadie restauró no es una copia.</li><li>Flujo de trabajo asistido por agentes de codificación: la especificación vive en el repositorio como fuente de verdad, y validaciones automáticas propias rechazan cualquier cambio que no cumpla los estándares del repo.</li><li>Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.</li><li>Planes, precios, límites y permisos viven en base de datos, sin valores fijos en el código, para que un cambio comercial no sea un despliegue.</li><li>Cada funcionalidad se entrega con su suite de pruebas automatizadas, escritas contra la clase de error que cuidan y verificadas fallando antes de darlas por buenas.</li></ul>
+        <p class="stack"><strong>Stack:</strong> TypeScript · NestJS · Fastify · PostgreSQL · Drizzle · Redis · BullMQ · Docker · nginx · PM2 · GitHub Actions · Cloudflare R2</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Cognitive Link — Consulting &amp; IT Solutions</h3>
+          <p class="meta">Mar 2025 — May 2026<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>5 negocios operando en paralelo sobre una misma instancia: construí desde cero una plataforma SaaS multi-tenant con Next.js, TypeScript y Supabase, con más de 24 tablas, aislamiento de datos por cliente y control de acceso por roles.</li><li>Integraciones con el SDK de Mercado Pago y la API de Google Calendar (OAuth 2.0) para automatizar la gestión de turnos y pagos.</li><li>Tareas programadas para el envío automático de notificaciones y recordatorios.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js 14 · Node.js · TypeScript · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack (Freelance)<span class="at"> — </span>Cicaré</h3>
+          <p class="meta">Mar 2025 — Ago 2025<span class="sep">·</span>Saladillo, Argentina</p>
+        </header>
+        <ul><li>Diseño e implementación de una arquitectura escalable con autenticación y gestión de permisos para una plataforma con información confidencial.</li><li>Full stack end-to-end: persistencia en Supabase, endpoints y flujos de aprobación administrativa.</li><li>Estructura jerárquica de contenidos con filtros de búsqueda avanzados y personalizables.</li><li>Automatización de notificaciones clave y mejoras de interfaz para una navegación más eficiente.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Next.js · Node.js · PostgreSQL · Supabase · Tailwind CSS</p>
+      </article>
+      <article class="job">
+        <header>
+          <h3>Desarrollador Full-Stack<span class="at"> — </span>Felanix Construcciones</h3>
+          <p class="meta">Sep 2023 — Sep 2024<span class="sep">·</span>La Plata, Argentina</p>
+        </header>
+        <ul><li>Automaticé procesos clave de un sistema de gestión de obras que antes se hacían a mano, acortando el tiempo de procesamiento de tareas.</li><li>Desarrollé la lógica de negocio central aplicando Scrum para la coordinación de tiempos y requisitos.</li><li>Gestión de tiempos y requisitos, asegurando el cumplimiento de los plazos del proyecto.</li><li>Soporte técnico integral: incidencias de hardware y software para garantizar la continuidad operativa.</li></ul>
+        <p class="stack"><strong>Stack:</strong> Ruby on Rails · Active Record · PostgreSQL · Docker · JavaScript · Bootstrap · Trello</p>
+      </article>
+  </section>
+
+  <section>
+    <h2>Formación</h2>
+    <p class="edu"><strong>Licenciatura en Sistemas</strong> — Universidad Nacional de La Plata (UNLP)<span class="sep">·</span>Dic 2023 — Actualidad</p>
+    <h4 class="courses-title">Cursos</h4>
+    <ul class="courses"><li>Administración de Base de Datos (MySQL) — Min. Educación BA (Nov. 2023)</li><li>Administración de Servidores GNU/Linux (Seguridad) — Min. Educación BA (Dic. 2023)</li><li>Curso Profesional Ruby on Rails — Código Facilito (Nov. 2023)</li><li>Bootcamp POO JAVA — Alkemy (Abr. 2024)</li><li>Carrera Desarrollo Front-end React — Coderhouse (Feb.–Jul. 2023)</li><li>Git y GitHub — Alura Latam (Abr. 2023)</li></ul>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4>Back-end</h4>
+        <p>Node.js · TypeScript · Express.js · NestJS · Fastify · APIs REST · WebSocket · Python</p>
+      </div>
+      <div class="skill-group">
+        <h4>IA aplicada</h4>
+        <p>RAG · pgvector · Embeddings · Búsqueda híbrida · Evaluación de recuperación · SDK de Anthropic · Agentes con herramientas · Agentes de codificación</p>
+      </div>
+      <div class="skill-group">
+        <h4>Arquitectura</h4>
+        <p>Microservicios · Dual-DB · Colas de trabajo · RBAC · Migraciones · Clean Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Bases de datos</h4>
+        <p>PostgreSQL · MySQL · Redis · SQLite · Supabase · Drizzle · Sequelize</p>
+      </div>
+      <div class="skill-group">
+        <h4>Infraestructura</h4>
+        <p>Docker · Linux · nginx · PM2 · GitHub Actions · CI/CD · DigitalOcean · Cloudflare · Amazon S3</p>
+      </div>
+      <div class="skill-group">
+        <h4>Herramientas</h4>
+        <p>Git · GitHub · Postman · Vitest · Playwright · DBeaver · Trello</p>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>Idiomas</h2>
+    <p class="langs"><strong>Español</strong> — Nativo<span class="sep">·</span><strong>Inglés</strong> — Intermedio (B1) — lectura y escritura técnica a diario</p>
+  </section>
+
+  <section>
+    <h2>Competencias</h2>
+    <p class="langs">Autonomía<span class="sep">·</span>Pensamiento analítico<span class="sep">·</span>Curiosidad técnica<span class="sep">·</span>Comunicación clara<span class="sep">·</span>Iniciativa</p>
+  </section>
+</body>
+</html>
