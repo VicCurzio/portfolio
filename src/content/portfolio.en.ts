@@ -40,18 +40,14 @@ export const experienceText: Record<Company, JobText> = {
     period: "Jan 2026 — Present",
     location: "La Plata, Argentina",
     highlights: [
-      "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and public website), delivered in August 2026. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
-      "Designed the architecture of the Management System from scratch, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting, among others).",
-      "Dual-database architecture: I connected the existing CRM (Sequelize, ~25 models) with the new Management System (Drizzle ORM), with automatic two-way data synchronisation.",
-      "Cleaned up the CRM's inherited code so it could be reused in a new product: folder structure, environment variables, SQL queries, dependencies and dead code.",
-      "Access control (RBAC): token verification and role authorisation middlewares, protecting every endpoint according to the user profile.",
-      "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
-      "Fixed critical data-integrity bugs, including race conditions on concurrent record creation and on the synchronisation between systems.",
-      "Presented the Management System to the end client and trained the people who would operate it.",
-      "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket.",
+      "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket, versioned in a self-hosted GitLab and deployed by its GitLab CI pipelines.",
       "There I build the Directions ERP and the Product and Technology task board (React 19, micro-frontends embedded through iframes with postMessage), taking QA reports through to verified fixes in the app.",
-      "Built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, and on the front the workday control and the reporting view, with role-based permissions and live updates over sockets. Twenty people across three departments log their workday there today.",
-      "I also work on the system's performance (leaner responses and indexing for the heaviest queries, down from 3 seconds to 0.6) and on security fixes across the microservice ecosystem.",
+      "Built the workday time-tracking module end to end: 14 endpoints, an immutable append-only log, role-based permissions, live updates over sockets and a floating control that operates the workday from any screen of the ERP, with the entry hanging off the project and the task optional.",
+      "Closed out a system-wide audit across the microservice ecosystem: every open finding re-verified one by one, and three of them closed as deliberately not done, because what needs infrastructure access or a change in production is not this team's call.",
+      "Prepared five backends for the production handover: a documentation check enforced in each one, a schema diagram per database, API collections, complete READMEs and environment examples, and a dead database and a dead environment variable removed.",
+      "When the file storage provider became unavailable, moved uploads to a second provider behind a storage driver selected by a single environment variable, with no code changes to switch back.",
+      "Designed the architecture of the Desarrollos Del Sud Management System from scratch (20 modules: contracts, collections, cash flow, inflation indexing, reporting) and took it to production in August 2026: a dual-database architecture connecting the existing CRM (Sequelize, ~25 models) with the new system (Drizzle ORM), with automatic two-way data synchronisation. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
+      "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions. Fixed critical data-integrity bugs, including race conditions on concurrent record creation, and improved the performance of the heaviest queries, down from 3 seconds to 0.6.",
     ],
   },
   "2winGs International Group LLC": {
@@ -59,19 +55,12 @@ export const experienceText: Record<Company, JobText> = {
     period: "Aug 2026 — Present",
     location: "Remote",
     highlights: [
-      "Design of the architecture and of the build order of a B2B professional network for creative talent, from the data model to the API contract, written down as technical decisions before any code.",
-      "First stage delivered end to end: sign-up, sign-in, email verification and password recovery, with their screens.",
-      "Infrastructure and automated deployment end to end: the dashboard published on Cloudflare Pages and the API live on a dedicated server under PM2, with the build always outside the production machine.",
-      "Deployment pipeline on GitHub Actions: it builds off the server, copies the artifact over SSH, runs the migrations and only then restarts the process, with nginx as a reverse proxy in front of the API and two separate environments over HTTPS.",
-      "Backups with a tested restore: a daily database dump by cron to a provider other than the one hosting the server, restored against a throwaway database to prove it works. The alarm fires on silence, when the dump did not arrive, not when it succeeds.",
-      "Six startup guards that abort the process if the declared environment does not match the database or if production keys are present outside production, plus a health endpoint watched from outside that sends mail, logs carrying a request identifier, and log rotation compatible with the process manager.",
-      "End-to-end tests in Playwright against the build as the main suite, plus unit tests for the pure logic.",
-      "Security: private files behind short-lived signed URLs, the professional's CV restricted to the validation team, and an operation id on every write so a retry cannot duplicate its effect.",
-      "Privacy rules enforced in the data layer instead of the interface: a company reaches a full profile only for someone who applied to its opening.",
-      "Reputation and gamification system configurable in the database (plans, prices, limits, permissions and index weights), with no hard-coded values.",
-      "Front-end design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.",
-      "Technical counterpart for the client: I turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.",
-      "Technical and regulatory analysis of the fund custody planned in the roadmap: why it is solved on top of a licensed processor, and why money is modelled as entries that are never edited from the very first schema, even though the module comes later.",
+      "Designed the architecture and the build order of a B2B professional network for creative talent, from the data model to the API contract, and delivered it end to end: sign-up and sign-in with email verification and password recovery; the talent profile; a validation flow with a review queue, levels and email notifications; reputation and XP with a weekly ranking, configurable in the database; and a space where companies publish challenges.",
+      "A back office for the internal team, deployed behind Cloudflare Access: it authenticates with the identity Access signs and has no login form of its own.",
+      "Infrastructure and automated deployment: the dashboard on Cloudflare Pages and the API on a dedicated server under PM2 behind nginx, with a GitHub Actions pipeline that builds off the server, copies the artifact over SSH, runs the migrations and only then restarts the process. Staging publishes itself and production is asked for: the last step of a release is taken by a person, by design. The database is dumped daily to a different provider, sealed against a public key, and the dump was restored against a throwaway database to prove it works.",
+      "Two full security audits with every finding closed and verified live: rate limiting moved to Redis, a content-security policy and headers on both front-ends, SSH hardened to keys only, and mail authentication (SPF, DKIM and DMARC) verified in production. Privacy is enforced in the data layer, not in the interface.",
+      "End-to-end tests in Playwright against the build as the main suite, with a coverage floor enforced in every workspace as part of the gate, a custom layer linter that fails the build when a module reaches across its boundary, and a WCAG 2.2 AA tag across the accessibility suites.",
+      "Front-end design system: tokens named by function in a single file, mobile-first. When the client defined the brand identity, it went in by changing tokens: 52 colour literals collapsed into a single variable.",
     ],
   },
   "Cognitive Link — Consulting & IT Solutions": {
@@ -132,6 +121,7 @@ export const skillGroupTitles: Record<SkillGroupTitle, string> = {
 // "PostgreSQL" o "Docker".
 export const skillItems: Record<string, string> = {
   Migraciones: "Migrations",
+  Microservicios: "Microservices",
 };
 
 export const softSkillsText: Record<SoftSkill, string> = {

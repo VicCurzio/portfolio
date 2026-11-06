@@ -33,6 +33,8 @@ const es = {
         "PostgreSQL",
         "MySQL",
         "Socket.io",
+        "GitLab",
+        "GitLab CI",
         "Trello",
       ],
       highlights: [
@@ -61,9 +63,9 @@ const es = {
         "Cloudflare Pages",
       ],
       highlights: [
-        "Front en React + Vite + TypeScript con Tailwind, dentro de un monorepo que comparte los contratos de tipos entre el front y la API: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña) con todas sus pantallas.",
-        "Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad, preparado para absorber la identidad de marca cuando el cliente la defina.",
-        "Pruebas de navegador con Playwright corriendo contra el build y no contra el servidor de desarrollo: layout a cuatro anchos, accesibilidad con axe sobre WCAG 2.1 AA y las reglas del sistema de diseño, cada una citando el CSS que la sostiene.",
+        "Front en React + Vite + TypeScript con Tailwind, dentro de un monorepo que comparte los contratos de tipos entre el front y la API: registro e ingreso, el perfil del talento, la cola de validación, el ranking semanal, el espacio de empresa y un back office interno, entregados de punta a punta con todas sus pantallas.",
+        "Sistema de diseño propio: tokens nombrados por función en un único archivo, mobile-first y con criterios de accesibilidad. Cuando el cliente definió la identidad de marca, entró cambiando tokens: 52 literales de color colapsados en una sola variable.",
+        "Pruebas de navegador con Playwright corriendo contra el build y no contra el servidor de desarrollo: layout a cuatro anchos, accesibilidad con axe sobre WCAG 2.2 AA y las reglas del sistema de diseño, cada una citando el CSS que la sostiene.",
         "Doy por buena una prueba solo después de romper a propósito lo que cuida y verla fallar: así aparecieron dos que pasaban sin probar nada.",
         "Front estático publicado en Cloudflare Pages con despliegue automático, y el build siempre fuera de la máquina de producción.",
         "Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado antes de escribir código.",
@@ -106,11 +108,11 @@ const es = {
     },
     {
       title: "Testing y accesibilidad",
-      items: ["Playwright", "Vitest", "axe", "WCAG 2.1 AA", "Tests E2E"],
+      items: ["Playwright", "Vitest", "axe", "WCAG 2.2 AA", "Tests E2E"],
     },
     {
       title: "Integración y trabajo en equipo",
-      items: ["APIs REST", "Git", "GitHub", "Trello", "Postman", "Scrum"],
+      items: ["APIs REST", "Git", "GitLab", "GitHub", "Trello", "Postman", "Scrum"],
     },
     { title: "Back-end", items: ["Node.js", "Express.js", "NestJS", "Ruby on Rails", "Python"] },
     { title: "Bases de datos", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase"] },
@@ -142,7 +144,7 @@ const en = {
 
   experience: {
     "Grupo DELSUD": {
-      stack: ["React", "Next.js", "TypeScript", "Material UI", "Sass", "Node.js", "Express.js", "PostgreSQL", "MySQL", "Socket.io", "Trello"],
+      stack: ["React", "Next.js", "TypeScript", "Material UI", "Sass", "Node.js", "Express.js", "PostgreSQL", "MySQL", "Socket.io", "GitLab", "GitLab CI", "Trello"],
       highlights: [
         "On SGD, the group's internal system, I build with React 19 a micro-frontend architecture: a shell front end that embeds the tasks and requests front ends through iframes, each with its own repo, build and deployment, talking over postMessage with origin validation.",
         "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and a public website in Next.js), delivered in August 2026. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
@@ -157,9 +159,9 @@ const en = {
     "2winGs International Group LLC": {
       stack: ["React", "Vite", "TypeScript", "Tailwind CSS", "NestJS", "Fastify", "PostgreSQL", "Drizzle", "Redis", "Playwright", "Cloudflare Pages"],
       highlights: [
-        "Front end in React + Vite + TypeScript with Tailwind, inside a monorepo that shares the type contracts between the front end and the API: first stage delivered end to end (sign-up, sign-in, email verification and password recovery) with all its screens.",
-        "Own design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.",
-        "Browser tests with Playwright running against the build rather than the dev server: layout at four widths, accessibility with axe against WCAG 2.1 AA, and the design-system rules, each one citing the CSS that holds it up.",
+        "Front end in React + Vite + TypeScript with Tailwind, inside a monorepo that shares the type contracts between the front end and the API: sign-up and sign-in, the talent profile, the validation queue, the weekly ranking, the company space and an internal back office, all delivered end to end with their screens.",
+        "Own design system: tokens named by function in a single file, mobile-first and with accessibility criteria. When the client defined the brand identity, it went in by changing tokens: 52 colour literals collapsed into a single variable.",
+        "Browser tests with Playwright running against the build rather than the dev server: layout at four widths, accessibility with axe against WCAG 2.2 AA, and the design-system rules, each one citing the CSS that holds it up.",
         "I only trust a test after breaking on purpose what it guards and watching it fail: that is how two tests that passed without proving anything showed up.",
         "Static front end published on Cloudflare Pages with automated deployment, and the build always outside the production machine.",
         "Designed the architecture and build order of the product, from the data model to the API contract, written down before any code.",
@@ -194,8 +196,8 @@ const en = {
   skillGroups: [
     { title: "Front-end", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Material UI", "Sass", "Bootstrap", "PWA"] },
     { title: "Front-end architecture", items: ["Micro-frontends", "Design systems", "Monorepos", "Reusable components", "Clean Code"] },
-    { title: "Testing and accessibility", items: ["Playwright", "Vitest", "axe", "WCAG 2.1 AA", "E2E tests"] },
-    { title: "Integration and teamwork", items: ["REST APIs", "Git", "GitHub", "Trello", "Postman", "Scrum"] },
+    { title: "Testing and accessibility", items: ["Playwright", "Vitest", "axe", "WCAG 2.2 AA", "E2E tests"] },
+    { title: "Integration and teamwork", items: ["REST APIs", "Git", "GitLab", "GitHub", "Trello", "Postman", "Scrum"] },
     { title: "Back-end", items: ["Node.js", "Express.js", "NestJS", "Ruby on Rails", "Python"] },
     { title: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Supabase"] },
     { title: "Architecture", items: ["Dual-DB", "RBAC", "Migrations"] },
