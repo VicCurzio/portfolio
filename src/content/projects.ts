@@ -67,10 +67,11 @@ export const projects = [
       "Red profesional B2B de talento creativo para 2winGs International Group LLC: un perfil vivo con reputación medible, niveles y oportunidades curadas. Entro como desarrollador y líder técnico.",
     did: [
       "Diseño de la arquitectura y del orden de construcción del sistema, del modelo de datos al contrato de la API.",
-      "Primera etapa terminada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas.",
+      "Terminado de punta a punta, con sus pantallas: registro e ingreso con verificación de correo y recuperación de contraseña; el perfil del talento con habilidades, links, experiencia y CV; la validación del talento con cola de revisión, niveles y avisos por correo; el ranking semanal; el espacio donde las empresas publican retos; y un back office para el equipo interno, detrás de Cloudflare Access y sin formulario de login propio.",
       "Sistema de reputación (un índice de 0 a 100) y gamificación, separados por diseño: la actividad dentro de la plataforma nunca sube la reputación profesional.",
       "Infraestructura y despliegue automático: el panel publicado en Cloudflare Pages y la API en producción en un servidor propio con PM2; los archivos de usuario, en almacenamiento privado.",
-      "Sistema de diseño del front: tokens nombrados por función en un solo archivo, mobile-first y con criterios de accesibilidad, listo para recibir la identidad de marca cuando el cliente la defina.",
+      "Sistema de diseño del front: tokens nombrados por función en un solo archivo, mobile-first y con criterios de accesibilidad. Cuando el cliente definió la identidad de marca, entró cambiando tokens: 52 literales de color colapsados en una sola variable.",
+      "Dos auditorías de seguridad completas con todos los hallazgos cerrados y verificados en vivo, y un release en dos tiempos: staging se publica solo y producción se pide, así que el último paso lo da una persona, por diseño.",
       "Ordené tres documentos de producto que se contradecían entre sí en una jerarquía de fuentes de verdad, que el cliente adoptó como criterio para decidir.",
       "Análisis previo de la custodia de fondos que prevé el roadmap: es actividad regulada, se resuelve apoyándose en un procesador licenciado, y obliga a modelar el dinero como asientos que no se editan desde el primer esquema.",
     ],

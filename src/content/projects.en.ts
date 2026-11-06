@@ -53,10 +53,11 @@ export const projectsText: Record<ProjectName, ProjectText> = {
       "B2B professional network for creative talent, for 2winGs International Group LLC: a living profile with measurable reputation, levels and curated opportunities. I am the developer and tech lead.",
     did: [
       "Design of the architecture and of the build order of the system, from the data model to the API contract.",
-      "First stage finished end to end: sign-up, sign-in, email verification and password recovery, with their screens.",
+      "Finished end to end, with their screens: sign-up and sign-in with email verification and password recovery; the talent profile with skills, links, experience and CV; talent validation with a review queue, levels and email notifications; the weekly ranking; the space where companies publish challenges; and a back office for the internal team, behind Cloudflare Access and with no login form of its own.",
       "Reputation (a 0 to 100 index) and gamification, separated by design: activity inside the platform never raises professional reputation.",
       "Infrastructure and automated deployment: the dashboard published on Cloudflare Pages and the API live on a dedicated server with PM2; user files in private storage.",
-      "Front-end design system: tokens named by function in a single file, mobile-first and with accessibility criteria, ready to take on the brand identity once the client defines it.",
+      "Front-end design system: tokens named by function in a single file, mobile-first and with accessibility criteria. When the client defined the brand identity, it went in by changing tokens: 52 colour literals collapsed into a single variable.",
+      "Two full security audits with every finding closed and verified live, and a release in two steps: staging publishes itself and production is asked for, so the last step is taken by a person, by design.",
       "I turned three product documents that contradicted each other into a hierarchy of sources of truth, which the client adopted as its decision criterion.",
       "Upfront analysis of the fund custody the roadmap plans for: it is regulated activity, it is solved on top of a licensed processor, and it forces money to be modelled as entries that are never edited from the very first schema.",
     ],
