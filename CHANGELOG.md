@@ -10,6 +10,16 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 
 ## [Sin publicar]
 
+### Agregado
+
+- Variante del CV para búsquedas de Ruby on Rails, en los dos idiomas: `npm run cv -- rails` y `npm run cv -- rails en`. Sube Rails al resumen y al primer grupo de habilidades, y recorta los dos puestos actuales para entrar en dos páginas.
+- GitLab y GitLab CI declarados donde se usan: en el stack de Grupo DELSUD y en Habilidades. El sitio ya decía que el despliegue de SGD sale de un GitLab self-hosted, pero el CV no los nombraba.
+
+### Cambiado
+
+- La experiencia de 2winGs y de Grupo DELSUD queda al día a noviembre de 2026. Las dos frases que ya eran falsas salieron: la plataforma no está en su primera etapa y la identidad de marca ya la definió el cliente. Entran el perfil del talento, la validación, la reputación con ranking, el espacio de empresa y el back office; y del lado de Grupo DELSUD, la auditoría cerrada, los cinco backends preparados para la entrega y el cambio de proveedor de archivos.
+- El CV general vuelve a entrar en dos páginas: los dos puestos actuales tenían 12 y 13 bullets y lo empujaban a tres. Los bullets están consolidados, no recortados de contenido.
+- En el CV en inglés, Habilidades decía "Microservicios" sin traducir.
 
 ## [1.0.0] - 2026-10-03
 
