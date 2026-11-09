@@ -21,6 +21,7 @@ cuenta de qué se tocó y cuándo. Se cierra una versión con `npm run release`.
 - El CV general vuelve a entrar en dos páginas: los dos puestos actuales tenían 12 y 13 bullets y lo empujaban a tres. Los bullets están consolidados, no recortados de contenido.
 - En el CV en inglés, Habilidades decía "Microservicios" sin traducir.
 - La tarjeta de 2winGs en Proyectos traía su propia copia de las dos frases falsas, que el CV no toca: la primera etapa y la marca sin definir. Entran el perfil, la validación, el ranking, el espacio de empresa, el back office y las dos auditorías cerradas.
+- Las siete variantes que se piden a mano (`ai`, `security`, `nextjs`, `node-python`, `integrations`, `cloud-infra`, `backend-ia`) quedan al día con sus PDF regenerados: cinco repetían la primera etapa en su propio texto, tres clavaban cuántas personas trackean su jornada —un número que vence— y la de seguridad daba la auditoría por en curso cuando ya está cerrada. GitLab entró en todas. Las dieciséis salidas de `cv/` salen en dos páginas.
 
 ## [1.0.0] - 2026-10-03
 

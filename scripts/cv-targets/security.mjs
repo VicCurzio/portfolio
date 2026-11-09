@@ -46,7 +46,7 @@ const es = {
         "Diseñé desde cero el esquema y la API del Sistema de Gestión, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Saneé el código heredado del CRM antes de reutilizarlo: consultas SQL (N+1 y selects sin lista de campos), variables de entorno expuestas, dependencias sin uso y código muerto.",
         "Hoy trabajo en el SGD, el sistema interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
-        "Ahí construí el módulo de trackeo de jornada que hoy usan 20 personas de 3 departamentos, sobre un registro inmutable append-only —ninguna hora se edita ni se borra— con permisos por rol verificados en el servidor, y trabajo sobre las correcciones de seguridad del ecosistema de microservicios.",
+        "Ahí construí el módulo de trackeo de jornada sobre un registro inmutable append-only —ninguna hora se edita ni se borra— con permisos por rol verificados en el servidor. Después cerré una auditoría transversal del ecosistema de microservicios: cada hallazgo abierto re-verificado uno por uno, y tres cerrados decidiendo que no se hacen, porque lo que necesita acceso a infraestructura o tocar producción no lo decide este equipo.",
         "Fui referente técnico de un equipo de 5 personas (2 devs, UX, QA, PM): definí estándares de código y participé en las decisiones técnicas clave junto al tech lead.",
       ],
     },
@@ -128,7 +128,7 @@ const es = {
     },
     {
       title: "Infraestructura",
-      items: ["Linux", "Docker", "PM2", "nginx", "GitHub Actions", "Cloudflare", "Backups cifrados", "CI/CD", "Amazon S3", "Cloudflare R2"],
+      items: ["Linux", "Docker", "PM2", "nginx", "GitLab CI", "GitHub Actions", "Cloudflare", "Backups cifrados", "CI/CD", "Amazon S3", "Cloudflare R2"],
     },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Supabase"] },
     { title: "Calidad", items: ["Vitest", "Playwright", "TDD", "Code review", "Claude Code"] },

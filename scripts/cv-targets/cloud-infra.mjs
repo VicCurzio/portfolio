@@ -21,16 +21,14 @@ const en = {
 
   experience: {
     "Grupo DELSUD": {
-      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "Amazon S3", "React", "Trello"],
+      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "GitLab", "GitLab CI", "Amazon S3", "React", "Trello"],
       highlights: [
-        "Designed the architecture of the Management System from scratch, with 20 functional modules (contracts, collections, cash flow, inflation indexing, reporting, among others).",
-        "Dual-database architecture: connected the existing CRM (Sequelize, ~25 models) with the new Management System (Drizzle ORM), with automatic two-way data synchronisation.",
+        "Designed the architecture of the Management System from scratch (20 modules: contracts, collections, cash flow, inflation indexing, reporting) over a dual-database architecture: the existing CRM (Sequelize, ~25 models) connected to the new system (Drizzle ORM), with automatic two-way data synchronisation.",
         "Desarrollos Del Sud: took the platform for selling plots in instalments to production (CRM, Management System and public website), delivered in August 2026. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
         "Currently on SGD, the group's internal management system: Node/PostgreSQL microservices, one per department, with real-time notifications over WebSocket.",
-        "Built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, with role-based permissions and live updates over sockets. Twenty people across three departments log their workday there today.",
-        "Performance and security across the microservice ecosystem: leaner responses, the heaviest queries indexed down from 3 seconds to 0.6, and security fixes rolled out service by service.",
+        "Built the workday time-tracking module end to end: 14 endpoints and an immutable append-only log on the backend, with role-based permissions and live updates over sockets.",
+        "Closed out a system-wide audit across the microservice ecosystem, took the heaviest queries from 3 seconds down to 0.6 by indexing them, and moved uploads to a second storage provider behind a driver selected by a single environment variable.",
         "Fixed critical data-integrity bugs, including race conditions on concurrent record creation and on the synchronisation between systems. Access control enforced with token verification and role authorisation middlewares on every endpoint.",
-        "Cleaned up the inherited CRM code so it could be reused in a new product: SQL queries (N+1 and selects without a field list), environment variables, unused dependencies and dead code.",
         "Was the technical reference for a team of 5 (2 devs, UX, QA, PM): set the code standards and took part in the key technical decisions together with the tech lead.",
         "On the front, I build the Directions ERP and the Product and Technology task board (React 19, micro-frontends embedded through iframes with postMessage).",
       ],
@@ -43,10 +41,9 @@ const en = {
         "Infrastructure and automated deployment end to end: API and worker live on a dedicated Linux server under PM2, dashboard on Cloudflare Pages, and the build always outside the production machine.",
         "Deployment pipeline on GitHub Actions: it builds off the server, copies the artifact over SSH, runs the migrations and only then restarts the process, with nginx as a reverse proxy in front of the API and two separate environments over HTTPS.",
         "Backups with a tested restore: a daily database dump by cron to a provider other than the one hosting the server, restored against a throwaway database to prove it works. The alarm fires on silence, when the dump did not arrive, not when it succeeds.",
-        "Six startup guards that abort the process if the declared environment does not match the database or if production keys are present outside production, plus a health endpoint watched from outside that sends mail, logs carrying a request identifier, and log rotation compatible with the process manager.",
-        "API in NestJS on Fastify with Drizzle and PostgreSQL, and background jobs with BullMQ and Redis: first stage delivered end to end (sign-up, sign-in, email verification and password recovery).",
-        "Security: private files behind short-lived signed URLs, and an operation id on every write so a retry cannot duplicate its effect. Privacy rules enforced in the data layer instead of the interface: a company reaches a full profile only for someone who applied to its opening.",
-        "Plans, prices, limits, permissions and reputation index weights live in the database, with no hard-coded values.",
+        "Six startup guards that abort the process if the declared environment does not match the database or if production keys are present outside production, plus a health endpoint watched from outside that sends mail and logs carrying a request identifier.",
+        "API in NestJS on Fastify with Drizzle and PostgreSQL, and background jobs with BullMQ and Redis: sign-up and sign-in, the talent profile, validation, reputation with a weekly ranking, the company space and an internal back office behind Cloudflare Access, all delivered end to end.",
+        "Private files behind short-lived signed URLs, an operation id on every write so a retry cannot duplicate its effect, and privacy enforced in the data layer instead of the interface.",
         "End-to-end tests in Playwright against the build as the main suite, plus unit tests for the pure logic.",
         "Technical and regulatory analysis of the fund custody planned in the roadmap: built on top of a licensed processor, with money modelled as entries that are never edited from the very first schema.",
       ],
@@ -65,10 +62,10 @@ const en = {
   skillGroups: [
     { title: "Back-end", items: ["Node.js", "TypeScript", "NestJS", "Express.js", "Fastify", "Ruby on Rails", "Python"] },
     { title: "Architecture", items: ["Microservices", "Dual-DB", "REST APIs", "Multi-tenant", "RBAC", "Migrations", "Clean Code"] },
-    { title: "Cloud & Infrastructure", items: ["Linux", "Docker", "nginx", "PM2", "GitHub Actions", "Cloudflare", "Amazon S3", "Vercel", "Redis", "BullMQ"] },
+    { title: "Cloud & Infrastructure", items: ["Linux", "Docker", "nginx", "PM2", "GitLab CI", "GitHub Actions", "Cloudflare", "Amazon S3", "Vercel", "Redis", "BullMQ"] },
     { title: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "Supabase", "Drizzle", "Sequelize", "Active Record"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Tools", items: ["Git", "GitHub", "Trello", "Postman", "Playwright", "Vitest", "DBeaver"] },
+    { title: "Tools", items: ["Git", "GitLab", "GitHub", "Trello", "Postman", "Playwright", "Vitest", "DBeaver"] },
   ],
 
   courses: [

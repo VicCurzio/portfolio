@@ -70,7 +70,7 @@ const es = {
         "Diseño de la arquitectura y del orden de construcción de una red profesional B2B, del modelo de datos al contrato de la API, documentado antes de escribir código.",
         "Flujo de trabajo asistido por agentes de codificación: la especificación vive en el repositorio como fuente de verdad y validaciones automáticas propias rechazan cualquier escritura que no cumpla los estándares del repo.",
         "Cada funcionalidad se entrega con su suite de pruebas automatizadas, escritas contra la clase de error que cuidan y verificadas fallando antes de darlas por buenas.",
-        "Primera etapa entregada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, dentro de un monorepo que comparte los tipos entre el front y la API.",
+        "Entregado de punta a punta: registro e ingreso con verificación de correo y recuperación de contraseña, el perfil del talento, la validación con cola de revisión y niveles, la reputación con ranking semanal y el espacio de empresa, dentro de un monorepo que comparte los tipos entre el front y la API.",
         "Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.",
         "Planes, precios, límites y permisos configurables en base de datos, sin valores fijos en el código.",
         "Infraestructura y despliegue automático: front en Cloudflare Pages y API en producción bajo PM2, con el build siempre fuera de la máquina de producción.",
@@ -123,7 +123,7 @@ const es = {
     { title: "Seguridad", items: ["JWT", "RBAC", "OAuth 2.0", "Gestión de secretos", "URLs firmadas"] },
     { title: "Bases de datos", items: ["MySQL", "SQLite", "Redis", "Drizzle", "Sequelize", "Migraciones"] },
     { title: "Infraestructura", items: ["Docker", "Vercel", "Cloudflare", "PM2", "CI/CD", "Amazon S3"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Vitest", "Postman", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitLab", "GitHub", "Trello", "Vitest", "Postman", "DBeaver"] },
   ],
 };
 

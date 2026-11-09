@@ -42,7 +42,7 @@ const es = {
       ],
       highlights: [
         "Hoy trabajo en el SGD, el sistema de gestión interno del grupo: microservicios Node/PostgreSQL, uno por departamento, con notificaciones en tiempo real por WebSocket.",
-        "Ahí construí de punta a punta el módulo de trackeo de jornada que hoy usan 20 personas de 3 departamentos: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además bajé de 3 segundos a 0,6 las consultas más pesadas, indexándolas.",
+        "Ahí construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y un registro inmutable append-only en el backend, con permisos por rol y actualización en vivo por sockets; además bajé de 3 segundos a 0,6 las consultas más pesadas, indexándolas.",
         "Diseñé desde cero el esquema y la API del Sistema de Gestión de Desarrollos Del Sud, con 20 módulos funcionales (contratos, cobranza, flujo de caja, IPC, reportes), y lo llevé a producción en agosto de 2026. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "Arquitectura dual-DB: conecté el CRM existente (Sequelize, ~25 modelos) con el nuevo Sistema de Gestión (Drizzle ORM), con sincronización bidireccional automática de datos.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre sistemas.",
@@ -67,7 +67,7 @@ const es = {
       ],
       highlights: [
         "Diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.",
-        "API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña).",
+        "API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: entregados de punta a punta el registro e ingreso con verificación de correo y recuperación de contraseña, el perfil del talento, la validación con cola de revisión y niveles, la reputación con ranking semanal, el espacio de empresa y un back office interno detrás de Cloudflare Access.",
         "Cada funcionalidad se entrega con su suite de pruebas automatizadas en Vitest, escritas contra la clase de error que cuidan y verificadas fallando antes de darlas por buenas.",
         "Flujo de trabajo asistido por agentes de codificación: la especificación vive en el repositorio como fuente de verdad, con validaciones automáticas propias que obligan a cumplir los estándares del repo en cada escritura.",
         "Seguridad: archivos privados con URLs firmadas de vida corta, e identificador de operación en toda escritura para que un reintento no duplique el efecto.",
@@ -123,7 +123,7 @@ const es = {
     },
     { title: "Infraestructura", items: ["Docker", "PM2", "CI/CD", "Vercel", "Cloudflare Pages", "Amazon S3"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Pull requests", "Claude Code", "Postman", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitLab", "GitHub", "Trello", "Pull requests", "Claude Code", "Postman", "DBeaver"] },
   ],
 
   // Mismo listado del CV general, con los de servidor y datos primero.

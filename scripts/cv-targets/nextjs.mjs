@@ -68,7 +68,7 @@ const es = {
       ],
       highlights: [
         "Diseño de la arquitectura y del orden de construcción de una red profesional B2B, del modelo de datos al contrato de la API, documentado antes de escribir código.",
-        "Primera etapa entregada de punta a punta: registro, ingreso, verificación de correo y recuperación de contraseña, con sus pantallas, dentro de un monorepo que comparte los tipos entre el front y la API.",
+        "Entregado de punta a punta, con sus pantallas: registro e ingreso con verificación de correo y recuperación de contraseña, el perfil del talento, la validación con cola de revisión y niveles, la reputación con ranking semanal y el espacio de empresa, dentro de un monorepo que comparte los tipos entre el front y la API.",
         "Reglas de privacidad impuestas en la capa de datos y no en la interfaz: una empresa accede al perfil completo solo de quien se postuló a su oferta.",
         "Seguridad: archivos privados con URLs firmadas de vida corta e identificador de operación en toda escritura, para que un reintento no duplique el efecto.",
         "Planes, precios, límites y permisos configurables en base de datos, sin valores fijos en el código.",
@@ -115,7 +115,7 @@ const es = {
       title: "Infraestructura",
       items: ["Vercel", "Cloudflare Pages", "Docker", "PM2", "Amazon S3", "Cloudflare R2"],
     },
-    { title: "Herramientas", items: ["Git", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitLab", "GitHub", "Trello", "Postman", "Vitest", "DBeaver"] },
   ],
 };
 

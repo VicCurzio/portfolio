@@ -41,12 +41,12 @@ const es = {
   experience: {
     "Grupo DELSUD": {
       role: "Desarrollador Full-Stack · Referente Técnico",
-      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "Docker", "Amazon S3", "React"],
+      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "GitLab", "GitLab CI", "Docker", "Amazon S3", "React"],
       highlights: [
         "20 módulos funcionales (contratos, cobranza, flujo de caja, indexación por IPC, reportes): diseñé desde cero la arquitectura de un sistema de gestión administrativo-contable y lo llevé a producción. Hoy lo operan 15 personas entre asesores, administración y cobranza, sobre más de 200 contratos.",
         "De 3 segundos a 0,6 las consultas más pesadas del sistema, cinco veces más rápidas: las indexé a partir de la medición y no de la intuición.",
         "Dos bases en un solo producto: conecté el CRM existente (Sequelize, ~25 modelos) con el sistema nuevo (Drizzle ORM) mediante una arquitectura dual-DB con sincronización bidireccional automática, sin ventana de corte para el usuario.",
-        "20 personas de 3 departamentos usan el módulo de trackeo de jornada que construí de punta a punta: 14 endpoints y un registro inmutable append-only que nadie puede editar después del hecho, con permisos por rol.",
+        "Construí de punta a punta el módulo de trackeo de jornada: 14 endpoints y un registro inmutable append-only que nadie puede editar después del hecho, con permisos por rol.",
         "Equipo de 5 personas (2 devs, UX, QA, PM) del que soy referente técnico: definí los estándares de código, reviso los cambios y participo en las decisiones técnicas clave junto al tech lead.",
         "Arquitectura de microservicios en el ERP interno del grupo: un servicio Node/PostgreSQL por departamento, con notificaciones en tiempo real por WebSocket entre ellos.",
         "Resolví bugs críticos de integridad de datos, incluidas race conditions en la creación de registros concurrentes y en la sincronización entre los dos sistemas.",
@@ -83,7 +83,7 @@ const es = {
     { title: "Arquitectura", items: ["Microservicios", "Dual-DB", "Colas de trabajo", "RBAC", "Migraciones", "Clean Code"] },
     { title: "Bases de datos", items: ["PostgreSQL", "MySQL", "Redis", "SQLite", "Supabase", "Drizzle", "Sequelize"] },
     { title: "Infraestructura", items: ["Docker", "Linux", "nginx", "PM2", "GitHub Actions", "CI/CD", "DigitalOcean", "Cloudflare", "Amazon S3"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Postman", "Vitest", "Playwright", "DBeaver", "Trello"] },
+    { title: "Herramientas", items: ["Git", "GitLab", "GitHub", "Postman", "Vitest", "Playwright", "DBeaver", "Trello"] },
   ],
 
   softSkills: [
@@ -124,12 +124,12 @@ const en = {
   experience: {
     "Grupo DELSUD": {
       role: "Full-Stack Developer · Technical Reference",
-      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "React"],
+      stack: ["Node.js", "TypeScript", "Express.js", "NestJS", "PostgreSQL", "MySQL", "Drizzle", "Sequelize", "Socket.io", "GitLab", "GitLab CI", "React"],
       highlights: [
         "20 functional modules (contracts, collections, cash flow, inflation indexing, reporting): I designed the architecture of an administrative and accounting management system from scratch and took it to production. Fifteen people across sales, administration and collections operate it today, over more than 200 contracts.",
         "From 3 seconds to 0.6 on the system's heaviest queries, five times faster: query optimization and indexing driven by measurement, not by intuition.",
         "Two databases in one product: I connected the existing CRM (Sequelize, ~25 models) with the new system (Drizzle ORM) through a dual-database architecture with automatic two-way synchronisation, and no cutover window for users.",
-        "Twenty people across 3 departments use the workday time-tracking module I built end to end: 14 REST endpoints and an immutable append-only log that nobody can edit after the fact, with role-based permissions.",
+        "I built the workday time-tracking module end to end: 14 REST endpoints and an immutable append-only log that nobody can edit after the fact, with role-based permissions.",
         "Technical reference for a team of 5 (2 devs, UX, QA, PM): I set the code standards, review changes and take part in the key technical decisions together with the tech lead.",
         "Microservices architecture in the group's internal ERP: one Node/PostgreSQL service per department, with real-time notifications over WebSocket between them.",
         "Fixed critical data-integrity bugs, including race conditions on concurrent record creation and on the synchronisation between the two systems.",
@@ -166,7 +166,7 @@ const en = {
     { title: "Architecture", items: ["System design", "Microservices", "Dual-DB", "Job queues", "RBAC", "Migrations", "Clean Code"] },
     { title: "Databases", items: ["PostgreSQL", "Redis", "Query optimization", "MySQL", "SQLite", "Supabase", "Drizzle", "Sequelize"] },
     { title: "Infrastructure", items: ["CI/CD", "Docker", "Linux", "nginx", "PM2", "GitHub Actions", "DigitalOcean", "Cloudflare"] },
-    { title: "Testing & Tools", items: ["Unit / integration / end-to-end tests", "Vitest", "Playwright", "Git", "GitHub", "Postman", "DBeaver"] },
+    { title: "Testing & Tools", items: ["Unit / integration / end-to-end tests", "Vitest", "Playwright", "Git", "GitLab", "GitHub", "Postman", "DBeaver"] },
   ],
 
   softSkills: [

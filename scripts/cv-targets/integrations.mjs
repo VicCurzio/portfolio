@@ -67,7 +67,7 @@ const es = {
       ],
       highlights: [
         "Definiciones de arquitectura: diseñé la arquitectura y el orden de construcción del producto, del modelo de datos al contrato de la API, documentado en decisiones técnicas antes de escribir código.",
-        "API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: primera etapa entregada de punta a punta (registro, ingreso, verificación de correo y recuperación de contraseña).",
+        "API en NestJS sobre Fastify con Drizzle y PostgreSQL, y trabajos en segundo plano con BullMQ y Redis: entregados de punta a punta el registro e ingreso con verificación de correo y recuperación de contraseña, el perfil del talento, la validación con cola de revisión y niveles, la reputación con ranking semanal, el espacio de empresa y un back office interno detrás de Cloudflare Access.",
         "Testing: cada funcionalidad se entrega con su suite de pruebas automatizadas en Vitest, escritas contra la clase de error que cuidan y verificadas fallando antes de darlas por buenas.",
         "Infraestructura en la nube y despliegue automático: API y worker en producción bajo PM2, panel en Cloudflare Pages, archivos en almacenamiento de objetos y el build siempre fuera de la máquina de producción.",
         "Despliegue automatizado en GitHub Actions: compila fuera del servidor, copia el artefacto por SSH, corre las migraciones y recién después reinicia, con nginx de reverse proxy delante de la API y dos entornos separados con HTTPS. La base se copia a diario hacia otro proveedor, y la copia se restauró contra una base descartable para comprobar que sirve.",
@@ -121,7 +121,7 @@ const es = {
     },
     { title: "Infraestructura", items: ["Docker", "PM2", "CI/CD", "Vercel", "Cloudflare Pages", "Amazon S3"] },
     { title: "Front-end", items: ["React", "Next.js", "Tailwind CSS", "Material UI"] },
-    { title: "Herramientas", items: ["Git", "GitHub", "Pull requests", "Scrum", "Kanban", "Trello", "Postman", "DBeaver"] },
+    { title: "Herramientas", items: ["Git", "GitLab", "GitHub", "Pull requests", "Scrum", "Kanban", "Trello", "Postman", "DBeaver"] },
   ],
 
   // Mismo listado del CV general, con POO Java y bases de datos primero: el
